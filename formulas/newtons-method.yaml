@@ -1,0 +1,17 @@
+slug: newtons-method
+name: Newton's method
+latex: "\\theta_{t+1} = \\theta_t - H^{-1} \\nabla_{\\theta} L"
+domains: [optimization]
+plain: >-
+  Uses curvature as well as slope, jumping straight to the minimum of a local quadratic
+  fit. It converges in dramatically fewer steps and is almost never used at scale,
+  because inverting the Hessian is hopeless for billions of parameters.
+symbols:
+  - sym: "H"
+    means: The Hessian of second derivatives.
+  - sym: "H^{-1}"
+    means: Its inverse, which rescales the step per direction.
+related:
+  - gradient-descent
+  - hessian
+  - taylor-series

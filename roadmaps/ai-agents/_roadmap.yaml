@@ -1,0 +1,135 @@
+slug: ai-agents
+title: AI Agents
+description: >-
+  Software that reasons, calls tools, and acts on its own, instead of a model
+  that only answers one prompt. Thirty-three lessons from the agent loop
+  through tools, memory, multi-agent architectures and the frameworks used to
+  ship them, to evaluating and deploying agents safely.
+level: intermediate
+status: published
+tags: [agents, building-products]
+
+# Our own structure. Public roadmaps were read for topic coverage and
+# ordering only; no third-party tree, description or link list is reproduced
+# here (§13, §16). Eight groups, mirroring the shape of the ai-engineer,
+# machine-learning and inference-engineering roadmaps.
+groups:
+  - slug: foundations
+    title: What an agent actually is
+    nodes:
+      - what-are-ai-agents
+      - the-agent-loop
+      - agents-vs-workflows
+      - when-to-use-an-agent
+
+  - slug: reasoning-and-planning
+    title: How an agent decides what to do next
+    nodes:
+      - chain-of-thought-prompting
+      - react-reason-and-act
+      - tree-of-thought
+      - self-critique-and-reflection
+
+  - slug: tools
+    title: Giving a model hands
+    nodes:
+      - what-are-tools
+      - tool-definition-and-schemas
+      - native-function-calling
+      - error-handling-for-tool-calls
+
+  - slug: model-context-protocol
+    title: A standard way to wire up tools
+    nodes:
+      - what-is-mcp
+      - mcp-hosts-clients-and-servers
+      - building-an-mcp-server
+      - mcp-vs-custom-integrations
+
+  - slug: memory
+    title: What an agent carries between steps
+    nodes:
+      - short-term-vs-long-term-memory
+      - conversation-and-episodic-memory
+      - vector-memory-and-rag-for-agents
+      - memory-compression-and-forgetting
+
+  - slug: architectures
+    title: Patterns for stringing steps together
+    nodes:
+      - rag-agents
+      - planner-executor-pattern
+      - multi-agent-systems
+      - graph-and-dag-orchestration
+
+  - slug: frameworks
+    title: What you reach for instead of hand-rolling it
+    nodes:
+      - langchain-and-langgraph
+      - llamaindex-for-agents
+      - crewai-and-autogen
+      - provider-native-agent-sdks
+
+  - slug: evaluation-safety-and-deployment
+    title: Trusting an agent with real traffic
+    nodes:
+      - evaluating-agent-performance
+      - tracing-and-observability
+      - human-in-the-loop-evaluation
+      - deploying-and-scaling-agents
+      - guardrails-for-agents
+
+# Prerequisite links, [from, to]. Every edge runs forward along the authored
+# order; the content gate rejects one that does not.
+edges:
+  - [what-are-ai-agents, the-agent-loop]
+  - [the-agent-loop, agents-vs-workflows]
+  - [agents-vs-workflows, when-to-use-an-agent]
+
+  - [the-agent-loop, chain-of-thought-prompting]
+  - [chain-of-thought-prompting, react-reason-and-act]
+  - [react-reason-and-act, tree-of-thought]
+  - [react-reason-and-act, self-critique-and-reflection]
+
+  - [react-reason-and-act, what-are-tools]
+  - [what-are-tools, tool-definition-and-schemas]
+  - [tool-definition-and-schemas, native-function-calling]
+  - [native-function-calling, error-handling-for-tool-calls]
+
+  - [native-function-calling, what-is-mcp]
+  - [what-is-mcp, mcp-hosts-clients-and-servers]
+  - [mcp-hosts-clients-and-servers, building-an-mcp-server]
+  - [tool-definition-and-schemas, mcp-vs-custom-integrations]
+  - [building-an-mcp-server, mcp-vs-custom-integrations]
+
+  - [the-agent-loop, short-term-vs-long-term-memory]
+  - [short-term-vs-long-term-memory, conversation-and-episodic-memory]
+  - [conversation-and-episodic-memory, vector-memory-and-rag-for-agents]
+  - [vector-memory-and-rag-for-agents, memory-compression-and-forgetting]
+
+  - [vector-memory-and-rag-for-agents, rag-agents]
+  - [what-are-tools, rag-agents]
+  - [react-reason-and-act, planner-executor-pattern]
+  - [planner-executor-pattern, multi-agent-systems]
+  - [self-critique-and-reflection, multi-agent-systems]
+  - [multi-agent-systems, graph-and-dag-orchestration]
+  - [planner-executor-pattern, graph-and-dag-orchestration]
+
+  - [mcp-vs-custom-integrations, langchain-and-langgraph]
+  - [graph-and-dag-orchestration, langchain-and-langgraph]
+  - [rag-agents, llamaindex-for-agents]
+  - [vector-memory-and-rag-for-agents, llamaindex-for-agents]
+  - [multi-agent-systems, crewai-and-autogen]
+  - [langchain-and-langgraph, crewai-and-autogen]
+  - [native-function-calling, provider-native-agent-sdks]
+  - [mcp-vs-custom-integrations, provider-native-agent-sdks]
+
+  - [langchain-and-langgraph, evaluating-agent-performance]
+  - [self-critique-and-reflection, evaluating-agent-performance]
+  - [evaluating-agent-performance, tracing-and-observability]
+  - [error-handling-for-tool-calls, tracing-and-observability]
+  - [evaluating-agent-performance, human-in-the-loop-evaluation]
+  - [tracing-and-observability, deploying-and-scaling-agents]
+  - [crewai-and-autogen, deploying-and-scaling-agents]
+  - [human-in-the-loop-evaluation, guardrails-for-agents]
+  - [deploying-and-scaling-agents, guardrails-for-agents]

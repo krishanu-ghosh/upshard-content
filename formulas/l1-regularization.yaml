@@ -1,0 +1,16 @@
+slug: l1-regularization
+name: L1 regularization
+latex: "L_{\\text{total}} = L + \\lambda \\sum_{i} |\\theta_i|"
+domains: [optimization]
+plain: >-
+  Penalises the absolute size of the weights instead of the square. The constant
+  gradient near zero drives weights exactly to zero rather than merely close, which is
+  what makes it a feature selector.
+symbols:
+  - sym: "\\lambda"
+    means: The regularisation strength.
+  - sym: "|\\theta_i|"
+    means: The absolute value of one weight.
+related:
+  - l2-regularization
+  - lagrange-multipliers

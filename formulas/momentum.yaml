@@ -1,0 +1,18 @@
+slug: momentum
+name: Momentum
+latex: "v_{t+1} = \\beta v_t + \\nabla_{\\theta} L, \\qquad \\theta_{t+1} = \\theta_t - \\eta v_{t+1}"
+domains: [optimization]
+plain: >-
+  Keeps a running average of past gradients so the step has inertia. Consistent
+  directions build up speed while oscillating ones cancel out, which is what gets you
+  along a narrow valley instead of bouncing across it.
+symbols:
+  - sym: "v"
+    means: The velocity, an exponentially weighted average of gradients.
+  - sym: "\\beta"
+    means: The decay rate, usually around 0.9.
+related:
+  - adam
+  - gradient-descent
+  - rmsprop
+  - stochastic-gradient-descent

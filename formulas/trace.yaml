@@ -1,0 +1,16 @@
+slug: trace
+name: Trace
+latex: "\\operatorname{tr}(A) = \\sum_{i=1}^{n} A_{ii}"
+domains: [linear-algebra]
+plain: >-
+  The sum of a square matrix's diagonal. It equals the sum of the eigenvalues, survives
+  a change of basis untouched, and lets you cycle matrices inside it — the trick behind
+  many compact derivations of gradients.
+symbols:
+  - sym: "A"
+    means: A square matrix.
+  - sym: "A_{ii}"
+    means: Its i-th diagonal entry.
+related:
+  - eigenvalue-equation
+  - matrix-multiplication

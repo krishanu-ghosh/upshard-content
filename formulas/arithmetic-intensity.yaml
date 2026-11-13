@@ -1,0 +1,18 @@
+slug: arithmetic-intensity
+name: Arithmetic intensity
+latex: "I = \\frac{\\text{FLOPs}}{\\text{bytes moved}}"
+domains: [inference]
+plain: >-
+  How much arithmetic you do per byte you move. Below the hardware's compute-to-
+  bandwidth ratio you are memory-bound and the tensor cores sit idle, which is the
+  normal state of single-stream token generation.
+symbols:
+  - sym: "I"
+    means: Intensity, in FLOPs per byte.
+  - sym: "FLOPs"
+    means: Floating-point operations performed.
+  - sym: "bytes moved"
+    means: Traffic between memory and the compute units.
+related:
+  - memory-bound-token-latency
+  - transformer-forward-flops

@@ -1,0 +1,17 @@
+slug: top-p-sampling
+name: Top-p (nucleus) sampling
+latex: "\\mathcal{V}_p = \\min \\left\\{ \\mathcal{V}' \\subseteq \\mathcal{V} : \\sum_{x \\in \\mathcal{V}'} p(x) \\geq p \\right\\}"
+domains: [inference]
+plain: >-
+  Keeps the smallest set of tokens whose probabilities already add up to p, then samples
+  within it. The cutoff moves with the model's confidence, which is what makes it behave
+  better than a fixed top-k.
+symbols:
+  - sym: "\\mathcal{V}"
+    means: The full vocabulary.
+  - sym: "\\mathcal{V}_p"
+    means: The nucleus — the kept set.
+  - sym: "p"
+    means: The cumulative probability mass to retain, often 0.9.
+related:
+  - temperature-sampling

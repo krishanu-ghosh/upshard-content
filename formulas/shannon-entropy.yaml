@@ -1,0 +1,21 @@
+slug: shannon-entropy
+name: Shannon entropy
+latex: "H(X) = -\\sum_{x} p(x) \\log p(x)"
+domains: [information-theory, probability]
+plain: >-
+  The average surprise in a random variable, and the floor on how few bits any lossless
+  code can spend on it. A fair coin costs one bit; a coin that always lands heads costs
+  nothing to describe.
+symbols:
+  - sym: "X"
+    means: The random variable being measured.
+  - sym: "p"
+    means: Its probability mass function.
+  - sym: "\\log"
+    means: Base two for bits, base e for nats.
+related:
+  - conditional-entropy
+  - cross-entropy
+  - joint-entropy
+  - kullback-leibler-divergence
+  - self-information

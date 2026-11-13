@@ -1,0 +1,16 @@
+slug: directional-derivative
+name: Directional derivative
+latex: "D_{\\mathbf{u}} f = \\nabla f \\cdot \\mathbf{u}"
+domains: [calculus]
+plain: >-
+  How fast a function changes if you walk in one chosen direction. It is largest when
+  that direction lines up with the gradient, which is the proof that the gradient really
+  is the steepest way up.
+symbols:
+  - sym: "\\mathbf{u}"
+    means: A unit vector giving the direction of travel.
+  - sym: "\\nabla f"
+    means: The gradient at the current point.
+related:
+  - dot-product
+  - gradient

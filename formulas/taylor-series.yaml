@@ -1,0 +1,18 @@
+slug: taylor-series
+name: Taylor series
+latex: "f(x) = \\sum_{n=0}^{\\infty} \\frac{f^{(n)}(a)}{n!} (x-a)^n"
+domains: [calculus]
+plain: >-
+  Rebuilds a function near a point from its derivatives there. Truncate after the first
+  term and you have a linear approximation; after the second, a quadratic one — which is
+  precisely what second-order optimisers are minimising.
+symbols:
+  - sym: "a"
+    means: The point the expansion is centred on.
+  - sym: "f^{(n)}"
+    means: The n-th derivative of f.
+  - sym: "n!"
+    means: n factorial, which keeps the terms from exploding.
+related:
+  - hessian
+  - newtons-method

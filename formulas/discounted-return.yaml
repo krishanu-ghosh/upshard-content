@@ -1,0 +1,17 @@
+slug: discounted-return
+name: Discounted return
+latex: "G_t = \\sum_{k=0}^{\\infty} \\gamma^{k} r_{t+k+1}"
+domains: [reinforcement-learning]
+plain: >-
+  The total future reward from a point onwards, with later rewards worth less. The
+  discount both encodes impatience and keeps the sum finite on tasks that never end.
+symbols:
+  - sym: "G_t"
+    means: The return from time t onwards.
+  - sym: "\\gamma"
+    means: The discount factor, between zero and one.
+  - sym: "r"
+    means: The reward collected at a single step.
+related:
+  - expected-value
+  - state-value-function

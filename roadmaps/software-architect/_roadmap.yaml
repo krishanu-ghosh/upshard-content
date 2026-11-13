@@ -1,0 +1,123 @@
+slug: software-architect
+title: Software Architect
+description: >-
+  What the architect role actually does above the code: making and recording
+  trade-off decisions, the principles and patterns that keep a system coherent as
+  it grows, the paradigms an architect has to reason across, security and data
+  architecture, and the cloud and enterprise patterns a production system is
+  actually assembled from. Twenty-six lessons that assume computer-science and
+  system-design as a starting point and go one layer up from both — the job of
+  choosing and defending a system's shape, not the mechanics of any one piece
+  of it.
+level: intermediate
+status: published
+tags: [architecture, career]
+
+# Our own structure. roadmap.sh's Software Architect tree was read for topic
+# coverage only, as private inspiration (§13, §16); no third-party tree,
+# description, or link list is reproduced here. Its raw list runs to 112 topics,
+# a large fraction of them either vendor names (Salesforce, SAP, MS Dynamics),
+# certification bodies (PMI, Prince2, ITIL-as-cert), or ground this site already
+# teaches in full elsewhere — REST/gRPC and API styles, OSI/HTTP/TLS, ACID/CAP,
+# microservices-vs-monolith mechanics, auth and federated identity, rate
+# limiting and circuit breakers, service mesh and BFF, SQL/NoSQL and
+# normalization, replication and consensus, async messaging, and observability
+# (all in system-design); GoF patterns, UML, and general concurrency
+# (computer-science). None of that is re-taught here — this roadmap is scoped to
+# what's left once the architect-specific ground is isolated: the role itself,
+# the patterns and paradigms unique to shaping a whole system, security and data
+# architecture, and cloud/enterprise concerns. Six groups, roughly in teaching
+# order: the role and how it operates, principles and patterns, programming
+# paradigms an architect reasons across, security architecture, data and
+# integration architecture, and cloud and enterprise patterns.
+#
+# architectural-patterns-and-dependency-injection moved in from computer-science
+# rather than being re-written here — it already covered layered architecture,
+# MVC/MVP/MVVM, and hexagonal/clean/onion architecture plus DI in full, and a
+# second, shallower pass over the same ground here would have been exactly the
+# cross-roadmap duplication §13 exists to prevent. See the note in
+# computer-science/_roadmap.yaml and PLAN.md §23.
+groups:
+  - slug: the-architect-role
+    title: The architect role
+    nodes:
+      - what-is-software-architecture
+      - levels-of-architecture
+      - architecture-decision-records-and-tradeoffs
+      - communicating-architecture-to-stakeholders
+      - managing-technical-debt-and-evolutionary-architecture
+      - agile-and-delivery-frameworks-for-architects
+
+  - slug: principles-and-patterns
+    title: Principles & patterns
+    nodes:
+      - solid-principles
+      - domain-driven-design
+      - architectural-patterns-and-dependency-injection
+      - choosing-an-architectural-style
+      - service-oriented-architecture-and-esb
+
+  - slug: paradigms
+    title: Paradigms
+    nodes:
+      - object-oriented-programming-principles
+      - functional-programming-concepts
+      - reactive-programming
+      - the-actor-model
+
+  - slug: security-architecture
+    title: Security architecture
+    nodes:
+      - public-key-infrastructure
+      - owasp-top-10-for-architects
+      - zero-trust-architecture
+
+  - slug: data-and-integration-architecture
+    title: Data & integration architecture
+    nodes:
+      - etl-and-data-warehousing
+      - graphql-architecture-and-schema-design
+      - microfrontends
+      - choosing-a-frontend-architecture
+
+  - slug: cloud-and-enterprise-patterns
+    title: Cloud & enterprise patterns
+    nodes:
+      - cloud-design-patterns
+      - serverless-architecture-tradeoffs
+      - designing-for-cost-and-total-cost-of-ownership
+      - enterprise-architecture-frameworks
+
+# Prerequisite links, [from, to]. Every edge runs forward along the authored
+# order; the content gate rejects one that does not.
+edges:
+  - [what-is-software-architecture, levels-of-architecture]
+  - [levels-of-architecture, architecture-decision-records-and-tradeoffs]
+  - [architecture-decision-records-and-tradeoffs, communicating-architecture-to-stakeholders]
+  - [architecture-decision-records-and-tradeoffs, managing-technical-debt-and-evolutionary-architecture]
+  - [communicating-architecture-to-stakeholders, agile-and-delivery-frameworks-for-architects]
+
+  - [managing-technical-debt-and-evolutionary-architecture, solid-principles]
+  - [solid-principles, domain-driven-design]
+  - [solid-principles, architectural-patterns-and-dependency-injection]
+  - [domain-driven-design, choosing-an-architectural-style]
+  - [choosing-an-architectural-style, service-oriented-architecture-and-esb]
+
+  - [solid-principles, object-oriented-programming-principles]
+  - [object-oriented-programming-principles, functional-programming-concepts]
+  - [functional-programming-concepts, reactive-programming]
+  - [reactive-programming, the-actor-model]
+
+  - [choosing-an-architectural-style, public-key-infrastructure]
+  - [public-key-infrastructure, owasp-top-10-for-architects]
+  - [owasp-top-10-for-architects, zero-trust-architecture]
+
+  - [choosing-an-architectural-style, etl-and-data-warehousing]
+  - [service-oriented-architecture-and-esb, graphql-architecture-and-schema-design]
+  - [graphql-architecture-and-schema-design, microfrontends]
+  - [microfrontends, choosing-a-frontend-architecture]
+
+  - [choosing-an-architectural-style, cloud-design-patterns]
+  - [cloud-design-patterns, serverless-architecture-tradeoffs]
+  - [serverless-architecture-tradeoffs, designing-for-cost-and-total-cost-of-ownership]
+  - [levels-of-architecture, enterprise-architecture-frameworks]

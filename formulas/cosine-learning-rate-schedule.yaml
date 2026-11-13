@@ -1,0 +1,17 @@
+slug: cosine-learning-rate-schedule
+name: Cosine learning-rate schedule
+latex: "\\eta_t = \\eta_{\\min} + \\tfrac{1}{2}(\\eta_{\\max} - \\eta_{\\min})\\left(1 + \\cos\\frac{t\\pi}{T}\\right)"
+domains: [optimization]
+plain: >-
+  Decays the learning rate along a cosine curve from its peak to its floor. It holds a
+  high rate early, then eases off smoothly rather than dropping in steps, and it is the
+  schedule nearly every large language model is trained under.
+symbols:
+  - sym: "t"
+    means: The current step.
+  - sym: "T"
+    means: The total number of steps in the schedule.
+  - sym: "\\eta_{\\max}"
+    means: The peak learning rate, reached after warmup.
+related:
+  - gradient-descent

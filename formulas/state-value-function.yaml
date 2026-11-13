@@ -1,0 +1,20 @@
+slug: state-value-function
+name: State-value function
+latex: "V^{\\pi}(s) = \\mathbb{E}_{\\pi}\\!\\left[G_t \\mid S_t = s\\right]"
+domains: [reinforcement-learning]
+plain: >-
+  How good a state is: the return you expect from it if you keep following your current
+  policy. It judges the situation, not the choice — which is why it cannot on its own
+  tell you what to do.
+symbols:
+  - sym: "V^{\\pi}"
+    means: The value function under policy pi.
+  - sym: "s"
+    means: The state being evaluated.
+  - sym: "\\pi"
+    means: The policy whose behaviour is being assumed.
+related:
+  - action-value-function
+  - advantage-function
+  - bellman-expectation-equation
+  - discounted-return

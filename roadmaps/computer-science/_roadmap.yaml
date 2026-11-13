@@ -1,0 +1,116 @@
+slug: computer-science
+title: Computer Science
+description: >-
+  The layers above data structures and algorithms (see datastructures-and-algorithms)
+  and short of system design (see system-design): how a CPU actually executes a
+  program, how an operating system shares one machine among many programs, what a
+  computer can and can't compute and how a compiler turns text into something that
+  runs, how concurrent code stays correct, how bits become numbers and text, how
+  patterns organize software, and how machines talk to each other over a network.
+  Twenty-nine lessons that assume the core data structures and algorithms as a
+  starting point.
+level: beginner
+status: published
+tags: [foundations, interview-prep]
+
+# Our own structure. roadmap.sh's Computer Science tree was read for topic
+# coverage only, as private inspiration (§13, §16); no third-party tree,
+# description, or link list is reproduced here. Seven groups, roughly in teaching
+# order: representation and caching, then the machine itself (architecture,
+# operating systems), the theory underneath it (computation, compilers), how
+# correct concurrent software gets built, then design and networking. Databases
+# and system-design fundamentals both moved out into their own system-design
+# roadmap, and architectural-patterns-and-dependency-injection moved into
+# software-architect once that roadmap existed to be its rightful home — see the
+# note in PLAN.md §23 on why this roadmap carries neither DS&A nor system design
+# nor architecture-pattern depth itself.
+groups:
+  - slug: representation-and-caching
+    title: Representation & caching
+    nodes:
+      - bitwise-operators-and-manipulation
+      - number-and-character-representation
+      - caching-strategies-and-eviction-policies
+
+  - slug: computer-architecture
+    title: Computer architecture
+    nodes:
+      - how-a-cpu-executes-instructions
+      - memory-hierarchy-and-caching
+      - pipelining-and-instruction-level-parallelism
+      - instruction-sets-and-assembly-basics
+
+  - slug: operating-systems
+    title: Operating systems
+    nodes:
+      - processes-and-threads
+      - cpu-scheduling-algorithms
+      - synchronization-locks-and-semaphores
+      - deadlocks
+      - memory-management-and-virtual-memory
+      - interprocess-communication
+      - file-systems-and-io
+
+  - slug: theory-of-computation-and-compilers
+    title: Theory of computation & compilers
+    nodes:
+      - finite-automata-and-regular-languages
+      - turing-machines-and-decidability
+      - lexing-and-parsing
+      - compilation-vs-interpretation
+      - intermediate-representations-and-bytecode
+
+  - slug: concurrency-and-practices
+    title: Concurrency & practices
+    nodes:
+      - concurrency-vs-parallelism
+      - race-conditions-and-thread-safety
+      - version-control-internals
+      - testing-fundamentals
+
+  - slug: design-patterns-and-architecture
+    title: Design patterns & architecture
+    nodes:
+      - gof-design-patterns
+      - uml-diagrams
+
+  - slug: networking-fundamentals
+    title: Networking fundamentals
+    nodes:
+      - osi-and-tcp-ip-models
+      - dns-and-http
+      - tls-and-https
+      - sockets-websockets-and-polling
+
+# Prerequisite links, [from, to]. Every edge runs forward along the authored
+# order; the content gate rejects one that does not.
+edges:
+  - [bitwise-operators-and-manipulation, number-and-character-representation]
+
+  - [how-a-cpu-executes-instructions, memory-hierarchy-and-caching]
+  - [how-a-cpu-executes-instructions, instruction-sets-and-assembly-basics]
+  - [memory-hierarchy-and-caching, pipelining-and-instruction-level-parallelism]
+
+  - [instruction-sets-and-assembly-basics, processes-and-threads]
+  - [processes-and-threads, cpu-scheduling-algorithms]
+  - [processes-and-threads, interprocess-communication]
+  - [cpu-scheduling-algorithms, synchronization-locks-and-semaphores]
+  - [synchronization-locks-and-semaphores, deadlocks]
+  - [memory-hierarchy-and-caching, memory-management-and-virtual-memory]
+  - [processes-and-threads, memory-management-and-virtual-memory]
+  - [memory-management-and-virtual-memory, file-systems-and-io]
+
+  - [finite-automata-and-regular-languages, turing-machines-and-decidability]
+  - [finite-automata-and-regular-languages, lexing-and-parsing]
+  - [lexing-and-parsing, compilation-vs-interpretation]
+  - [compilation-vs-interpretation, intermediate-representations-and-bytecode]
+
+  - [synchronization-locks-and-semaphores, concurrency-vs-parallelism]
+  - [concurrency-vs-parallelism, race-conditions-and-thread-safety]
+  - [version-control-internals, testing-fundamentals]
+
+  - [gof-design-patterns, uml-diagrams]
+
+  - [osi-and-tcp-ip-models, dns-and-http]
+  - [dns-and-http, tls-and-https]
+  - [tls-and-https, sockets-websockets-and-polling]

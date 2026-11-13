@@ -1,0 +1,18 @@
+slug: fundamental-theorem-of-calculus
+name: Fundamental theorem of calculus
+latex: "\\int_a^b f'(x)\\, dx = f(b) - f(a)"
+domains: [calculus]
+plain: >-
+  Differentiation and integration undo each other: accumulating a rate of change over an
+  interval gives you the net change. It is what makes integrals computable at all rather
+  than merely definable.
+symbols:
+  - sym: "f'"
+    means: The rate of change being accumulated.
+  - sym: "a"
+    means: The lower limit of the interval.
+  - sym: "b"
+    means: The upper limit.
+related:
+  - derivative-definition
+  - integration-by-parts

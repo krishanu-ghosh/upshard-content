@@ -1,0 +1,17 @@
+slug: cosine-similarity
+name: Cosine similarity
+latex: "\\operatorname{sim}(\\mathbf{a}, \\mathbf{b}) = \\frac{\\mathbf{a} \\cdot \\mathbf{b}}{\\|\\mathbf{a}\\|\\,\\|\\mathbf{b}\\|}"
+domains: [linear-algebra]
+plain: >-
+  The dot product with length divided out, leaving only the angle between two vectors.
+  It runs from -1 to 1 and ignores magnitude entirely, which is exactly what you want
+  when comparing embeddings whose scale carries no meaning.
+symbols:
+  - sym: "\\mathbf{a}"
+    means: The first vector, often a query embedding.
+  - sym: "\\mathbf{b}"
+    means: The second vector, often a stored embedding.
+related:
+  - dot-product
+  - euclidean-norm
+  - vector-projection

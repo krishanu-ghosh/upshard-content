@@ -1,0 +1,19 @@
+slug: q-learning-update
+name: Q-learning update
+latex: "Q(s, a) \\leftarrow Q(s, a) + \\alpha\\!\\left[r + \\gamma \\max_{a'} Q(s', a') - Q(s, a)\\right]"
+domains: [reinforcement-learning]
+plain: >-
+  Nudges the value of the action you took toward the reward plus the best value
+  available next. The max is over actions you did not necessarily take, which is what
+  makes it off-policy and lets it learn the optimal policy while exploring.
+symbols:
+  - sym: "\\alpha"
+    means: The learning rate.
+  - sym: "\\max_{a'} Q(s', a')"
+    means: The best value available in the next state.
+  - sym: "r"
+    means: The reward just received.
+related:
+  - action-value-function
+  - bellman-optimality-equation
+  - temporal-difference-error

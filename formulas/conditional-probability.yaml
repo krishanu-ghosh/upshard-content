@@ -1,0 +1,15 @@
+slug: conditional-probability
+name: Conditional probability
+latex: "P(A \\mid B) = \\frac{P(A \\cap B)}{P(B)}"
+domains: [probability]
+plain: >-
+  Narrows the world to the cases where B happened, then asks how often A happens inside
+  it. Independence is exactly the case where this narrowing changes nothing.
+symbols:
+  - sym: "A \\cap B"
+    means: The event that both A and B occur.
+  - sym: "P(B)"
+    means: The probability of the condition, which must not be zero.
+related:
+  - bayes-theorem
+  - law-of-total-probability

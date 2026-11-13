@@ -1,0 +1,17 @@
+slug: convolution
+name: Discrete convolution
+latex: "(f * g)[n] = \\sum_{m} f[m]\\, g[n-m]"
+domains: [deep-learning]
+plain: >-
+  Slides one signal over another, multiplying and summing at every offset. Reusing the
+  same small kernel everywhere is what gives convolutional networks translation
+  equivariance and their very small parameter count.
+symbols:
+  - sym: "f"
+    means: The input signal, such as an image row.
+  - sym: "g"
+    means: The kernel being slid across it.
+  - sym: "n"
+    means: The output position.
+related:
+  - matrix-multiplication

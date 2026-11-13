@@ -1,0 +1,21 @@
+slug: central-limit-theorem
+name: Central limit theorem
+latex: "\\frac{\\bar{X}_n - \\mu}{\\sigma / \\sqrt{n}} \\xrightarrow{d} \\mathcal{N}(0, 1)"
+domains: [probability]
+plain: >-
+  Averages of independent samples become normally distributed as the sample grows, no
+  matter what the original distribution looked like. The square root of n is why halving
+  your error costs four times the data.
+symbols:
+  - sym: "\\bar{X}_n"
+    means: The sample mean over n draws.
+  - sym: "\\mu"
+    means: The true mean.
+  - sym: "\\sigma"
+    means: The true standard deviation.
+  - sym: "\\mathcal{N}(0, 1)"
+    means: The standard normal distribution.
+related:
+  - binomial-distribution
+  - normal-distribution
+  - variance

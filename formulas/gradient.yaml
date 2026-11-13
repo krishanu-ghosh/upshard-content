@@ -1,0 +1,21 @@
+slug: gradient
+name: Gradient
+latex: "\\nabla f = \\left( \\frac{\\partial f}{\\partial x_1}, \\dots, \\frac{\\partial f}{\\partial x_n} \\right)"
+domains: [calculus]
+plain: >-
+  The vector of all the partial derivatives, pointing in the direction of steepest
+  increase. Training walks against it, which is the whole of what "descent" means.
+symbols:
+  - sym: "\\nabla"
+    means: The gradient operator, read as del or nabla.
+  - sym: "\\partial"
+    means: A partial derivative — vary one input, hold the rest.
+  - sym: "f"
+    means: A function of many variables returning one number.
+related:
+  - derivative-definition
+  - directional-derivative
+  - gradient-descent
+  - jacobian
+  - lagrange-multipliers
+  - reinforce-policy-gradient

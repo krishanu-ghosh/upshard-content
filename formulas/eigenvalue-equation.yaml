@@ -1,0 +1,19 @@
+slug: eigenvalue-equation
+name: Eigenvalue equation
+latex: "A\\mathbf{v} = \\lambda \\mathbf{v}, \\quad \\mathbf{v} \\neq \\mathbf{0}"
+domains: [linear-algebra]
+plain: >-
+  Finds the directions a matrix leaves pointing the same way, stretching them by a
+  single number. Those directions are the natural coordinate system of the map, which is
+  what makes PCA and spectral methods work.
+symbols:
+  - sym: "A"
+    means: A square matrix.
+  - sym: "\\mathbf{v}"
+    means: An eigenvector — a direction the matrix preserves.
+  - sym: "\\lambda"
+    means: The eigenvalue, the factor that direction is scaled by.
+related:
+  - determinant-2x2
+  - singular-value-decomposition
+  - trace

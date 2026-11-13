@@ -1,0 +1,17 @@
+slug: bellman-optimality-equation
+name: Bellman optimality equation
+latex: "V^{*}(s) = \\max_{a} \\mathbb{E}\\!\\left[r + \\gamma V^{*}(s') \\mid s, a\\right]"
+domains: [reinforcement-learning]
+plain: >-
+  The same recursion with a maximum where the policy used to be. It describes the best
+  achievable value without reference to any particular policy, and the greedy choice
+  over it is an optimal policy.
+symbols:
+  - sym: "V^{*}"
+    means: The optimal value function.
+  - sym: "\\max_{a}"
+    means: Taking the best available action rather than the usual one.
+related:
+  - action-value-function
+  - bellman-expectation-equation
+  - q-learning-update

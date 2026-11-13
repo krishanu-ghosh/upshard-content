@@ -1,0 +1,17 @@
+slug: channel-capacity
+name: Channel capacity
+latex: "C = \\max_{p(x)} I(X; Y)"
+domains: [information-theory]
+plain: >-
+  The highest rate at which information can cross a noisy channel with errors driven
+  arbitrarily low. Shannon's result is that below this rate reliable communication is
+  possible and above it is not — with no gentle slope in between.
+symbols:
+  - sym: "C"
+    means: The capacity, in bits per channel use.
+  - sym: "I(X; Y)"
+    means: The mutual information between input and output.
+  - sym: "\\max_{p(x)}"
+    means: Maximised over every way of choosing inputs.
+related:
+  - mutual-information

@@ -1,0 +1,20 @@
+slug: bayes-theorem
+name: Bayes' theorem
+latex: "P(A \\mid B) = \\frac{P(B \\mid A)\\, P(A)}{P(B)}"
+domains: [probability]
+plain: >-
+  Flips a conditional probability around: it converts what you would expect to see given
+  a hypothesis into how much the thing you saw should move your belief in it. Every
+  probabilistic update in machine learning is a version of this.
+symbols:
+  - sym: "P(A \\mid B)"
+    means: The posterior — belief in A after seeing B.
+  - sym: "P(B \\mid A)"
+    means: The likelihood — how expected B was under A.
+  - sym: "P(A)"
+    means: The prior — belief in A beforehand.
+  - sym: "P(B)"
+    means: The evidence, which normalises the result.
+related:
+  - conditional-probability
+  - law-of-total-probability

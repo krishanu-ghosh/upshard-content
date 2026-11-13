@@ -1,0 +1,16 @@
+slug: integration-by-parts
+name: Integration by parts
+latex: "\\int u \\, dv = uv - \\int v \\, du"
+domains: [calculus]
+plain: >-
+  The product rule, read backwards. It trades one integral for another, and is worth the
+  trade whenever the new one is simpler — the standard move for integrals mixing a
+  polynomial with an exponential.
+symbols:
+  - sym: "u"
+    means: The factor you choose to differentiate.
+  - sym: "dv"
+    means: The factor you choose to integrate.
+related:
+  - fundamental-theorem-of-calculus
+  - product-rule

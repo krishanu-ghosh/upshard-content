@@ -1,0 +1,21 @@
+slug: advantage-function
+name: Advantage function
+latex: "A^{\\pi}(s, a) = Q^{\\pi}(s, a) - V^{\\pi}(s)"
+domains: [reinforcement-learning]
+plain: >-
+  How much better one action is than the state's average. Subtracting the state value
+  removes everything the choice had no say in, which cuts gradient variance without
+  biasing the estimate.
+symbols:
+  - sym: "A^{\\pi}"
+    means: The advantage of action a in state s.
+  - sym: "Q^{\\pi}"
+    means: The value of that specific action.
+  - sym: "V^{\\pi}"
+    means: The average value of the state.
+related:
+  - action-value-function
+  - ppo-clipped-objective
+  - reinforce-policy-gradient
+  - state-value-function
+  - temporal-difference-error

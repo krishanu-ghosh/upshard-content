@@ -1,0 +1,17 @@
+slug: determinant-2x2
+name: Determinant (2 by 2)
+latex: "\\det\\begin{pmatrix} a & b \\\\ c & d \\end{pmatrix} = ad - bc"
+domains: [linear-algebra]
+plain: >-
+  The signed factor by which a linear map scales area. A determinant of zero means the
+  map flattens the plane onto a line and cannot be undone, which is the compact test for
+  whether a matrix is invertible.
+symbols:
+  - sym: "a"
+    means: The top-left entry.
+  - sym: "d"
+    means: The bottom-right entry.
+  - sym: "bc"
+    means: The product of the off-diagonal entries.
+related:
+  - eigenvalue-equation

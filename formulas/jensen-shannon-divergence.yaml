@@ -1,0 +1,17 @@
+slug: jensen-shannon-divergence
+name: Jensen–Shannon divergence
+latex: "\\mathrm{JSD}(P \\parallel Q) = \\tfrac{1}{2} D_{\\mathrm{KL}}(P \\parallel M) + \\tfrac{1}{2} D_{\\mathrm{KL}}(Q \\parallel M)"
+domains: [information-theory]
+plain: >-
+  A symmetric, always-finite cousin of the KL divergence, built by comparing both
+  distributions against their average. Its square root is a true distance, which KL
+  divergence never is.
+symbols:
+  - sym: "M"
+    means: The mixture, equal to half of P plus half of Q.
+  - sym: "P"
+    means: The first distribution.
+  - sym: "Q"
+    means: The second distribution.
+related:
+  - kullback-leibler-divergence

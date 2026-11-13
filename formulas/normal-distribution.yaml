@@ -1,0 +1,21 @@
+slug: normal-distribution
+name: Normal distribution
+latex: "p(x) = \\frac{1}{\\sigma\\sqrt{2\\pi}} \\exp\\!\\left(-\\frac{(x-\\mu)^2}{2\\sigma^2}\\right)"
+domains: [probability]
+plain: >-
+  The bell curve: fully described by a mean and a spread, and the shape that sums of
+  many independent effects converge to. Its log is a plain squared error, which is why
+  Gaussian assumptions and L2 losses keep turning up together.
+symbols:
+  - sym: "\\mu"
+    means: The mean, where the curve is centred.
+  - sym: "\\sigma"
+    means: The standard deviation, how wide it is.
+  - sym: "\\exp"
+    means: The exponential function.
+related:
+  - bernoulli-distribution
+  - central-limit-theorem
+  - gelu
+  - l2-regularization
+  - variance

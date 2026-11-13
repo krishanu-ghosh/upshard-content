@@ -1,0 +1,18 @@
+slug: bernoulli-distribution
+name: Bernoulli distribution
+latex: "p(x) = \\theta^{x} (1-\\theta)^{1-x}, \\quad x \\in \\{0, 1\\}"
+domains: [probability]
+plain: >-
+  A single yes-or-no trial with probability theta of yes. Its negative log is binary
+  cross-entropy, which is the loss behind every binary classifier you have trained.
+symbols:
+  - sym: "\\theta"
+    means: The probability of the outcome being one.
+  - sym: "x"
+    means: The outcome, either zero or one.
+related:
+  - binomial-distribution
+  - cross-entropy
+  - dropout
+  - normal-distribution
+  - sigmoid

@@ -1,0 +1,17 @@
+slug: positional-encoding
+name: Sinusoidal positional encoding
+latex: "PE_{(pos, 2i)} = \\sin\\!\\left(\\frac{pos}{10000^{2i/d}}\\right)"
+domains: [deep-learning]
+plain: >-
+  Attention is order-blind, so position has to be added to the input explicitly. Using
+  sinusoids at geometrically spaced frequencies means relative offsets show up as fixed
+  rotations, and positions longer than any seen in training still produce valid codes.
+symbols:
+  - sym: "pos"
+    means: The index of the token in the sequence.
+  - sym: "i"
+    means: The index of the dimension within the encoding.
+  - sym: "d"
+    means: The model's embedding dimension.
+related:
+  - scaled-dot-product-attention

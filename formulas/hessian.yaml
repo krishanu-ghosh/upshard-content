@@ -1,0 +1,17 @@
+slug: hessian
+name: Hessian
+latex: "H_{ij} = \\frac{\\partial^2 f}{\\partial x_i \\, \\partial x_j}"
+domains: [calculus]
+plain: >-
+  The matrix of second derivatives, describing curvature rather than slope. Its
+  eigenvalues say whether a flat point is a minimum, a maximum or a saddle — and in high
+  dimensions, saddles are what you actually hit.
+symbols:
+  - sym: "H"
+    means: The Hessian matrix, symmetric for well-behaved functions.
+  - sym: "\\partial^2"
+    means: A second partial derivative.
+related:
+  - jacobian
+  - newtons-method
+  - taylor-series

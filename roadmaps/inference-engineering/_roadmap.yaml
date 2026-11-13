@@ -1,0 +1,135 @@
+slug: inference-engineering
+title: Inference Engineering
+description: >-
+  Running a trained model efficiently in production, not training one.
+  Thirty-two lessons from latency and throughput through hardware, serving
+  software and the techniques that speed generation up, to running it all at
+  scale.
+level: advanced
+status: published
+tags: [infra, core-ai]
+
+# Our own structure. roadmap.sh's tree was read for topic coverage and
+# ordering only; no third-party tree, description or link list is reproduced
+# here (§13, §16). Eight groups that each answer one question, mirroring the
+# ai-engineer and machine-learning pilots' shape.
+groups:
+  - slug: foundations
+    title: What inference engineering actually is
+    nodes:
+      - what-is-inference-engineering
+      - open-vs-closed-models
+      - the-inference-stack
+
+  - slug: latency-and-throughput
+    title: The metrics the whole discipline optimizes
+    nodes:
+      - time-to-first-token
+      - tokens-per-second-and-throughput
+      - latency-vs-throughput
+      - latency-percentiles-and-end-to-end-metrics
+
+  - slug: inside-the-forward-pass
+    title: What a serving engine actually computes
+    nodes:
+      - prefill-and-decode
+      - kv-cache-mechanics
+      - attention-variants-for-serving
+      - mixture-of-experts
+
+  - slug: hardware-and-bottlenecks
+    title: What the chip underneath actually limits
+    nodes:
+      - gpu-architecture-for-inference
+      - arithmetic-intensity-and-the-roofline-model
+      - memory-bound-vs-compute-bound
+      - choosing-hardware
+      - local-and-edge-inference
+
+  - slug: serving-software
+    title: The layer between a model and an API
+    nodes:
+      - inference-engines
+      - kernel-fusion
+      - benchmarking-inference-systems
+
+  - slug: speeding-up-inference
+    title: Techniques that buy real speed without new hardware
+    nodes:
+      - quantization
+      - speculative-decoding
+      - continuous-batching
+      - flashattention-and-pagedattention
+      - prefix-caching
+
+  - slug: scaling-and-beyond-llms
+    title: Past one GPU, and past text generation
+    nodes:
+      - model-parallelism
+      - disaggregated-serving
+      - embedding-and-multimodal-inference
+      - speech-inference
+
+  - slug: production
+    title: Keeping it running under real traffic
+    nodes:
+      - autoscaling-and-cold-starts
+      - routing-and-load-balancing
+      - observability-and-cost
+      - testing-and-safe-deployment
+
+# Prerequisite links, [from, to]. Every edge runs forward along the authored
+# order; the content gate rejects one that does not.
+edges:
+  - [what-is-inference-engineering, open-vs-closed-models]
+  - [open-vs-closed-models, the-inference-stack]
+
+  - [the-inference-stack, time-to-first-token]
+  - [time-to-first-token, tokens-per-second-and-throughput]
+  - [tokens-per-second-and-throughput, latency-vs-throughput]
+  - [latency-vs-throughput, latency-percentiles-and-end-to-end-metrics]
+
+  - [the-inference-stack, prefill-and-decode]
+  - [time-to-first-token, prefill-and-decode]
+  - [prefill-and-decode, kv-cache-mechanics]
+  - [kv-cache-mechanics, attention-variants-for-serving]
+  - [attention-variants-for-serving, mixture-of-experts]
+
+  - [the-inference-stack, gpu-architecture-for-inference]
+  - [gpu-architecture-for-inference, arithmetic-intensity-and-the-roofline-model]
+  - [arithmetic-intensity-and-the-roofline-model, memory-bound-vs-compute-bound]
+  - [kv-cache-mechanics, memory-bound-vs-compute-bound]
+  - [memory-bound-vs-compute-bound, choosing-hardware]
+  - [choosing-hardware, local-and-edge-inference]
+
+  - [gpu-architecture-for-inference, inference-engines]
+  - [prefill-and-decode, inference-engines]
+  - [inference-engines, kernel-fusion]
+  - [arithmetic-intensity-and-the-roofline-model, kernel-fusion]
+  - [inference-engines, benchmarking-inference-systems]
+  - [latency-percentiles-and-end-to-end-metrics, benchmarking-inference-systems]
+
+  - [memory-bound-vs-compute-bound, quantization]
+  - [inference-engines, quantization]
+  - [quantization, speculative-decoding]
+  - [inference-engines, continuous-batching]
+  - [latency-vs-throughput, continuous-batching]
+  - [kernel-fusion, flashattention-and-pagedattention]
+  - [kv-cache-mechanics, flashattention-and-pagedattention]
+  - [flashattention-and-pagedattention, prefix-caching]
+  - [continuous-batching, prefix-caching]
+
+  - [choosing-hardware, model-parallelism]
+  - [mixture-of-experts, model-parallelism]
+  - [prefill-and-decode, disaggregated-serving]
+  - [model-parallelism, disaggregated-serving]
+  - [attention-variants-for-serving, embedding-and-multimodal-inference]
+  - [continuous-batching, speech-inference]
+  - [embedding-and-multimodal-inference, speech-inference]
+
+  - [benchmarking-inference-systems, autoscaling-and-cold-starts]
+  - [disaggregated-serving, autoscaling-and-cold-starts]
+  - [autoscaling-and-cold-starts, routing-and-load-balancing]
+  - [prefix-caching, routing-and-load-balancing]
+  - [routing-and-load-balancing, observability-and-cost]
+  - [observability-and-cost, testing-and-safe-deployment]

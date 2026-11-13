@@ -1,0 +1,18 @@
+slug: rmsprop
+name: RMSProp
+latex: "s_{t+1} = \\rho s_t + (1-\\rho)(\\nabla_\\theta L)^2, \\qquad \\theta_{t+1} = \\theta_t - \\frac{\\eta}{\\sqrt{s_{t+1}} + \\epsilon} \\nabla_\\theta L"
+domains: [optimization]
+plain: >-
+  Gives every parameter its own learning rate by dividing by the recent size of its
+  gradient. Parameters with consistently large gradients get smaller steps, which keeps
+  badly scaled problems from stalling.
+symbols:
+  - sym: "s"
+    means: A running average of squared gradients.
+  - sym: "\\rho"
+    means: Its decay rate.
+  - sym: "\\epsilon"
+    means: A small constant that prevents division by zero.
+related:
+  - adam
+  - momentum

@@ -1,0 +1,18 @@
+slug: l2-regularization
+name: L2 regularization
+latex: "L_{\\text{total}} = L + \\lambda \\|\\theta\\|_2^2"
+domains: [optimization]
+plain: >-
+  Adds the squared size of the weights to the loss, so the optimiser pays for
+  complexity. It shrinks every weight toward zero without quite reaching it, which
+  spreads influence across features rather than concentrating it.
+symbols:
+  - sym: "\\lambda"
+    means: The regularisation strength.
+  - sym: "\\|\\theta\\|_2^2"
+    means: The sum of squared weights.
+related:
+  - dropout
+  - euclidean-norm
+  - l1-regularization
+  - normal-distribution

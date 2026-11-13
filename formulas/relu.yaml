@@ -1,0 +1,16 @@
+slug: relu
+name: ReLU
+latex: "\\mathrm{ReLU}(x) = \\max(0, x)"
+domains: [deep-learning]
+plain: >-
+  Pass positives through, clamp negatives to zero. Its gradient is one or nothing, so it
+  neither saturates nor vanishes, and that single property is most of why very deep
+  networks became trainable.
+symbols:
+  - sym: "x"
+    means: The pre-activation input.
+  - sym: "\\max"
+    means: Selects the larger of the two arguments.
+related:
+  - gelu
+  - sigmoid

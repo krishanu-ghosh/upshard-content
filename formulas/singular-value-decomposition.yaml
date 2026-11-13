@@ -1,0 +1,18 @@
+slug: singular-value-decomposition
+name: Singular value decomposition
+latex: "A = U \\Sigma V^{\\top}"
+domains: [linear-algebra]
+plain: >-
+  Factors any matrix at all into a rotation, a stretch along axes, and another rotation.
+  Truncating the stretch to its largest few values gives the best low-rank approximation
+  there is, which is the basis of compression and of LoRA.
+symbols:
+  - sym: "U"
+    means: Orthogonal matrix whose columns are the output directions.
+  - sym: "\\Sigma"
+    means: Diagonal matrix of singular values, largest first.
+  - sym: "V"
+    means: Orthogonal matrix whose columns are the input directions.
+related:
+  - eigenvalue-equation
+  - outer-product

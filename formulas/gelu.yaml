@@ -1,0 +1,16 @@
+slug: gelu
+name: GELU
+latex: "\\mathrm{GELU}(x) = x \\cdot \\Phi(x)"
+domains: [deep-learning]
+plain: >-
+  Weights each input by the probability that a standard normal falls below it, giving a
+  smooth curve that lets small negatives through instead of clamping them. It is the
+  activation inside most transformer feed-forward blocks.
+symbols:
+  - sym: "x"
+    means: The pre-activation input.
+  - sym: "\\Phi"
+    means: The standard normal cumulative distribution function.
+related:
+  - normal-distribution
+  - relu

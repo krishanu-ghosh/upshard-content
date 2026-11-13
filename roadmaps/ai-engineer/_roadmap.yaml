@@ -1,0 +1,132 @@
+slug: ai-engineer
+title: AI Engineer
+description: >-
+  Building products on top of models you did not train. Thirty-six lessons from
+  what a token is through retrieval, agents, evaluation and safety, to the work
+  of keeping an LLM feature alive in production.
+level: intermediate
+status: published
+tags: [core-ai, building-products]
+
+# Our own structure. Public roadmaps were read for topic coverage and ordering
+# only; no third-party tree, description or link list is reproduced here (§13,
+# §16). The shape differs from them deliberately: eight groups that each answer
+# one question, four or five nodes each, so a band is one or two rows of the
+# graph and a sitting's worth of the path.
+groups:
+  - slug: foundations
+    title: What you are actually building on
+    nodes:
+      - what-is-an-ai-engineer
+      - how-llms-work
+      - tokens-and-tokenization
+      - embeddings
+
+  - slug: working-with-models
+    title: Talking to a model
+    nodes:
+      - the-context-window
+      - calling-a-model-api
+      - sampling-parameters
+      - structured-output
+      - choosing-a-model
+
+  - slug: prompting
+    title: Prompt and context engineering
+    nodes:
+      - prompt-anatomy
+      - few-shot-prompting
+      - chain-of-thought
+      - context-engineering
+      - prompt-caching
+
+  - slug: retrieval
+    title: Giving the model your data
+    nodes:
+      - chunking
+      - vector-databases
+      - similarity-search
+      - rag-pipeline
+      - rag-vs-fine-tuning
+
+  - slug: agents
+    title: Models that take actions
+    nodes:
+      - what-is-an-agent
+      - tool-calling
+      - the-agent-loop
+      - model-context-protocol
+      - multi-agent-systems
+
+  - slug: evaluation
+    title: Knowing whether it works
+    nodes:
+      - why-evals-matter
+      - building-an-eval-set
+      - llm-as-judge
+      - tracing-and-observability
+
+  - slug: safety
+    title: Where it goes wrong
+    nodes:
+      - prompt-injection
+      - guardrails-and-moderation
+      - bias-and-fairness
+      - privacy-and-data-handling
+
+  - slug: production
+    title: Shipping it
+    nodes:
+      - fine-tuning
+      - multimodal-ai
+      - cost-and-latency
+      - shipping-and-monitoring
+
+# Prerequisite links. Every edge runs forward along the authored order; the
+# content gate rejects one that does not.
+edges:
+  - [what-is-an-ai-engineer, how-llms-work]
+  - [how-llms-work, tokens-and-tokenization]
+  - [how-llms-work, embeddings]
+  - [tokens-and-tokenization, the-context-window]
+  - [how-llms-work, calling-a-model-api]
+  - [calling-a-model-api, sampling-parameters]
+  - [calling-a-model-api, structured-output]
+  - [the-context-window, choosing-a-model]
+  - [calling-a-model-api, prompt-anatomy]
+  - [prompt-anatomy, few-shot-prompting]
+  - [few-shot-prompting, chain-of-thought]
+  - [prompt-anatomy, context-engineering]
+  - [the-context-window, context-engineering]
+  - [context-engineering, prompt-caching]
+  - [tokens-and-tokenization, chunking]
+  - [embeddings, vector-databases]
+  - [vector-databases, similarity-search]
+  - [chunking, rag-pipeline]
+  - [similarity-search, rag-pipeline]
+  - [context-engineering, rag-pipeline]
+  - [rag-pipeline, rag-vs-fine-tuning]
+  - [chain-of-thought, what-is-an-agent]
+  - [what-is-an-agent, tool-calling]
+  - [structured-output, tool-calling]
+  - [tool-calling, the-agent-loop]
+  - [rag-pipeline, the-agent-loop]
+  - [tool-calling, model-context-protocol]
+  - [the-agent-loop, multi-agent-systems]
+  - [rag-pipeline, why-evals-matter]
+  - [why-evals-matter, building-an-eval-set]
+  - [building-an-eval-set, llm-as-judge]
+  - [building-an-eval-set, tracing-and-observability]
+  - [the-agent-loop, tracing-and-observability]
+  - [tool-calling, prompt-injection]
+  - [prompt-injection, guardrails-and-moderation]
+  - [llm-as-judge, guardrails-and-moderation]
+  - [guardrails-and-moderation, bias-and-fairness]
+  - [guardrails-and-moderation, privacy-and-data-handling]
+  - [rag-vs-fine-tuning, fine-tuning]
+  - [choosing-a-model, fine-tuning]
+  - [choosing-a-model, multimodal-ai]
+  - [prompt-caching, cost-and-latency]
+  - [cost-and-latency, shipping-and-monitoring]
+  - [tracing-and-observability, shipping-and-monitoring]
+  - [privacy-and-data-handling, shipping-and-monitoring]

@@ -1,0 +1,19 @@
+slug: jacobian
+name: Jacobian
+latex: "J_{ij} = \\frac{\\partial f_i}{\\partial x_j}"
+domains: [calculus]
+plain: >-
+  The full matrix of partial derivatives for a function with several outputs — one row
+  per output, one column per input. Autodiff never builds it in full; it multiplies by
+  it one vector at a time.
+symbols:
+  - sym: "f_i"
+    means: The i-th output of the function.
+  - sym: "x_j"
+    means: The j-th input.
+  - sym: "J"
+    means: The matrix collecting every such pairing.
+related:
+  - chain-rule
+  - gradient
+  - hessian

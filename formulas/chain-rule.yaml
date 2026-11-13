@@ -1,0 +1,19 @@
+slug: chain-rule
+name: Chain rule
+latex: "\\frac{d}{dx} f(g(x)) = f'(g(x)) \\cdot g'(x)"
+domains: [calculus]
+plain: >-
+  To differentiate a composition, multiply the outer rate of change by the inner one.
+  Backpropagation is nothing more than this rule applied layer by layer from the loss
+  backwards, reusing each partial result.
+symbols:
+  - sym: "f"
+    means: The outer function.
+  - sym: "g"
+    means: The inner function.
+  - sym: "g'(x)"
+    means: The inner function's own derivative.
+related:
+  - derivative-definition
+  - jacobian
+  - product-rule

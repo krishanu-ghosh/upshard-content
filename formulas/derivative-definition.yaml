@@ -1,0 +1,20 @@
+slug: derivative-definition
+name: Derivative
+latex: "f'(x) = \\lim_{h \\to 0} \\frac{f(x+h) - f(x)}{h}"
+domains: [calculus]
+plain: >-
+  The instantaneous rate of change: the slope of the line between two points on the
+  curve as they slide together. Every gradient-based method is this quantity,
+  generalised to many variables and computed in bulk.
+symbols:
+  - sym: "f"
+    means: The function being differentiated.
+  - sym: "h"
+    means: The shrinking gap between the two points.
+  - sym: "\\lim"
+    means: The value the ratio approaches as h goes to zero.
+related:
+  - chain-rule
+  - fundamental-theorem-of-calculus
+  - gradient
+  - product-rule

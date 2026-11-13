@@ -1,0 +1,21 @@
+slug: adam
+name: Adam
+latex: "\\theta_{t+1} = \\theta_t - \\eta \\frac{\\hat{m}_t}{\\sqrt{\\hat{v}_t} + \\epsilon}"
+domains: [optimization, deep-learning]
+plain: >-
+  Momentum and RMSProp in one optimiser: a running mean of gradients divided by a
+  running mean of their magnitudes, both bias-corrected for their cold start. It is the
+  default for transformer training, and the two extra states are why it costs three
+  times the memory of plain SGD.
+symbols:
+  - sym: "\\hat{m}_t"
+    means: Bias-corrected first moment — the mean gradient.
+  - sym: "\\hat{v}_t"
+    means: Bias-corrected second moment — the mean squared gradient.
+  - sym: "\\epsilon"
+    means: A small constant for numerical stability.
+related:
+  - model-memory-footprint
+  - momentum
+  - rmsprop
+  - stochastic-gradient-descent

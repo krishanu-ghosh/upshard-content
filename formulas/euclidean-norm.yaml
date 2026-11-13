@@ -1,0 +1,19 @@
+slug: euclidean-norm
+name: Euclidean norm
+latex: "\\|\\mathbf{x}\\|_2 = \\sqrt{\\sum_{i=1}^{n} x_i^2}"
+domains: [linear-algebra]
+plain: >-
+  The straight-line length of a vector, straight out of Pythagoras. It is the default
+  meaning of "how big" for a vector, and the quantity that gradient clipping, weight
+  decay and distance metrics are all written in terms of.
+symbols:
+  - sym: "\\mathbf{x}"
+    means: The vector being measured.
+  - sym: "x_i"
+    means: Its i-th component.
+  - sym: "n"
+    means: The number of dimensions.
+related:
+  - cosine-similarity
+  - dot-product
+  - l2-regularization

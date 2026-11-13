@@ -1,0 +1,20 @@
+slug: variance
+name: Variance
+latex: "\\operatorname{Var}(X) = \\mathbb{E}\\!\\left[(X - \\mathbb{E}[X])^2\\right]"
+domains: [probability]
+plain: >-
+  The average squared distance from the mean — how spread out a random variable is.
+  Squaring is what makes it differentiable and additive over independent variables, and
+  also what makes it sensitive to outliers.
+symbols:
+  - sym: "X"
+    means: The random variable.
+  - sym: "\\mathbb{E}[X]"
+    means: Its mean.
+related:
+  - batch-normalization
+  - central-limit-theorem
+  - covariance
+  - expected-value
+  - layer-normalization
+  - normal-distribution

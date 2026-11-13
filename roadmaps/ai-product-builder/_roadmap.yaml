@@ -1,0 +1,113 @@
+slug: ai-product-builder
+title: AI Product Builder
+description: >-
+  Going from an idea to a shipped product by directing AI tools rather than
+  writing every line by hand — picking a prototyping tool, working an AI
+  coding agent on a real codebase, and still knowing enough HTML, React, and
+  testing to judge what it hands back and ship it responsibly. Thirty lessons
+  from problem definition through deployment and running costs.
+level: intermediate
+status: published
+tags: [building-products, prompting]
+
+# Our own structure. roadmap.sh's AI Product Builder tree was read for topic
+# coverage only, as private inspiration (§13, §16); no third-party tree,
+# description, or link list is reproduced here. Six groups: define the
+# problem, prototype it with AI, learn the baseline literacy needed to judge
+# what AI writes, use AI coding agents on a real codebase, test what gets
+# built, then ship and operate it.
+groups:
+  - slug: foundations
+    title: Foundations
+    nodes:
+      - what-is-an-ai-product-builder
+      - defining-the-problem-and-app-anatomy
+      - the-ai-product-creation-cycle
+      - scoping-features-and-choosing-a-tech-stack
+
+  - slug: prototyping-with-ai
+    title: Prototyping with AI
+    nodes:
+      - choosing-a-prototyping-tool
+      - prompt-to-app-generation
+      - claude-and-chat-based-design-tools
+      - from-prototype-to-working-app
+      - getting-feedback-and-validating-fast
+
+  - slug: core-skills-you-still-need
+    title: Core skills you still need
+    nodes:
+      - html-css-and-javascript-fundamentals
+      - react-for-ai-built-apps
+      - node-js-basics
+      - reading-and-debugging-generated-code
+
+  - slug: building-with-ai-coding-agents
+    title: Building with AI coding agents
+    nodes:
+      - ai-coding-agents-overview
+      - working-with-claude-code
+      - working-with-cursor-and-copilot
+      - prompting-for-code-changes
+      - refactoring-and-new-features-with-ai
+      - reviewing-ai-generated-code
+
+  - slug: testing-and-quality
+    title: Testing and quality
+    nodes:
+      - browser-devtools-for-debugging
+      - unit-testing-ai-generated-code
+      - integration-testing
+      - end-to-end-testing
+      - user-testing-and-feedback-loops
+
+  - slug: shipping-and-operating
+    title: Shipping and operating
+    nodes:
+      - version-control-and-collaboration
+      - continuous-integration-basics
+      - choosing-where-to-deploy
+      - connecting-a-database
+      - monitoring-and-iterating-after-launch
+      - scaling-and-cost-management
+
+# Prerequisite links, [from, to]. Every edge runs forward along the authored
+# order; the content gate rejects one that does not.
+edges:
+  - [what-is-an-ai-product-builder, defining-the-problem-and-app-anatomy]
+  - [defining-the-problem-and-app-anatomy, the-ai-product-creation-cycle]
+  - [the-ai-product-creation-cycle, scoping-features-and-choosing-a-tech-stack]
+
+  - [scoping-features-and-choosing-a-tech-stack, choosing-a-prototyping-tool]
+  - [choosing-a-prototyping-tool, prompt-to-app-generation]
+  - [choosing-a-prototyping-tool, claude-and-chat-based-design-tools]
+  - [prompt-to-app-generation, from-prototype-to-working-app]
+  - [claude-and-chat-based-design-tools, from-prototype-to-working-app]
+  - [from-prototype-to-working-app, getting-feedback-and-validating-fast]
+
+  - [getting-feedback-and-validating-fast, html-css-and-javascript-fundamentals]
+  - [html-css-and-javascript-fundamentals, react-for-ai-built-apps]
+  - [html-css-and-javascript-fundamentals, node-js-basics]
+  - [react-for-ai-built-apps, reading-and-debugging-generated-code]
+  - [node-js-basics, reading-and-debugging-generated-code]
+
+  - [reading-and-debugging-generated-code, ai-coding-agents-overview]
+  - [ai-coding-agents-overview, working-with-claude-code]
+  - [ai-coding-agents-overview, working-with-cursor-and-copilot]
+  - [working-with-claude-code, prompting-for-code-changes]
+  - [working-with-cursor-and-copilot, prompting-for-code-changes]
+  - [prompting-for-code-changes, refactoring-and-new-features-with-ai]
+  - [refactoring-and-new-features-with-ai, reviewing-ai-generated-code]
+
+  - [reviewing-ai-generated-code, browser-devtools-for-debugging]
+  - [browser-devtools-for-debugging, unit-testing-ai-generated-code]
+  - [unit-testing-ai-generated-code, integration-testing]
+  - [integration-testing, end-to-end-testing]
+  - [end-to-end-testing, user-testing-and-feedback-loops]
+
+  - [user-testing-and-feedback-loops, version-control-and-collaboration]
+  - [version-control-and-collaboration, continuous-integration-basics]
+  - [continuous-integration-basics, choosing-where-to-deploy]
+  - [choosing-where-to-deploy, connecting-a-database]
+  - [connecting-a-database, monitoring-and-iterating-after-launch]
+  - [monitoring-and-iterating-after-launch, scaling-and-cost-management]

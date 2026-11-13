@@ -1,0 +1,16 @@
+slug: vector-projection
+name: Vector projection
+latex: "\\operatorname{proj}_{\\mathbf{b}}\\mathbf{a} = \\frac{\\mathbf{a} \\cdot \\mathbf{b}}{\\mathbf{b} \\cdot \\mathbf{b}} \\mathbf{b}"
+domains: [linear-algebra]
+plain: >-
+  The shadow one vector casts on another: the part of a that lies along b, with the
+  perpendicular part discarded. Least squares is this idea applied to a whole subspace
+  at once.
+symbols:
+  - sym: "\\mathbf{a}"
+    means: The vector being projected.
+  - sym: "\\mathbf{b}"
+    means: The direction it is projected onto.
+related:
+  - cosine-similarity
+  - dot-product

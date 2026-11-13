@@ -1,0 +1,46 @@
+slug: engine-preview
+title: Engine preview
+description: >-
+  A ten-node roadmap that exercises the graph, the path, progress, bookmarks and
+  timestamped notes end to end. The structure is ours; the videos are well-known
+  public explainers rather than picks from the Phase 4 sourcing protocol.
+level: beginner
+status: draft
+
+groups:
+  - slug: the-maths-underneath
+    title: The maths underneath
+    nodes:
+      - vectors
+      - dot-products
+      - matrix-multiplication
+      - derivatives
+
+  - slug: how-a-network-learns
+    title: How a network learns
+    nodes:
+      - what-is-a-neural-network
+      - gradient-descent
+      - backpropagation
+      - backpropagation-calculus
+
+  - slug: transformers
+    title: Transformers
+    nodes:
+      - what-is-a-transformer
+      - attention
+
+# Prerequisite links. Every edge runs forward along the path; the content gate
+# rejects one that does not.
+edges:
+  - [vectors, dot-products]
+  - [dot-products, matrix-multiplication]
+  - [vectors, derivatives]
+  - [matrix-multiplication, what-is-a-neural-network]
+  - [derivatives, gradient-descent]
+  - [what-is-a-neural-network, gradient-descent]
+  - [gradient-descent, backpropagation]
+  - [backpropagation, backpropagation-calculus]
+  - [backpropagation-calculus, what-is-a-transformer]
+  - [dot-products, attention]
+  - [what-is-a-transformer, attention]

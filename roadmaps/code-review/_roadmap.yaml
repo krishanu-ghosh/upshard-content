@@ -1,0 +1,42 @@
+slug: code-review
+title: Code Review
+description: >-
+  The craft of peer review itself — not the design judgment a reviewer applies
+  (that's `software-design-architecture`/`software-architect`), but the
+  practice around it: why review earns its cost, preparing a change so it's
+  actually reviewable, what a reviewer should spend attention on, the etiquette
+  of giving and receiving feedback without it turning adversarial, pushing the
+  mechanical checks onto tools instead of people, and the failure modes
+  (bikeshedding, rubber-stamping, review fatigue) that show up once a team
+  does this every day.
+level: beginner
+status: published
+tags: [collaboration, process]
+
+# The last roadmap in Wave 2 (PLAN.md §19/§23, ROADMAP-CATALOG.md). Six lessons
+# from roadmap.sh's own six-topic "Code Review" tree — unlike every other
+# roadmap this wave, there's no large overlap to scope away: design quality,
+# code smells, refactoring, and TDD are `software-design-architecture`'s
+# ground, and SOLID/OOP/DDD are `software-architect`'s, so this roadmap stays
+# close to its source topic count rather than shrinking from it. One group,
+# taught in the order a developer actually meets it: why bother, prepare your
+# own change, know what to look for as a reviewer, handle the feedback
+# exchange on both sides, automate what doesn't need a human, then the ways
+# all of the above goes wrong once it's a daily habit instead of a lesson.
+groups:
+  - slug: code-review-practice
+    title: The practice of review
+    nodes:
+      - why-code-review-matters
+      - writing-a-reviewable-pull-request
+      - what-reviewers-look-for
+      - giving-and-receiving-feedback
+      - automating-the-easy-checks
+      - common-code-review-pitfalls
+
+edges:
+  - [why-code-review-matters, writing-a-reviewable-pull-request]
+  - [writing-a-reviewable-pull-request, what-reviewers-look-for]
+  - [what-reviewers-look-for, giving-and-receiving-feedback]
+  - [giving-and-receiving-feedback, automating-the-easy-checks]
+  - [automating-the-easy-checks, common-code-review-pitfalls]

@@ -1,0 +1,131 @@
+slug: ai-data-scientist
+title: AI Data Scientist
+description: >-
+  The statistical and experimental reasoning that sits underneath modern AI
+  work — distributions, hypothesis tests, causal inference, and A/B design —
+  paired with the coding and EDA habits that turn raw data into a defensible
+  answer, then into a model whose numbers can be explained to someone who
+  didn't build it. Twenty-nine lessons from what the role actually is through
+  shipping and communicating a result.
+level: intermediate
+status: published
+tags: [ml-fundamentals, data-science]
+
+# Our own structure. roadmap.sh's AI and Data Scientist tree is a short,
+# high-level list (~10 topics: Mathematics, Statistics, Econometrics, Coding,
+# EDA, Machine Learning, Deep Learning, MLOps, Vibe Coding, AI Engineering)
+# that mostly points at prerequisite roadmaps rather than teaching its own
+# content — read only as private inspiration for topic coverage (§13, §16; no
+# third-party tree, description, or link list is reproduced here). Because
+# `machine-learning`, `mlops`, and `ai-engineer` already exist as full Upshard
+# roadmaps, this one spends its lessons on what a data scientist does that
+# those don't cover — statistical inference, econometrics and experiment
+# design, applied EDA, and judging/communicating a model's result — and links
+# out to the dedicated roadmaps for deep-learning and production-MLOps depth
+# rather than re-teaching them. Seven groups: what the role is, the
+# statistics underneath it, econometrics and experimentation, the coding
+# habits, exploratory analysis, applied modeling, then shipping and
+# communicating the result.
+groups:
+  - slug: foundations
+    title: Foundations
+    nodes:
+      - what-is-a-data-scientist
+      - the-data-science-lifecycle
+      - math-and-stats-you-actually-need
+      - data-scientist-vs-ml-engineer-vs-analyst
+
+  - slug: statistics-for-data-science
+    title: Statistics for data science
+    nodes:
+      - descriptive-statistics-and-distributions
+      - probability-for-data-science
+      - hypothesis-testing-and-p-values
+      - confidence-intervals-and-sampling
+      - bayesian-thinking-for-data-scientists
+
+  - slug: econometrics-and-experimentation
+    title: Econometrics and experimentation
+    nodes:
+      - regression-for-inference
+      - causal-inference-basics
+      - designing-ab-tests
+      - time-series-fundamentals
+
+  - slug: data-science-coding
+    title: Data science coding
+    nodes:
+      - python-for-data-science
+      - sql-for-data-analysis
+      - pandas-and-numpy-workflows
+      - notebooks-and-reproducible-analysis
+
+  - slug: exploratory-data-analysis
+    title: Exploratory data analysis
+    nodes:
+      - the-eda-process
+      - data-cleaning-and-missing-data
+      - data-visualization-principles
+      - feature-engineering-basics
+
+  - slug: applied-modeling
+    title: Applied modeling
+    nodes:
+      - supervised-learning-for-prediction
+      - model-evaluation-and-metrics
+      - overfitting-and-cross-validation
+      - model-interpretability-and-explainability
+
+  - slug: shipping-insights
+    title: Shipping and communicating insights
+    nodes:
+      - ai-assisted-data-science-workflows
+      - taking-models-to-production
+      - llms-for-data-scientists
+      - communicating-results-and-data-storytelling
+
+# Prerequisite links, [from, to]. Every edge runs forward along the authored
+# order; the content gate rejects one that does not. Statistics and coding
+# both branch straight off foundations and run in parallel; EDA is where they
+# merge back together.
+edges:
+  - [what-is-a-data-scientist, the-data-science-lifecycle]
+  - [the-data-science-lifecycle, math-and-stats-you-actually-need]
+  - [math-and-stats-you-actually-need, data-scientist-vs-ml-engineer-vs-analyst]
+
+  - [data-scientist-vs-ml-engineer-vs-analyst, descriptive-statistics-and-distributions]
+  - [descriptive-statistics-and-distributions, probability-for-data-science]
+  - [probability-for-data-science, hypothesis-testing-and-p-values]
+  - [hypothesis-testing-and-p-values, confidence-intervals-and-sampling]
+  - [confidence-intervals-and-sampling, bayesian-thinking-for-data-scientists]
+
+  - [bayesian-thinking-for-data-scientists, regression-for-inference]
+  - [regression-for-inference, causal-inference-basics]
+  - [confidence-intervals-and-sampling, designing-ab-tests]
+  - [causal-inference-basics, designing-ab-tests]
+  - [designing-ab-tests, time-series-fundamentals]
+
+  - [data-scientist-vs-ml-engineer-vs-analyst, python-for-data-science]
+  - [python-for-data-science, sql-for-data-analysis]
+  - [python-for-data-science, pandas-and-numpy-workflows]
+  - [sql-for-data-analysis, pandas-and-numpy-workflows]
+  - [pandas-and-numpy-workflows, notebooks-and-reproducible-analysis]
+
+  - [notebooks-and-reproducible-analysis, the-eda-process]
+  - [time-series-fundamentals, the-eda-process]
+  - [the-eda-process, data-cleaning-and-missing-data]
+  - [data-cleaning-and-missing-data, data-visualization-principles]
+  - [data-cleaning-and-missing-data, feature-engineering-basics]
+
+  - [feature-engineering-basics, supervised-learning-for-prediction]
+  - [data-visualization-principles, supervised-learning-for-prediction]
+  - [supervised-learning-for-prediction, model-evaluation-and-metrics]
+  - [model-evaluation-and-metrics, overfitting-and-cross-validation]
+  - [overfitting-and-cross-validation, model-interpretability-and-explainability]
+
+  - [model-interpretability-and-explainability, ai-assisted-data-science-workflows]
+  - [model-interpretability-and-explainability, taking-models-to-production]
+  - [ai-assisted-data-science-workflows, llms-for-data-scientists]
+  - [taking-models-to-production, llms-for-data-scientists]
+  - [llms-for-data-scientists, communicating-results-and-data-storytelling]
+  - [model-interpretability-and-explainability, communicating-results-and-data-storytelling]

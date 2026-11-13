@@ -1,0 +1,100 @@
+slug: software-design-architecture
+title: Design Principles & Patterns
+description: >-
+  The heuristics that keep a design honest as it grows — DRY, KISS, YAGNI,
+  composition over inheritance, coupling and cohesion — the discipline of
+  noticing and fixing a design that's gone bad (code smells, refactoring,
+  test-driven development), and the Gang-of-Four catalog of creational,
+  structural, and behavioral design patterns as the recurring shapes those
+  heuristics produce in practice. Fifteen lessons that assume object-oriented
+  programming and SOLID as a starting point (see software-architect) and go
+  one layer deeper than computer-science's single GoF survey lesson into the
+  patterns themselves.
+level: intermediate
+status: published
+tags: [architecture, patterns]
+
+# Our own structure, re-scoped from roadmap.sh's ~94-topic tree rather than
+# built node-for-node (§13, §16). Nearly everything that tree covers is
+# already taught elsewhere on this site: OOP principles, SOLID, and
+# domain-driven design live in `software-architect`
+# (object-oriented-programming-principles, solid-principles,
+# domain-driven-design); architectural styles and patterns (layered,
+# MVC/MVP/MVVM, hexagonal/clean/onion, SOA, cloud/serverless patterns) live in
+# `software-architect` and `system-design`; UML and a GoF *survey* lesson live
+# in `computer-science` (uml-diagrams, gof-design-patterns). Re-teaching any of
+# that here would be exactly the cross-roadmap duplication §13 exists to
+# prevent — the same reasoning that got `leetcode` dropped from this wave.
+#
+# What's left, and genuinely untaught anywhere else on the site, is narrower
+# but real: the day-to-day design heuristics (DRY/KISS/YAGNI, composition over
+# inheritance, coupling/cohesion) that sit a level below SOLID; the discipline
+# of recognizing and fixing a design once it's gone bad (code smells,
+# refactoring, test-driven development); and the twenty-three individual GoF
+# patterns themselves, which `computer-science`'s `gof-design-patterns` only
+# surveys in one lesson rather than teaching one at a time. Peer code review
+# as a practice is deliberately left out — that's `code-review`'s ground, the
+# next roadmap in this wave, not this one's.
+#
+# Five groups, in teaching order: the heuristics that guide a design day to
+# day, the discipline that catches and repairs a bad one, then the GoF
+# catalog itself in its standard three-way split (creational, structural,
+# behavioral), each pattern paired with the sibling it's most often confused
+# with or chosen against.
+groups:
+  - slug: design-principles
+    title: Design principles
+    nodes:
+      - dry-kiss-and-yagni
+      - separation-of-concerns-and-coupling-and-cohesion
+      - composition-over-inheritance
+
+  - slug: code-quality-in-practice
+    title: Code quality in practice
+    nodes:
+      - code-smells-and-refactoring
+      - test-driven-development
+
+  - slug: creational-patterns
+    title: Creational patterns
+    nodes:
+      - singleton-and-factory-method
+      - abstract-factory-and-builder
+      - the-prototype-pattern
+
+  - slug: structural-patterns
+    title: Structural patterns
+    nodes:
+      - adapter-and-facade
+      - decorator-and-proxy
+      - composite-bridge-and-flyweight
+
+  - slug: behavioral-patterns
+    title: Behavioral patterns
+    nodes:
+      - observer-and-strategy
+      - command-and-state
+      - template-method-and-chain-of-responsibility
+      - iterator-mediator-memento-and-visitor
+
+# Prerequisite links, [from, to]. Every edge runs forward along the authored
+# order; the content gate rejects one that does not.
+edges:
+  - [dry-kiss-and-yagni, separation-of-concerns-and-coupling-and-cohesion]
+  - [separation-of-concerns-and-coupling-and-cohesion, composition-over-inheritance]
+
+  - [composition-over-inheritance, code-smells-and-refactoring]
+  - [code-smells-and-refactoring, test-driven-development]
+
+  - [test-driven-development, singleton-and-factory-method]
+  - [singleton-and-factory-method, abstract-factory-and-builder]
+  - [abstract-factory-and-builder, the-prototype-pattern]
+
+  - [the-prototype-pattern, adapter-and-facade]
+  - [adapter-and-facade, decorator-and-proxy]
+  - [decorator-and-proxy, composite-bridge-and-flyweight]
+
+  - [composite-bridge-and-flyweight, observer-and-strategy]
+  - [observer-and-strategy, command-and-state]
+  - [command-and-state, template-method-and-chain-of-responsibility]
+  - [template-method-and-chain-of-responsibility, iterator-mediator-memento-and-visitor]

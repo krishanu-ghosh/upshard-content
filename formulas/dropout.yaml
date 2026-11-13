@@ -1,0 +1,18 @@
+slug: dropout
+name: Dropout
+latex: "\\tilde{h} = \\frac{m \\odot h}{1 - p}, \\qquad m_i \\sim \\mathrm{Bernoulli}(1-p)"
+domains: [deep-learning]
+plain: >-
+  Randomly zeroes activations during training so no single unit can be relied on, then
+  scales the survivors so the expected output is unchanged. At inference nothing is
+  dropped, and the scaling is what makes the two regimes agree.
+symbols:
+  - sym: "m"
+    means: A random binary mask, redrawn every step.
+  - sym: "p"
+    means: The probability a unit is dropped.
+  - sym: "\\odot"
+    means: Element-wise multiplication.
+related:
+  - bernoulli-distribution
+  - l2-regularization

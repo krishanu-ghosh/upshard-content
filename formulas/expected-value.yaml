@@ -1,0 +1,20 @@
+slug: expected-value
+name: Expected value
+latex: "\\mathbb{E}[X] = \\sum_{x} x\\, p(x)"
+domains: [probability]
+plain: >-
+  The long-run average of a random variable, each outcome weighted by how often it
+  happens. Nearly every loss function in machine learning is an expectation you are
+  approximating with a batch.
+symbols:
+  - sym: "X"
+    means: The random variable.
+  - sym: "p(x)"
+    means: The probability of outcome x.
+  - sym: "\\mathbb{E}"
+    means: The expectation operator.
+related:
+  - covariance
+  - discounted-return
+  - law-of-total-probability
+  - variance

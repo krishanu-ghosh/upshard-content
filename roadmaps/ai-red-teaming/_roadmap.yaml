@@ -1,0 +1,103 @@
+slug: ai-red-teaming
+title: AI Red Teaming
+description: >-
+  Finding the ways a model, its prompts, and the systems around it can be
+  broken — before someone else does. Twenty-four lessons from prompt
+  injection and jailbreaks through model extraction, poisoning, and agentic
+  exploits, to the testing methodology and defenses a real engagement runs on.
+level: advanced
+status: published
+tags: [safety, core-ai]
+
+# Our own structure. Public roadmaps were read for topic coverage and
+# ordering only; no third-party tree, description or link list is reproduced
+# here (§13, §16). Six groups: what the field is, then three attack surfaces
+# (prompt, model, system), then how an engagement is actually run, then
+# defense and disclosure.
+groups:
+  - slug: foundations
+    title: What AI red teaming actually is
+    nodes:
+      - what-is-ai-red-teaming
+      - threat-modeling-for-ai-systems
+      - the-owasp-top-10-for-llm-applications
+      - rules-of-engagement-and-ethics
+
+  - slug: prompt-attacks
+    title: Attacking through the prompt
+    nodes:
+      - prompt-injection-direct-and-indirect
+      - jailbreak-techniques
+      - safety-filter-and-guardrail-bypasses
+      - multi-turn-and-encoding-attacks
+
+  - slug: model-attacks
+    title: Attacking the model itself
+    nodes:
+      - model-extraction-and-weight-stealing
+      - model-inversion-and-membership-inference
+      - data-poisoning
+      - adversarial-examples
+
+  - slug: system-attacks
+    title: Attacking the system around the model
+    nodes:
+      - insecure-deserialization-and-rce
+      - api-and-infrastructure-security
+      - rag-and-tool-attack-surface
+      - agentic-ai-security
+
+  - slug: methodology
+    title: Running a red team engagement
+    nodes:
+      - black-box-grey-box-and-white-box-testing
+      - automated-vs-manual-red-teaming
+      - llm-security-testing-tools
+      - building-a-red-team-lab
+
+  - slug: defense
+    title: Defending and reporting
+    nodes:
+      - guardrails-and-output-filtering
+      - adversarial-training-and-robust-design
+      - continuous-monitoring-and-detection
+      - responsible-disclosure-and-reporting
+
+# Prerequisite links, [from, to]. Every edge runs forward along the authored
+# order; the content gate rejects one that does not.
+edges:
+  - [what-is-ai-red-teaming, threat-modeling-for-ai-systems]
+  - [threat-modeling-for-ai-systems, the-owasp-top-10-for-llm-applications]
+  - [what-is-ai-red-teaming, rules-of-engagement-and-ethics]
+
+  - [the-owasp-top-10-for-llm-applications, prompt-injection-direct-and-indirect]
+  - [prompt-injection-direct-and-indirect, jailbreak-techniques]
+  - [jailbreak-techniques, safety-filter-and-guardrail-bypasses]
+  - [jailbreak-techniques, multi-turn-and-encoding-attacks]
+  - [safety-filter-and-guardrail-bypasses, multi-turn-and-encoding-attacks]
+
+  - [the-owasp-top-10-for-llm-applications, model-extraction-and-weight-stealing]
+  - [model-extraction-and-weight-stealing, model-inversion-and-membership-inference]
+  - [threat-modeling-for-ai-systems, data-poisoning]
+  - [data-poisoning, adversarial-examples]
+
+  - [threat-modeling-for-ai-systems, insecure-deserialization-and-rce]
+  - [insecure-deserialization-and-rce, api-and-infrastructure-security]
+  - [prompt-injection-direct-and-indirect, rag-and-tool-attack-surface]
+  - [rag-and-tool-attack-surface, agentic-ai-security]
+  - [multi-turn-and-encoding-attacks, agentic-ai-security]
+
+  - [rules-of-engagement-and-ethics, black-box-grey-box-and-white-box-testing]
+  - [black-box-grey-box-and-white-box-testing, automated-vs-manual-red-teaming]
+  - [agentic-ai-security, automated-vs-manual-red-teaming]
+  - [automated-vs-manual-red-teaming, llm-security-testing-tools]
+  - [llm-security-testing-tools, building-a-red-team-lab]
+
+  - [jailbreak-techniques, guardrails-and-output-filtering]
+  - [safety-filter-and-guardrail-bypasses, guardrails-and-output-filtering]
+  - [guardrails-and-output-filtering, adversarial-training-and-robust-design]
+  - [adversarial-examples, adversarial-training-and-robust-design]
+  - [llm-security-testing-tools, continuous-monitoring-and-detection]
+  - [adversarial-training-and-robust-design, continuous-monitoring-and-detection]
+  - [continuous-monitoring-and-detection, responsible-disclosure-and-reporting]
+  - [building-a-red-team-lab, responsible-disclosure-and-reporting]

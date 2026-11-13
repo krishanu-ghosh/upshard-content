@@ -1,0 +1,23 @@
+slug: scaled-dot-product-attention
+name: Scaled dot-product attention
+latex: "\\mathrm{Attention}(Q, K, V) = \\mathrm{softmax}\\!\\left(\\frac{QK^{\\top}}{\\sqrt{d_k}}\\right) V"
+domains: [deep-learning]
+plain: >-
+  Every token proposes a query, every token advertises a key, and the match between them
+  decides whose value gets read. Dividing by the square root of the key dimension keeps
+  the dot products from growing with width and flattening the softmax gradient.
+symbols:
+  - sym: "Q"
+    means: The queries — what each position is looking for.
+  - sym: "K"
+    means: The keys — what each position offers.
+  - sym: "V"
+    means: The values — what actually gets mixed and returned.
+  - sym: "d_k"
+    means: The key dimension, whose square root rescales the scores.
+related:
+  - dot-product
+  - kv-cache-size
+  - layer-normalization
+  - positional-encoding
+  - softmax

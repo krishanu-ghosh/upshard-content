@@ -1,0 +1,20 @@
+slug: temperature-sampling
+name: Temperature sampling
+latex: "p_i = \\frac{\\exp(z_i / T)}{\\sum_{j} \\exp(z_j / T)}"
+domains: [inference, deep-learning]
+plain: >-
+  Divides the logits before the softmax, which rescales how peaked the distribution is.
+  Below one it sharpens toward the top choice; above one it flattens; at zero it becomes
+  plain greedy decoding.
+symbols:
+  - sym: "T"
+    means: The temperature.
+  - sym: "z_i"
+    means: The logit for token i.
+  - sym: "p_i"
+    means: The resulting sampling probability.
+related:
+  - perplexity
+  - softmax
+  - speculative-decoding-speedup
+  - top-p-sampling

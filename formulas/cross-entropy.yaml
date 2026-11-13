@@ -1,0 +1,19 @@
+slug: cross-entropy
+name: Cross-entropy
+latex: "H(P, Q) = -\\sum_{x} P(x) \\log Q(x)"
+domains: [information-theory, deep-learning]
+plain: >-
+  The average number of bits needed to encode data from P using a code optimised for Q.
+  It splits into the entropy of P plus the divergence from P to Q, which is why
+  minimising it over a model is the same as minimising that divergence.
+symbols:
+  - sym: "P"
+    means: The true distribution, usually a one-hot label in practice.
+  - sym: "Q"
+    means: The predicted distribution the model outputs.
+related:
+  - bernoulli-distribution
+  - kullback-leibler-divergence
+  - perplexity
+  - shannon-entropy
+  - softmax

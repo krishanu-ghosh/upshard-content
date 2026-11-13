@@ -1,0 +1,19 @@
+slug: reinforce-policy-gradient
+name: REINFORCE policy gradient
+latex: "\\nabla_{\\theta} J = \\mathbb{E}_{\\pi_\\theta}\\!\\left[\\nabla_{\\theta} \\log \\pi_{\\theta}(a \\mid s)\\, G_t\\right]"
+domains: [reinforcement-learning]
+plain: >-
+  Raises the log-probability of actions that led to high return and lowers it for the
+  rest. It optimises the policy directly with no value model required, and its variance
+  is high enough that a baseline is essentially mandatory.
+symbols:
+  - sym: "J"
+    means: The expected return being maximised.
+  - sym: "\\pi_{\\theta}"
+    means: The policy, parameterised by theta.
+  - sym: "G_t"
+    means: The return that followed the action.
+related:
+  - advantage-function
+  - gradient
+  - ppo-clipped-objective

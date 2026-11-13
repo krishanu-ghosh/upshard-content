@@ -1,0 +1,93 @@
+slug: prompt-engineering
+title: Prompt Engineering
+description: >-
+  Master the art and science of crafting effective prompts for large language models.
+  From basics to advanced techniques, learn how to communicate with LLMs to get reliable,
+  structured outputs at scale.
+level: beginner
+status: published
+tags: [prompting]
+
+# Our own structure. Public roadmaps were read for topic coverage and ordering
+# only; no third-party tree, description or link list is reproduced here (§13, §16).
+# Seven groups that each answer one question, 3–6 nodes each.
+groups:
+  - slug: foundations
+    title: What is prompt engineering?
+    nodes:
+      - what-is-prompt-engineering
+      - how-llms-work
+      - tokens-and-context
+      - hallucinations-and-limitations
+
+  - slug: model-fundamentals
+    title: Understanding models and their parameters
+    nodes:
+      - choosing-a-model
+      - sampling-parameters
+      - temperature-and-randomness
+      - top-k-and-top-p
+
+  - slug: basic-techniques
+    title: The fundamental prompting strategies
+    nodes:
+      - zero-shot-prompting
+      - few-shot-prompting
+      - chain-of-thought-prompting
+      - prompt-anatomy
+
+  - slug: advanced-patterns
+    title: Sophisticated prompting methods
+    nodes:
+      - step-back-prompting
+      - self-consistency-prompting
+      - tree-of-thoughts
+      - react-prompting
+      - system-and-role-prompting
+
+  - slug: output-control
+    title: Structuring and controlling outputs
+    nodes:
+      - structured-output-formats
+      - output-length-control
+      - stop-sequences
+      - prompt-ensembling
+
+  - slug: reliability
+    title: Making prompts robust and safe
+    nodes:
+      - prompt-injection-attacks
+      - defending-against-injection
+      - prompt-debiasing
+      - evaluation-and-testing
+
+  - slug: optimization
+    title: Automating and tuning prompts
+    nodes:
+      - prompt-tuning
+      - automatic-prompt-engineering
+      - fine-tuning-vs-prompting
+      - production-patterns
+
+edges:
+  - [how-llms-work, tokens-and-context]
+  - [how-llms-work, choosing-a-model]
+  - [tokens-and-context, few-shot-prompting]
+  - [sampling-parameters, temperature-and-randomness]
+  - [sampling-parameters, top-k-and-top-p]
+  - [temperature-and-randomness, zero-shot-prompting]
+  - [zero-shot-prompting, few-shot-prompting]
+  - [few-shot-prompting, chain-of-thought-prompting]
+  - [chain-of-thought-prompting, step-back-prompting]
+  - [chain-of-thought-prompting, tree-of-thoughts]
+  - [tree-of-thoughts, react-prompting]
+  - [few-shot-prompting, structured-output-formats]
+  - [structured-output-formats, output-length-control]
+  - [output-length-control, stop-sequences]
+  - [zero-shot-prompting, prompt-injection-attacks]
+  - [prompt-injection-attacks, defending-against-injection]
+  - [few-shot-prompting, prompt-debiasing]
+  - [chain-of-thought-prompting, evaluation-and-testing]
+  - [prompt-debiasing, prompt-tuning]
+  - [evaluation-and-testing, automatic-prompt-engineering]
+  - [choosing-a-model, fine-tuning-vs-prompting]

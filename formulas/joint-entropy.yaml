@@ -1,0 +1,18 @@
+slug: joint-entropy
+name: Joint entropy
+latex: "H(X, Y) = -\\sum_{x, y} p(x, y) \\log p(x, y)"
+domains: [information-theory]
+plain: >-
+  The total uncertainty in two variables considered together. It is never more than the
+  sum of the separate entropies, and the shortfall is exactly how much the two share.
+symbols:
+  - sym: "p(x, y)"
+    means: The joint probability of both outcomes.
+  - sym: "X"
+    means: The first random variable.
+  - sym: "Y"
+    means: The second random variable.
+related:
+  - conditional-entropy
+  - mutual-information
+  - shannon-entropy

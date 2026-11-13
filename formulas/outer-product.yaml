@@ -1,0 +1,18 @@
+slug: outer-product
+name: Outer product
+latex: "(\\mathbf{u} \\mathbf{v}^{\\top})_{ij} = u_i v_j"
+domains: [linear-algebra]
+plain: >-
+  Takes two vectors and produces a full matrix, every element of one multiplied by every
+  element of the other. The result always has rank one, which is the idea low-rank
+  adapters are built on.
+symbols:
+  - sym: "\\mathbf{u}"
+    means: A column vector of length m.
+  - sym: "\\mathbf{v}"
+    means: A column vector of length n.
+  - sym: "\\top"
+    means: Transpose, turning a column into a row.
+related:
+  - matrix-multiplication
+  - singular-value-decomposition

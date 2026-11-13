@@ -1,0 +1,17 @@
+slug: product-rule
+name: Product rule
+latex: "(fg)' = f'g + fg'"
+domains: [calculus]
+plain: >-
+  The derivative of a product is not the product of the derivatives: each factor takes a
+  turn varying while the other is held still. The two terms are exactly those two turns,
+  added together.
+symbols:
+  - sym: "f"
+    means: The first factor.
+  - sym: "g"
+    means: The second factor.
+related:
+  - chain-rule
+  - derivative-definition
+  - integration-by-parts

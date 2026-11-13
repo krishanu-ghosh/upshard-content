@@ -1,0 +1,17 @@
+slug: sigmoid
+name: Sigmoid
+latex: "\\sigma(x) = \\frac{1}{1 + e^{-x}}"
+domains: [deep-learning]
+plain: >-
+  Squashes any real number into the range zero to one, so the output can be read as a
+  probability. Its gradient vanishes at both ends, which is exactly why deep networks
+  moved to ReLU for hidden layers and kept sigmoid for the output.
+symbols:
+  - sym: "x"
+    means: The input, an unbounded real number.
+  - sym: "e^{-x}"
+    means: The exponential that produces the S-shape.
+related:
+  - bernoulli-distribution
+  - relu
+  - softmax

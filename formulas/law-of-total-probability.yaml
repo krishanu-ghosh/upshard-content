@@ -1,0 +1,17 @@
+slug: law-of-total-probability
+name: Law of total probability
+latex: "P(A) = \\sum_{i} P(A \\mid B_i)\\, P(B_i)"
+domains: [probability]
+plain: >-
+  Splits a messy probability into cases you can actually compute, then weights each by
+  how likely that case was. It is the denominator in Bayes' theorem whenever the
+  evidence is not handed to you directly.
+symbols:
+  - sym: "B_i"
+    means: A set of cases that are exclusive and cover everything.
+  - sym: "P(A \\mid B_i)"
+    means: The probability of A within case i.
+related:
+  - bayes-theorem
+  - conditional-probability
+  - expected-value

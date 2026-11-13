@@ -1,0 +1,19 @@
+slug: temporal-difference-error
+name: Temporal-difference error
+latex: "\\delta_t = r_{t+1} + \\gamma V(s_{t+1}) - V(s_t)"
+domains: [reinforcement-learning]
+plain: >-
+  The gap between what you predicted and what the next step plus the next prediction
+  say. It is the learning signal for every TD method, and it lets you learn from a
+  single transition without waiting for the episode to end.
+symbols:
+  - sym: "\\delta_t"
+    means: The error at step t.
+  - sym: "V(s_t)"
+    means: The current prediction.
+  - sym: "r_{t+1} + \\gamma V(s_{t+1})"
+    means: The one-step bootstrapped target.
+related:
+  - advantage-function
+  - bellman-expectation-equation
+  - q-learning-update

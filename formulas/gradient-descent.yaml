@@ -1,0 +1,21 @@
+slug: gradient-descent
+name: Gradient descent
+latex: "\\theta_{t+1} = \\theta_t - \\eta \\nabla_{\\theta} L(\\theta_t)"
+domains: [optimization]
+plain: >-
+  Step downhill: subtract a scaled gradient from the parameters and repeat. The entire
+  difficulty is in the step size — too large and it diverges, too small and it never
+  arrives.
+symbols:
+  - sym: "\\theta"
+    means: The parameters being optimised.
+  - sym: "\\eta"
+    means: The learning rate, the step size.
+  - sym: "\\nabla_{\\theta} L"
+    means: The gradient of the loss with respect to the parameters.
+related:
+  - cosine-learning-rate-schedule
+  - gradient
+  - momentum
+  - newtons-method
+  - stochastic-gradient-descent

@@ -1,0 +1,219 @@
+slug: system-design
+title: System Design
+description: >-
+  How a system is actually designed to handle scale: the estimation and tradeoff
+  habits, the networking and API choices, load balancing, caching, data modeling and
+  storage at scale, consistency/availability/consensus, asynchronous messaging,
+  reliability patterns, architecture patterns, and observability and security at
+  scale that a production system needs — closing with worked, end-to-end case
+  studies of the classic system-design interview problems. Sixty lessons that assume
+  the core data structures and algorithms, and general computer science, as a
+  starting point (see datastructures-and-algorithms and computer-science).
+level: intermediate
+status: published
+tags: [interview-prep, infra]
+
+# Our own structure. roadmap.sh's System Design tree was read for topic coverage
+# only, as private inspiration (§13, §16); no third-party tree, description, or
+# link list is reproduced here. Twelve groups, roughly in teaching order:
+# fundamentals and estimation, then the request path outward-in (networking/APIs,
+# load balancing, caching), then storage (data modeling, scaling data and
+# services), then the harder distributed-systems ground (consistency/availability/
+# consensus, async messaging, reliability patterns), then how production systems
+# are actually composed (architecture patterns, observability and security), and
+# finally worked case studies that pull every earlier group together. Nine nodes
+# (data-modeling-and-storage's three, scaling-data-and-services' two,
+# consistency-availability-and-consensus's one, caching-at-scale's one,
+# async-systems-and-messaging's one, networking-apis-and-communication's one)
+# moved in from computer-science, where they were either a misplaced
+# "system-design-fundamentals" group or database-at-scale material that belongs
+# here, not there — see PLAN.md §23.
+groups:
+  - slug: design-fundamentals-and-estimation
+    title: Design fundamentals & estimation
+    nodes:
+      - what-is-system-design
+      - performance-vs-scalability
+      - latency-vs-throughput
+      - back-of-the-envelope-estimation
+
+  - slug: networking-apis-and-communication
+    title: Networking, APIs & communication
+    nodes:
+      - dns-and-request-routing-at-scale
+      - choosing-transport-protocols-for-services
+      - rpc-and-grpc
+      - api-architectural-styles
+      - idempotent-apis-and-exactly-once-semantics
+
+  - slug: load-balancing-and-service-discovery
+    title: Load balancing & service discovery
+    nodes:
+      - load-balancing-algorithms
+      - layer4-vs-layer7-load-balancing
+      - reverse-proxies-and-api-gateways
+      - service-discovery
+
+  - slug: caching-at-scale
+    title: Caching at scale
+    nodes:
+      - caching-and-cdns
+      - caching-strategies-at-scale
+      - distributed-caching-systems
+      - client-and-browser-caching
+
+  - slug: data-modeling-and-storage
+    title: Data modeling & storage
+    nodes:
+      - sql-vs-nosql-and-data-modeling
+      - normalization-and-the-er-model
+      - indexes-views-and-stored-procedures
+      - choosing-a-data-model
+
+  - slug: scaling-data-and-services
+    title: Scaling data & services
+    nodes:
+      - replication-sharding-and-federation
+      - scaling-load-balancing-and-clustering
+      - connection-pooling-and-read-write-splitting
+      - stateless-services-and-session-affinity
+
+  - slug: consistency-availability-and-consensus
+    title: Consistency, availability & consensus
+    nodes:
+      - acid-transactions-and-the-cap-theorem
+      - consistency-patterns
+      - availability-patterns-and-failover
+      - measuring-availability-the-nines
+      - distributed-consensus-paxos-and-raft
+      - distributed-transactions-2pc-and-sagas
+
+  - slug: async-systems-and-messaging
+    title: Async systems & messaging
+    nodes:
+      - message-queues-and-async-communication
+      - pub-sub-and-event-driven-architecture
+      - backpressure-and-flow-control
+      - change-data-capture-for-data-pipelines
+
+  - slug: reliability-and-resilience-patterns
+    title: Reliability & resilience patterns
+    nodes:
+      - circuit-breakers-and-retries
+      - rate-limiting-algorithms
+      - bulkheads-and-graceful-degradation
+      - health-checks-and-chaos-engineering
+      - performance-antipatterns
+      - leader-election
+
+  - slug: architecture-patterns-at-scale
+    title: Architecture patterns at scale
+    nodes:
+      - monolith-vs-microservices
+      - cqrs-and-event-sourcing
+      - strangler-fig-and-anti-corruption-layer
+      - sidecar-ambassador-and-service-mesh
+      - backend-for-frontend-and-gateway-patterns
+
+  - slug: observability-and-security-at-scale
+    title: Observability & security at scale
+    nodes:
+      - monitoring-logging-and-alerting
+      - distributed-tracing
+      - slis-slos-and-error-budgets
+      - ddos-mitigation-and-rate-limiting-for-security
+      - authn-and-federated-identity-at-scale
+      - secrets-and-config-management
+
+  - slug: case-studies
+    title: Case studies
+    nodes:
+      - design-a-url-shortener
+      - design-a-rate-limiter
+      - design-a-key-value-store
+      - design-a-distributed-cache
+      - design-a-chat-system
+      - design-a-news-feed-or-notification-system
+      - design-a-web-crawler
+      - design-a-search-autocomplete
+
+# Prerequisite links, [from, to]. Every edge runs forward along the authored
+# order; the content gate rejects one that does not.
+edges:
+  - [what-is-system-design, performance-vs-scalability]
+  - [performance-vs-scalability, latency-vs-throughput]
+  - [latency-vs-throughput, back-of-the-envelope-estimation]
+
+  - [back-of-the-envelope-estimation, dns-and-request-routing-at-scale]
+  - [dns-and-request-routing-at-scale, choosing-transport-protocols-for-services]
+  - [choosing-transport-protocols-for-services, rpc-and-grpc]
+  - [rpc-and-grpc, api-architectural-styles]
+  - [api-architectural-styles, idempotent-apis-and-exactly-once-semantics]
+
+  - [dns-and-request-routing-at-scale, load-balancing-algorithms]
+  - [load-balancing-algorithms, layer4-vs-layer7-load-balancing]
+  - [layer4-vs-layer7-load-balancing, reverse-proxies-and-api-gateways]
+  - [reverse-proxies-and-api-gateways, service-discovery]
+
+  - [layer4-vs-layer7-load-balancing, caching-and-cdns]
+  - [caching-and-cdns, caching-strategies-at-scale]
+  - [caching-strategies-at-scale, distributed-caching-systems]
+  - [caching-and-cdns, client-and-browser-caching]
+
+  - [distributed-caching-systems, sql-vs-nosql-and-data-modeling]
+  - [sql-vs-nosql-and-data-modeling, normalization-and-the-er-model]
+  - [normalization-and-the-er-model, indexes-views-and-stored-procedures]
+  - [sql-vs-nosql-and-data-modeling, choosing-a-data-model]
+
+  - [indexes-views-and-stored-procedures, replication-sharding-and-federation]
+  - [replication-sharding-and-federation, scaling-load-balancing-and-clustering]
+  - [scaling-load-balancing-and-clustering, connection-pooling-and-read-write-splitting]
+  - [scaling-load-balancing-and-clustering, stateless-services-and-session-affinity]
+
+  - [replication-sharding-and-federation, acid-transactions-and-the-cap-theorem]
+  - [acid-transactions-and-the-cap-theorem, consistency-patterns]
+  - [consistency-patterns, availability-patterns-and-failover]
+  - [availability-patterns-and-failover, measuring-availability-the-nines]
+  - [consistency-patterns, distributed-consensus-paxos-and-raft]
+  - [distributed-consensus-paxos-and-raft, distributed-transactions-2pc-and-sagas]
+
+  - [acid-transactions-and-the-cap-theorem, message-queues-and-async-communication]
+  - [message-queues-and-async-communication, pub-sub-and-event-driven-architecture]
+  - [pub-sub-and-event-driven-architecture, backpressure-and-flow-control]
+  - [pub-sub-and-event-driven-architecture, change-data-capture-for-data-pipelines]
+
+  - [backpressure-and-flow-control, circuit-breakers-and-retries]
+  - [circuit-breakers-and-retries, rate-limiting-algorithms]
+  - [circuit-breakers-and-retries, bulkheads-and-graceful-degradation]
+  - [bulkheads-and-graceful-degradation, health-checks-and-chaos-engineering]
+  - [rate-limiting-algorithms, performance-antipatterns]
+  - [distributed-consensus-paxos-and-raft, leader-election]
+
+  - [health-checks-and-chaos-engineering, monolith-vs-microservices]
+  - [monolith-vs-microservices, cqrs-and-event-sourcing]
+  - [monolith-vs-microservices, strangler-fig-and-anti-corruption-layer]
+  - [monolith-vs-microservices, sidecar-ambassador-and-service-mesh]
+  - [sidecar-ambassador-and-service-mesh, backend-for-frontend-and-gateway-patterns]
+
+  - [sidecar-ambassador-and-service-mesh, monitoring-logging-and-alerting]
+  - [monitoring-logging-and-alerting, distributed-tracing]
+  - [distributed-tracing, slis-slos-and-error-budgets]
+  - [rate-limiting-algorithms, ddos-mitigation-and-rate-limiting-for-security]
+  - [ddos-mitigation-and-rate-limiting-for-security, authn-and-federated-identity-at-scale]
+  - [authn-and-federated-identity-at-scale, secrets-and-config-management]
+
+  - [slis-slos-and-error-budgets, design-a-url-shortener]
+  - [sql-vs-nosql-and-data-modeling, design-a-url-shortener]
+  - [design-a-url-shortener, design-a-rate-limiter]
+  - [rate-limiting-algorithms, design-a-rate-limiter]
+  - [design-a-rate-limiter, design-a-key-value-store]
+  - [distributed-consensus-paxos-and-raft, design-a-key-value-store]
+  - [design-a-key-value-store, design-a-distributed-cache]
+  - [distributed-caching-systems, design-a-distributed-cache]
+  - [design-a-distributed-cache, design-a-chat-system]
+  - [message-queues-and-async-communication, design-a-chat-system]
+  - [design-a-chat-system, design-a-news-feed-or-notification-system]
+  - [pub-sub-and-event-driven-architecture, design-a-news-feed-or-notification-system]
+  - [design-a-news-feed-or-notification-system, design-a-web-crawler]
+  - [backpressure-and-flow-control, design-a-web-crawler]
+  - [design-a-web-crawler, design-a-search-autocomplete]

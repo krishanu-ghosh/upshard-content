@@ -1,0 +1,17 @@
+slug: speculative-decoding-speedup
+name: Speculative decoding speedup
+latex: "\\mathbb{E}[\\text{tokens per step}] = \\frac{1 - \\alpha^{k+1}}{1 - \\alpha}"
+domains: [inference]
+plain: >-
+  A small draft model proposes k tokens and the large model verifies them all in one
+  pass. The expected yield depends almost entirely on the acceptance rate, so a draft
+  that agrees often beats a draft that is merely fast.
+symbols:
+  - sym: "\\alpha"
+    means: The probability the target model accepts a drafted token.
+  - sym: "k"
+    means: How many tokens the draft model proposes per step.
+related:
+  - littles-law
+  - memory-bound-token-latency
+  - temperature-sampling

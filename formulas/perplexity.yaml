@@ -1,0 +1,20 @@
+slug: perplexity
+name: Perplexity
+latex: "\\mathrm{PPL} = \\exp\\!\\left(-\\frac{1}{N} \\sum_{i=1}^{N} \\log p(x_i \\mid x_{<i})\\right)"
+domains: [information-theory, inference]
+plain: >-
+  The exponential of average cross-entropy, read as an effective number of choices. A
+  perplexity of 20 means the model is about as uncertain as if it were picking uniformly
+  among 20 tokens at every step.
+symbols:
+  - sym: "N"
+    means: The number of tokens scored.
+  - sym: "p(x_i \\mid x_{<i})"
+    means: The probability the model gave the true next token.
+  - sym: "\\exp"
+    means: Converts average log-loss back into a count of choices.
+related:
+  - chinchilla-scaling-law
+  - cross-entropy
+  - self-information
+  - temperature-sampling

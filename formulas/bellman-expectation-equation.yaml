@@ -1,0 +1,19 @@
+slug: bellman-expectation-equation
+name: Bellman expectation equation
+latex: "V^{\\pi}(s) = \\mathbb{E}_{\\pi}\\!\\left[r + \\gamma V^{\\pi}(s') \\mid s\\right]"
+domains: [reinforcement-learning]
+plain: >-
+  Value defined in terms of itself one step later: a reward now, plus the discounted
+  value of wherever you land. Every value-based algorithm is some way of solving this
+  fixed point.
+symbols:
+  - sym: "s'"
+    means: The next state.
+  - sym: "r"
+    means: The immediate reward.
+  - sym: "\\gamma"
+    means: The discount factor.
+related:
+  - bellman-optimality-equation
+  - state-value-function
+  - temporal-difference-error

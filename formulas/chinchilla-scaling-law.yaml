@@ -1,0 +1,20 @@
+slug: chinchilla-scaling-law
+name: Chinchilla scaling law
+latex: "L(N, D) = E + \\frac{A}{N^{\\alpha}} + \\frac{B}{D^{\\beta}}"
+domains: [inference]
+plain: >-
+  Loss falls as a power law in both parameters and training tokens, with an irreducible
+  floor. Fitting it showed the models of the day were badly undertrained — roughly
+  twenty tokens per parameter is the compute-optimal balance.
+symbols:
+  - sym: "N"
+    means: The number of parameters.
+  - sym: "D"
+    means: The number of training tokens.
+  - sym: "E"
+    means: The irreducible loss, the entropy of the data itself.
+  - sym: "\\alpha"
+    means: The exponent governing returns to scale.
+related:
+  - perplexity
+  - transformer-forward-flops

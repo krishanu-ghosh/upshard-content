@@ -1,0 +1,23 @@
+slug: dot-product
+name: Dot product
+latex: "\\mathbf{a} \\cdot \\mathbf{b} = \\sum_{i=1}^{n} a_i b_i = \\|\\mathbf{a}\\|\\,\\|\\mathbf{b}\\|\\cos\\theta"
+domains: [linear-algebra]
+plain: >-
+  Multiplies two vectors into a single number that measures how much they point the same
+  way. It is positive when they broadly agree, zero when they are perpendicular, and
+  negative when they oppose — which is why almost every similarity score in machine
+  learning starts here.
+symbols:
+  - sym: "\\mathbf{a}"
+    means: The first vector.
+  - sym: "\\mathbf{b}"
+    means: The second vector, of the same length.
+  - sym: "\\theta"
+    means: The angle between them.
+related:
+  - cosine-similarity
+  - directional-derivative
+  - euclidean-norm
+  - matrix-multiplication
+  - scaled-dot-product-attention
+  - vector-projection

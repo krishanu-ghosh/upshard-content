@@ -1,0 +1,19 @@
+slug: kullback-leibler-divergence
+name: Kullback–Leibler divergence
+latex: "D_{\\mathrm{KL}}(P \\parallel Q) = \\sum_{x} P(x) \\log \\frac{P(x)}{Q(x)}"
+domains: [information-theory, probability]
+plain: >-
+  The extra bits you pay, on average, when you encode samples drawn from P using a code
+  built for Q. It is zero only when the two distributions agree everywhere, and it is
+  not symmetric — swapping P and Q gives a different number.
+symbols:
+  - sym: "P"
+    means: The true distribution — the one the data actually comes from.
+  - sym: "Q"
+    means: The approximating distribution — the model, or the code you built.
+related:
+  - cross-entropy
+  - jensen-shannon-divergence
+  - mutual-information
+  - ppo-clipped-objective
+  - shannon-entropy

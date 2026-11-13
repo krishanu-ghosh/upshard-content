@@ -1,0 +1,18 @@
+slug: binomial-distribution
+name: Binomial distribution
+latex: "P(k) = \\binom{n}{k} \\theta^{k} (1-\\theta)^{n-k}"
+domains: [probability]
+plain: >-
+  Counts successes across n independent yes-or-no trials. The binomial coefficient
+  accounts for every order the successes could have arrived in, which is where the
+  combinatorics enters.
+symbols:
+  - sym: "n"
+    means: The number of trials.
+  - sym: "k"
+    means: The number of successes.
+  - sym: "\\binom{n}{k}"
+    means: The number of ways to choose k from n.
+related:
+  - bernoulli-distribution
+  - central-limit-theorem

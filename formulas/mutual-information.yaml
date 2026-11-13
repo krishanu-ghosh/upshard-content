@@ -1,0 +1,18 @@
+slug: mutual-information
+name: Mutual information
+latex: "I(X; Y) = \\sum_{x, y} p(x, y) \\log \\frac{p(x, y)}{p(x)\\, p(y)}"
+domains: [information-theory]
+plain: >-
+  How many bits knowing one variable saves you on the other. Unlike correlation it
+  catches any kind of dependence, not just linear ones, and it is symmetric in its two
+  arguments.
+symbols:
+  - sym: "p(x, y)"
+    means: The joint distribution.
+  - sym: "p(x)p(y)"
+    means: What the joint would be if the two were independent.
+related:
+  - channel-capacity
+  - conditional-entropy
+  - joint-entropy
+  - kullback-leibler-divergence

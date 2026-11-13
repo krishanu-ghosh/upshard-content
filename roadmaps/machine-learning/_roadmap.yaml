@@ -1,0 +1,131 @@
+slug: machine-learning
+title: Machine Learning
+description: >-
+  Building and training models from data, not calling ones someone else
+  trained. Thirty-three lessons from what learning from data means through
+  classical models, evaluation and neural networks, to where deep learning
+  picks up.
+level: intermediate
+status: published
+tags: [core-ai, ml-fundamentals]
+
+# Our own structure. roadmap.sh's tree was read for topic coverage and
+# ordering only; no third-party tree, description or link list is reproduced
+# here (§13, §16). Eight groups that each answer one question, mirroring the
+# ai-engineer pilot's shape.
+groups:
+  - slug: foundations
+    title: What learning from data means
+    nodes:
+      - what-is-machine-learning
+      - types-of-learning
+      - the-ml-workflow
+      - generalization-and-overfitting
+
+  - slug: working-with-data
+    title: Preparing data a model can learn from
+    nodes:
+      - exploratory-data-analysis
+      - data-cleaning
+      - feature-engineering
+      - feature-scaling-and-encoding
+      - imbalanced-data
+
+  - slug: supervised-models
+    title: Models that learn from labelled examples
+    nodes:
+      - linear-regression
+      - logistic-regression
+      - regularization
+      - k-nearest-neighbors
+      - decision-trees
+
+  - slug: ensembles-and-kernels
+    title: Combining and reshaping the simple models
+    nodes:
+      - support-vector-machines
+      - bagging-and-random-forests
+      - gradient-boosting
+
+  - slug: unsupervised-learning
+    title: Finding structure with no labels at all
+    nodes:
+      - clustering
+      - dimensionality-reduction
+      - anomaly-detection
+
+  - slug: evaluating-models
+    title: Knowing whether a model is actually good
+    nodes:
+      - evaluation-metrics
+      - cross-validation
+      - hyperparameter-tuning
+      - model-selection
+
+  - slug: neural-network-foundations
+    title: Where deep learning starts
+    nodes:
+      - neural-network-basics
+      - activation-functions
+      - backpropagation
+      - training-neural-networks
+      - convolutional-neural-networks
+
+  - slug: deep-learning-frontiers
+    title: What the simple network grows into
+    nodes:
+      - recurrent-neural-networks
+      - generative-models
+      - attention-and-transformers
+      - reinforcement-learning-basics
+
+# Prerequisite links, [from, to]. Every edge runs forward along the authored
+# order; the content gate rejects one that does not.
+edges:
+  - [what-is-machine-learning, types-of-learning]
+  - [types-of-learning, the-ml-workflow]
+  - [the-ml-workflow, generalization-and-overfitting]
+
+  - [the-ml-workflow, exploratory-data-analysis]
+  - [exploratory-data-analysis, data-cleaning]
+  - [data-cleaning, feature-engineering]
+  - [feature-engineering, feature-scaling-and-encoding]
+  - [feature-engineering, imbalanced-data]
+
+  - [generalization-and-overfitting, linear-regression]
+  - [feature-scaling-and-encoding, linear-regression]
+  - [linear-regression, logistic-regression]
+  - [linear-regression, regularization]
+  - [logistic-regression, regularization]
+  - [imbalanced-data, logistic-regression]
+  - [logistic-regression, k-nearest-neighbors]
+  - [logistic-regression, decision-trees]
+
+  - [k-nearest-neighbors, support-vector-machines]
+  - [regularization, support-vector-machines]
+  - [decision-trees, bagging-and-random-forests]
+  - [bagging-and-random-forests, gradient-boosting]
+
+  - [types-of-learning, clustering]
+  - [feature-engineering, dimensionality-reduction]
+  - [clustering, anomaly-detection]
+  - [dimensionality-reduction, anomaly-detection]
+
+  - [logistic-regression, evaluation-metrics]
+  - [evaluation-metrics, cross-validation]
+  - [gradient-boosting, cross-validation]
+  - [cross-validation, hyperparameter-tuning]
+  - [support-vector-machines, hyperparameter-tuning]
+  - [hyperparameter-tuning, model-selection]
+
+  - [model-selection, neural-network-basics]
+  - [neural-network-basics, activation-functions]
+  - [activation-functions, backpropagation]
+  - [backpropagation, training-neural-networks]
+  - [training-neural-networks, convolutional-neural-networks]
+
+  - [convolutional-neural-networks, recurrent-neural-networks]
+  - [training-neural-networks, generative-models]
+  - [recurrent-neural-networks, attention-and-transformers]
+  - [types-of-learning, reinforcement-learning-basics]
+  - [training-neural-networks, reinforcement-learning-basics]

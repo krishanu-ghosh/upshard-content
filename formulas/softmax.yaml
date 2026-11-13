@@ -1,0 +1,20 @@
+slug: softmax
+name: Softmax
+latex: "\\sigma(\\mathbf{z})_i = \\frac{e^{z_i}}{\\sum_{j=1}^{K} e^{z_j}}"
+domains: [deep-learning, probability]
+plain: >-
+  Turns a vector of unbounded scores into a probability distribution: exponentiate so
+  everything is positive, then divide by the total so the parts sum to one. Larger gaps
+  between scores produce a sharper distribution.
+symbols:
+  - sym: "\\mathbf{z}"
+    means: The vector of raw scores, usually called logits.
+  - sym: "K"
+    means: The number of classes.
+  - sym: "e"
+    means: The exponential, which makes every score positive and ordering-preserving.
+related:
+  - cross-entropy
+  - scaled-dot-product-attention
+  - sigmoid
+  - temperature-sampling

@@ -1,0 +1,18 @@
+slug: littles-law
+name: Little's law
+latex: "L = \\lambda W"
+domains: [inference]
+plain: >-
+  The average number of requests in a system equals arrival rate times time spent
+  inside. For a serving stack it fixes the relationship between throughput, latency and
+  how many requests must be in flight — you cannot improve all three at once.
+symbols:
+  - sym: "L"
+    means: Requests resident in the system on average.
+  - sym: "\\lambda"
+    means: Arrival rate, in requests per second.
+  - sym: "W"
+    means: Average time a request spends in the system.
+related:
+  - memory-bound-token-latency
+  - speculative-decoding-speedup

@@ -1,0 +1,17 @@
+slug: stochastic-gradient-descent
+name: Stochastic gradient descent
+latex: "\\theta_{t+1} = \\theta_t - \\eta \\nabla_{\\theta} L_{\\mathcal{B}}(\\theta_t)"
+domains: [optimization]
+plain: >-
+  The same step, but with the gradient estimated from a small batch instead of the full
+  dataset. The noise this introduces is not purely a cost — it helps escape sharp
+  minima, and it is the only reason training at scale is affordable.
+symbols:
+  - sym: "\\mathcal{B}"
+    means: A minibatch sampled from the training set.
+  - sym: "L_{\\mathcal{B}}"
+    means: The loss averaged over that batch only.
+related:
+  - adam
+  - gradient-descent
+  - momentum

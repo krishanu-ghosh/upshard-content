@@ -1,0 +1,18 @@
+slug: lagrange-multipliers
+name: Lagrange multipliers
+latex: "\\mathcal{L}(x, \\lambda) = f(x) - \\lambda\\, g(x)"
+domains: [optimization]
+plain: >-
+  Turns a constrained problem into an unconstrained one by pricing the constraint. At
+  the optimum the gradients of objective and constraint line up, and the multiplier is
+  how much the objective would improve if the constraint relaxed.
+symbols:
+  - sym: "f"
+    means: The objective being optimised.
+  - sym: "g"
+    means: The constraint, written so it equals zero when satisfied.
+  - sym: "\\lambda"
+    means: The multiplier — the shadow price of the constraint.
+related:
+  - gradient
+  - l1-regularization

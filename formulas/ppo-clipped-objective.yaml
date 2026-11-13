@@ -1,0 +1,19 @@
+slug: ppo-clipped-objective
+name: PPO clipped objective
+latex: "L = \\mathbb{E}\\!\\left[\\min\\!\\left(\\rho_t A_t, \\; \\mathrm{clip}(\\rho_t, 1-\\epsilon, 1+\\epsilon) A_t\\right)\\right]"
+domains: [reinforcement-learning]
+plain: >-
+  Limits how far one update may move the policy by clipping the probability ratio and
+  taking the pessimistic branch. That single trick is why PPO trains stably enough to be
+  the workhorse of RLHF.
+symbols:
+  - sym: "\\rho_t"
+    means: The ratio of new to old action probability.
+  - sym: "A_t"
+    means: The advantage estimate for that step.
+  - sym: "\\epsilon"
+    means: The clip width, typically 0.2.
+related:
+  - advantage-function
+  - kullback-leibler-divergence
+  - reinforce-policy-gradient

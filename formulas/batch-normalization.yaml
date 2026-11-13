@@ -1,0 +1,18 @@
+slug: batch-normalization
+name: Batch normalization
+latex: "\\mathrm{BN}(x_i) = \\gamma \\frac{x_i - \\mu_{\\mathcal{B}}}{\\sqrt{\\sigma_{\\mathcal{B}}^2 + \\epsilon}} + \\beta"
+domains: [deep-learning]
+plain: >-
+  Standardises each feature across the batch rather than within an example. It
+  stabilises and speeds up convolutional training, at the cost of a train/test mismatch
+  and a dependence on batch size that transformers refuse to accept.
+symbols:
+  - sym: "\\mu_{\\mathcal{B}}"
+    means: The feature's mean across the current batch.
+  - sym: "\\sigma_{\\mathcal{B}}^2"
+    means: Its variance across the batch.
+  - sym: "\\epsilon"
+    means: A small constant for numerical stability.
+related:
+  - layer-normalization
+  - variance

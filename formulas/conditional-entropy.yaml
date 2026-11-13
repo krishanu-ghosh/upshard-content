@@ -1,0 +1,17 @@
+slug: conditional-entropy
+name: Conditional entropy
+latex: "H(Y \\mid X) = H(X, Y) - H(X)"
+domains: [information-theory]
+plain: >-
+  How much uncertainty is left in Y once you already know X. It reaches zero when X
+  determines Y outright, and stays at the full entropy of Y when X tells you nothing
+  about it.
+symbols:
+  - sym: "H(X, Y)"
+    means: The joint entropy of both variables.
+  - sym: "H(X)"
+    means: The entropy of X alone.
+related:
+  - joint-entropy
+  - mutual-information
+  - shannon-entropy

@@ -1,0 +1,16 @@
+slug: self-information
+name: Self-information
+latex: "I(x) = -\\log p(x)"
+domains: [information-theory]
+plain: >-
+  The surprise of one particular outcome. A certain event carries none; a one-in-a-
+  million event carries about twenty bits. Entropy is just this quantity averaged over
+  every outcome.
+symbols:
+  - sym: "x"
+    means: A single outcome.
+  - sym: "p(x)"
+    means: Its probability.
+related:
+  - perplexity
+  - shannon-entropy

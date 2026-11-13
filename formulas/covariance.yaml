@@ -1,0 +1,16 @@
+slug: covariance
+name: Covariance
+latex: "\\operatorname{Cov}(X, Y) = \\mathbb{E}\\!\\left[(X - \\mathbb{E}[X])(Y - \\mathbb{E}[Y])\\right]"
+domains: [probability]
+plain: >-
+  Measures whether two variables rise and fall together. It is positive when they move
+  in step, negative when they move oppositely, and zero when knowing one tells you
+  nothing linear about the other.
+symbols:
+  - sym: "X"
+    means: The first random variable.
+  - sym: "Y"
+    means: The second random variable.
+related:
+  - expected-value
+  - variance

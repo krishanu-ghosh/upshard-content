@@ -1,0 +1,19 @@
+slug: transformer-forward-flops
+name: Transformer forward FLOPs
+latex: "C_{\\text{fwd}} \\approx 2ND"
+domains: [inference]
+plain: >-
+  A forward pass costs roughly two floating-point operations per parameter per token —
+  one multiply and one add. Training adds the backward pass for about three times more,
+  giving the familiar six-N-D rule.
+symbols:
+  - sym: "N"
+    means: The number of model parameters.
+  - sym: "D"
+    means: The number of tokens processed.
+  - sym: "2"
+    means: One multiply and one add per parameter per token.
+related:
+  - arithmetic-intensity
+  - chinchilla-scaling-law
+  - matrix-multiplication

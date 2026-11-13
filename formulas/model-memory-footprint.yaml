@@ -1,0 +1,17 @@
+slug: model-memory-footprint
+name: Model memory footprint
+latex: "M_{\\text{weights}} = N \\cdot b"
+domains: [inference]
+plain: >-
+  Parameters times bytes per parameter. At fp16 a 7-billion-parameter model needs about
+  14 GB before any activations or cache; at 4-bit it needs under 4. Training needs
+  several times more, because the optimiser keeps its own copies.
+symbols:
+  - sym: "N"
+    means: The number of parameters.
+  - sym: "b"
+    means: Bytes per parameter — 4 at fp32, 2 at fp16, 0.5 at int4.
+related:
+  - adam
+  - kv-cache-size
+  - memory-bound-token-latency

@@ -1,0 +1,21 @@
+slug: matrix-multiplication
+name: Matrix multiplication
+latex: "(AB)_{ij} = \\sum_{k=1}^{n} A_{ik} B_{kj}"
+domains: [linear-algebra]
+plain: >-
+  Each entry of the product is the dot product of one row of A with one column of B.
+  Composing two linear maps this way is the single operation that dominates both
+  training and inference cost, which is why hardware is designed around it.
+symbols:
+  - sym: "A"
+    means: The left matrix, with shape m by n.
+  - sym: "B"
+    means: The right matrix, with shape n by p.
+  - sym: "k"
+    means: The shared inner dimension being summed over.
+related:
+  - convolution
+  - dot-product
+  - outer-product
+  - trace
+  - transformer-forward-flops

@@ -1,0 +1,25 @@
+slug: kv-cache-size
+name: KV-cache size
+latex: "M_{\\text{KV}} = 2 \\cdot L \\cdot H \\cdot d_h \\cdot S \\cdot B \\cdot b"
+domains: [inference]
+plain: >-
+  Every generated token must keep its keys and values so later tokens can attend to
+  them. The cache grows linearly with sequence length and batch size, and at long
+  contexts it, not the weights, is what fills the GPU.
+symbols:
+  - sym: "L"
+    means: The number of layers.
+  - sym: "H"
+    means: The number of key/value heads.
+  - sym: "d_h"
+    means: The dimension of each head.
+  - sym: "S"
+    means: The sequence length so far.
+  - sym: "B"
+    means: The batch size.
+  - sym: "b"
+    means: Bytes per value — two for fp16.
+related:
+  - memory-bound-token-latency
+  - model-memory-footprint
+  - scaled-dot-product-attention

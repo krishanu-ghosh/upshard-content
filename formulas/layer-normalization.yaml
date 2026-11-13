@@ -1,0 +1,21 @@
+slug: layer-normalization
+name: Layer normalization
+latex: "\\mathrm{LN}(\\mathbf{x}) = \\gamma \\odot \\frac{\\mathbf{x} - \\mu}{\\sqrt{\\sigma^2 + \\epsilon}} + \\beta"
+domains: [deep-learning]
+plain: >-
+  Standardises each example across its own features, then lets the model rescale and
+  shift the result. Because it never looks across the batch, it behaves identically at
+  batch size one — which is why transformers use it and not batch norm.
+symbols:
+  - sym: "\\mu"
+    means: The mean over the feature dimension of this example.
+  - sym: "\\sigma^2"
+    means: The variance over the same dimension.
+  - sym: "\\gamma"
+    means: A learned per-feature scale.
+  - sym: "\\beta"
+    means: A learned per-feature shift.
+related:
+  - batch-normalization
+  - scaled-dot-product-attention
+  - variance

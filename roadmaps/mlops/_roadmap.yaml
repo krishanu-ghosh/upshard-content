@@ -1,0 +1,113 @@
+slug: mlops
+title: MLOps
+description: >-
+  Taking a trained model from a notebook to something that keeps running in
+  production: versioning data, tracking experiments, building the pipelines
+  that retrain and redeploy it, and watching it once it is live.
+level: intermediate
+status: published
+tags: [infra]
+
+# Our own structure. Public roadmaps were read for topic coverage and ordering
+# only; no third-party tree, description or link list is reproduced here
+# (PLAN.md §13, §16). Eight groups that each answer one question.
+groups:
+  - slug: foundations
+    title: What MLOps actually solves
+    nodes:
+      - what-is-mlops
+      - the-ml-lifecycle
+      - mlops-vs-devops
+      - reproducibility-and-the-training-serving-gap
+
+  - slug: data-foundations
+    title: Data you can trust and reproduce
+    nodes:
+      - data-versioning
+      - data-pipelines-for-ml
+      - feature-stores
+      - data-lineage
+
+  - slug: experimentation
+    title: Running and comparing experiments
+    nodes:
+      - experiment-tracking
+      - model-registries
+      - hyperparameter-tuning
+      - model-evaluation-and-validation
+
+  - slug: packaging
+    title: Making a model reproducible to ship
+    nodes:
+      - containerizing-models
+      - environment-and-dependency-management
+      - model-packaging-formats
+
+  - slug: ci-cd
+    title: Automating the path to a deployable model
+    nodes:
+      - continuous-integration-for-ml
+      - testing-ml-systems
+      - continuous-training
+      - continuous-delivery-for-models
+
+  - slug: orchestration-infra
+    title: The infrastructure underneath it all
+    nodes:
+      - workflow-orchestration
+      - infrastructure-as-code
+      - cloud-ml-platforms
+      - distributed-training-infrastructure
+
+  - slug: serving-deployment
+    title: Getting a model into production safely
+    nodes:
+      - model-serving-patterns
+      - deployment-strategies
+      - scaling-inference
+      - edge-and-on-device-deployment
+
+  - slug: monitoring-governance
+    title: Keeping it trustworthy once it is live
+    nodes:
+      - monitoring-model-performance
+      - data-and-concept-drift
+      - explainability-and-interpretability
+      - ml-governance-and-compliance
+      - incident-response-for-ml-systems
+
+edges:
+  - [what-is-mlops, the-ml-lifecycle]
+  - [the-ml-lifecycle, mlops-vs-devops]
+  - [the-ml-lifecycle, reproducibility-and-the-training-serving-gap]
+  - [reproducibility-and-the-training-serving-gap, data-versioning]
+  - [data-versioning, data-pipelines-for-ml]
+  - [data-pipelines-for-ml, feature-stores]
+  - [data-pipelines-for-ml, data-lineage]
+  - [reproducibility-and-the-training-serving-gap, experiment-tracking]
+  - [experiment-tracking, model-registries]
+  - [model-registries, hyperparameter-tuning]
+  - [model-registries, model-evaluation-and-validation]
+  - [feature-stores, model-evaluation-and-validation]
+  - [model-registries, containerizing-models]
+  - [containerizing-models, environment-and-dependency-management]
+  - [containerizing-models, model-packaging-formats]
+  - [model-packaging-formats, continuous-integration-for-ml]
+  - [continuous-integration-for-ml, testing-ml-systems]
+  - [testing-ml-systems, continuous-training]
+  - [continuous-training, continuous-delivery-for-models]
+  - [continuous-delivery-for-models, workflow-orchestration]
+  - [workflow-orchestration, infrastructure-as-code]
+  - [infrastructure-as-code, cloud-ml-platforms]
+  - [cloud-ml-platforms, distributed-training-infrastructure]
+  - [continuous-delivery-for-models, model-serving-patterns]
+  - [model-serving-patterns, deployment-strategies]
+  - [deployment-strategies, scaling-inference]
+  - [deployment-strategies, edge-and-on-device-deployment]
+  - [cloud-ml-platforms, scaling-inference]
+  - [deployment-strategies, monitoring-model-performance]
+  - [monitoring-model-performance, data-and-concept-drift]
+  - [monitoring-model-performance, explainability-and-interpretability]
+  - [data-and-concept-drift, ml-governance-and-compliance]
+  - [explainability-and-interpretability, ml-governance-and-compliance]
+  - [monitoring-model-performance, incident-response-for-ml-systems]

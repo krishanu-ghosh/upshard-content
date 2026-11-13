@@ -1,0 +1,267 @@
+slug: datastructures-and-algorithms
+title: Data Structures & Algorithms
+description: >-
+  Complete on its own: the core data structures and algorithms from the ground up
+  (complexity, arrays/lists/stacks/queues, hash tables, trees and heaps, graphs,
+  sorting, searching, recursion, greedy, backtracking, dynamic programming), then
+  everything computer-science doesn't cover — advanced trees and range-query
+  structures, disjoint sets and graph-structure algorithms, shortest-path algorithms
+  that handle negative weights and heuristics, non-comparison sorting, the design
+  techniques behind divide-and-conquer and randomization, advanced string matching,
+  and the full interview pattern catalog: two pointers, sliding window, merge
+  intervals, cyclic sort, top-k/two-heaps, subsets and permutations, classic DP, and
+  the rest of what LeetCode-style problems are actually built from.
+level: beginner
+status: published
+tags: [interview-prep, foundations]
+
+# Our own structure. roadmap.sh's Data Structures & Algorithms tree was read for
+# topic coverage only, as private inspiration (§13, §16); no third-party tree,
+# description, or link list is reproduced here. Self-contained by design: unlike an
+# earlier draft of this roadmap, it does not assume computer-science's data
+# structures lessons — the fundamentals that used to live there now live here, so
+# someone can learn DS&A start to finish from this roadmap alone. Fourteen groups:
+# complexity and the core structures/algorithms built on it, then everything beyond
+# that ground — advanced structures, graph-structure algorithms, shortest-path
+# algorithms, sorting, design technique, string matching, and the interview pattern
+# vocabulary.
+groups:
+  - slug: complexity-and-math-foundations
+    title: Complexity & math foundations
+    nodes:
+      - asymptotic-notation-big-o-theta-and-omega
+      - complexity-classes-p-np-and-np-complete
+      - probability-and-combinatorics-for-algorithms
+
+  - slug: core-data-structures
+    title: Core data structures
+    nodes:
+      - arrays-linked-lists-stacks-and-queues
+      - hash-tables-and-tries
+      - trees-bsts-and-heaps
+      - balanced-search-trees
+      - graph-representation
+
+  - slug: sorting-searching-and-recursion
+    title: Sorting, searching & recursion
+    nodes:
+      - comparison-based-sorting-algorithms
+      - searching-algorithms-and-recursion
+
+  - slug: graph-algorithms
+    title: Graph algorithms
+    nodes:
+      - graph-traversal-bfs-and-dfs
+      - shortest-path-algorithms
+      - minimum-spanning-trees
+      - network-flow
+
+  - slug: algorithm-design-paradigms
+    title: Algorithm design paradigms
+    nodes:
+      - greedy-algorithms
+      - backtracking
+      - dynamic-programming-and-np-hard-problems
+
+  - slug: advanced-linear-structures
+    title: Advanced linear structures
+    nodes:
+      - dynamic-arrays-and-amortized-analysis
+      - skip-lists
+      - monotonic-stacks-and-queues
+      - deques-and-circular-buffers
+
+  - slug: priority-structures-and-range-queries
+    title: Priority structures & range queries
+    nodes:
+      - d-ary-heaps-and-indexed-priority-queues
+      - segment-trees
+      - fenwick-trees
+      - interval-trees-and-range-queries
+
+  - slug: union-find-and-graph-structure
+    title: Union-find & graph structure
+    nodes:
+      - union-find-and-disjoint-sets
+      - topological-sorting
+      - strongly-connected-components
+      - bipartite-graphs-and-matching
+
+  - slug: advanced-graph-algorithms
+    title: Advanced graph algorithms
+    nodes:
+      - bellman-ford-and-negative-weights
+      - floyd-warshall-all-pairs-shortest-paths
+      - a-star-search
+
+  - slug: advanced-sorting-and-selection
+    title: Advanced sorting & selection
+    nodes:
+      - non-comparison-sorts
+      - order-statistics-and-quickselect
+
+  - slug: algorithm-design-techniques
+    title: Algorithm design techniques
+    nodes:
+      - divide-and-conquer-and-the-master-theorem
+      - amortized-analysis
+      - randomized-algorithms
+      - branch-and-bound
+
+  - slug: advanced-string-algorithms
+    title: Advanced string algorithms
+    nodes:
+      - string-matching-and-suffix-arrays
+      - z-algorithm-and-manachers-algorithm
+      - suffix-trees-and-longest-common-substring
+      - aho-corasick-and-multi-pattern-matching
+
+  - slug: problem-solving-patterns
+    title: Problem-solving patterns
+    nodes:
+      - two-pointers-and-fast-slow-pointers
+      - sliding-window-technique
+      - binary-search-on-the-answer
+      - meet-in-the-middle
+      - bitmask-dynamic-programming
+
+  - slug: more-interview-patterns
+    title: More interview patterns
+    nodes:
+      - prefix-sums-and-difference-arrays
+      - merge-intervals-pattern
+      - cyclic-sort-pattern
+      - in-place-linked-list-reversal
+      - subsets-permutations-and-combinations
+      - top-k-elements-and-the-two-heaps-pattern
+      - matrix-traversal-patterns
+      - bitwise-xor-tricks-for-interviews
+      - greedy-interval-scheduling
+      - classic-dynamic-programming-patterns
+
+  - slug: number-theory-for-algorithms
+    title: Number theory for algorithms
+    nodes:
+      - sieve-of-eratosthenes-and-primality-testing
+      - gcd-and-modular-arithmetic
+      - fast-exponentiation
+
+  - slug: more-graph-algorithms
+    title: More graph algorithms
+    nodes:
+      - eulerian-paths-and-circuits
+      - articulation-points-and-bridges
+      - graph-coloring
+      - lowest-common-ancestor-techniques
+
+  - slug: more-advanced-structures
+    title: More advanced structures
+    nodes:
+      - tries-and-autocomplete
+      - lru-cache-design-and-implementation
+      - sparse-tables-and-static-range-queries
+
+  - slug: more-patterns-and-tricks
+    title: More patterns & tricks
+    nodes:
+      - kadanes-algorithm-and-maximum-subarray
+      - dutch-national-flag-and-three-way-partitioning
+      - boyer-moore-voting-algorithm
+      - reservoir-sampling
+      - rolling-hash-and-string-hashing
+
+# Prerequisite links, [from, to]. Every edge runs forward along the authored
+# order; the content gate rejects one that does not.
+edges:
+  - [asymptotic-notation-big-o-theta-and-omega, complexity-classes-p-np-and-np-complete]
+  - [asymptotic-notation-big-o-theta-and-omega, arrays-linked-lists-stacks-and-queues]
+  - [asymptotic-notation-big-o-theta-and-omega, probability-and-combinatorics-for-algorithms]
+
+  - [arrays-linked-lists-stacks-and-queues, hash-tables-and-tries]
+  - [hash-tables-and-tries, trees-bsts-and-heaps]
+  - [trees-bsts-and-heaps, balanced-search-trees]
+  - [trees-bsts-and-heaps, graph-representation]
+
+  - [arrays-linked-lists-stacks-and-queues, comparison-based-sorting-algorithms]
+  - [comparison-based-sorting-algorithms, searching-algorithms-and-recursion]
+
+  - [graph-representation, graph-traversal-bfs-and-dfs]
+  - [graph-traversal-bfs-and-dfs, shortest-path-algorithms]
+  - [shortest-path-algorithms, minimum-spanning-trees]
+  - [minimum-spanning-trees, network-flow]
+
+  - [searching-algorithms-and-recursion, backtracking]
+  - [complexity-classes-p-np-and-np-complete, dynamic-programming-and-np-hard-problems]
+  - [greedy-algorithms, backtracking]
+  - [backtracking, dynamic-programming-and-np-hard-problems]
+
+  - [arrays-linked-lists-stacks-and-queues, string-matching-and-suffix-arrays]
+  - [string-matching-and-suffix-arrays, z-algorithm-and-manachers-algorithm]
+
+  # fundamentals feeding into the advanced groups
+  - [arrays-linked-lists-stacks-and-queues, dynamic-arrays-and-amortized-analysis]
+  - [trees-bsts-and-heaps, d-ary-heaps-and-indexed-priority-queues]
+  - [trees-bsts-and-heaps, segment-trees]
+  - [graph-representation, union-find-and-disjoint-sets]
+  - [shortest-path-algorithms, bellman-ford-and-negative-weights]
+  - [comparison-based-sorting-algorithms, non-comparison-sorts]
+  - [searching-algorithms-and-recursion, divide-and-conquer-and-the-master-theorem]
+  - [dynamic-programming-and-np-hard-problems, bitmask-dynamic-programming]
+  - [dynamic-programming-and-np-hard-problems, classic-dynamic-programming-patterns]
+  - [backtracking, subsets-permutations-and-combinations]
+  - [greedy-algorithms, greedy-interval-scheduling]
+
+  - [dynamic-arrays-and-amortized-analysis, amortized-analysis]
+  - [dynamic-arrays-and-amortized-analysis, two-pointers-and-fast-slow-pointers]
+  - [skip-lists, segment-trees]
+  - [monotonic-stacks-and-queues, sliding-window-technique]
+  - [deques-and-circular-buffers, sliding-window-technique]
+
+  - [d-ary-heaps-and-indexed-priority-queues, a-star-search]
+  - [segment-trees, fenwick-trees]
+  - [fenwick-trees, interval-trees-and-range-queries]
+
+  - [union-find-and-disjoint-sets, bipartite-graphs-and-matching]
+  - [topological-sorting, strongly-connected-components]
+  - [strongly-connected-components, bellman-ford-and-negative-weights]
+
+  - [bellman-ford-and-negative-weights, floyd-warshall-all-pairs-shortest-paths]
+  - [floyd-warshall-all-pairs-shortest-paths, a-star-search]
+
+  - [non-comparison-sorts, order-statistics-and-quickselect]
+  - [order-statistics-and-quickselect, randomized-algorithms]
+
+  - [divide-and-conquer-and-the-master-theorem, amortized-analysis]
+  - [amortized-analysis, randomized-algorithms]
+  - [randomized-algorithms, branch-and-bound]
+  - [divide-and-conquer-and-the-master-theorem, bitmask-dynamic-programming]
+
+  - [z-algorithm-and-manachers-algorithm, suffix-trees-and-longest-common-substring]
+  - [suffix-trees-and-longest-common-substring, aho-corasick-and-multi-pattern-matching]
+
+  - [two-pointers-and-fast-slow-pointers, sliding-window-technique]
+  - [sliding-window-technique, binary-search-on-the-answer]
+  - [binary-search-on-the-answer, meet-in-the-middle]
+  - [meet-in-the-middle, bitmask-dynamic-programming]
+
+  - [merge-intervals-pattern, greedy-interval-scheduling]
+  - [bitmask-dynamic-programming, classic-dynamic-programming-patterns]
+
+  - [gcd-and-modular-arithmetic, fast-exponentiation]
+
+  - [graph-traversal-bfs-and-dfs, eulerian-paths-and-circuits]
+  - [graph-traversal-bfs-and-dfs, articulation-points-and-bridges]
+  - [graph-representation, graph-coloring]
+  - [segment-trees, lowest-common-ancestor-techniques]
+  - [trees-bsts-and-heaps, lowest-common-ancestor-techniques]
+
+  - [hash-tables-and-tries, tries-and-autocomplete]
+  - [arrays-linked-lists-stacks-and-queues, lru-cache-design-and-implementation]
+  - [hash-tables-and-tries, lru-cache-design-and-implementation]
+  - [segment-trees, sparse-tables-and-static-range-queries]
+
+  - [dynamic-programming-and-np-hard-problems, kadanes-algorithm-and-maximum-subarray]
+  - [two-pointers-and-fast-slow-pointers, dutch-national-flag-and-three-way-partitioning]
+  - [arrays-linked-lists-stacks-and-queues, boyer-moore-voting-algorithm]
+  - [probability-and-combinatorics-for-algorithms, reservoir-sampling]
+  - [string-matching-and-suffix-arrays, rolling-hash-and-string-hashing]

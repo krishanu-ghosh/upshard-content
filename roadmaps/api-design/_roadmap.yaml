@@ -1,0 +1,119 @@
+slug: api-design
+title: API Design
+description: >-
+  How to design, secure, document, and operate an API as a product with its own
+  contract — not the transport or infrastructure underneath it. Resource modeling,
+  versioning, pagination, and error contracts; OAuth2/JWT/API-key authentication and
+  the full authorization-model taxonomy in practice; OpenAPI documentation and a
+  testing discipline built specifically for APIs (contract tests, mocking, load
+  testing); the OWASP API Security Top 10; and the compliance standards an API has
+  to answer to. Twenty-one lessons that assume computer-science (HTTP, TCP/IP, DNS)
+  and system-design (REST/gRPC/GraphQL mechanics, rate limiting, caching, load
+  balancing, gateways, event-driven messaging, microservices) as a starting point
+  and go one layer up — the contract a client depends on, not the mechanics
+  underneath it.
+level: intermediate
+status: published
+tags: [backend, apis]
+
+# Our own structure. roadmap.sh's API Design tree was read for topic coverage
+# only, as private inspiration (§13, §16); no third-party tree, description, or
+# link list is reproduced here. Its raw list runs to 97 topics, a large fraction
+# of them either ground this site already teaches in full elsewhere or vendor
+# tool names rather than real topics:
+#   - HTTP/TCP-IP/DNS/TLS basics, cookies, HTTP caching (computer-science)
+#   - REST vs RPC vs GraphQL vs gRPC survey, gRPC itself, GraphQL schema design,
+#     rate-limiting algorithms, caching strategies, load balancing, circuit
+#     breakers, monolith-vs-microservices, event-driven/pub-sub messaging, API
+#     gateways, BFF pattern, idempotency, federated identity/SSO, distributed
+#     tracing and monitoring (system-design)
+#   - the general OWASP Top 10 for web apps (software-architect — API Security's
+#     OWASP API Top 10 here is a different, narrower list: BOLA, excessive data
+#     exposure, mass assignment — and is scoped to that)
+#   - the test-pyramid basics of unit/integration/functional testing
+#     (computer-science's testing-fundamentals)
+#   - WebSocket/SSE/polling mechanics (computer-science)
+#   - vendor- and cert-body—specific nodes (Postman, Readme.com, Stoplight,
+#     individual compliance regimes) collapsed into one lesson each on the
+#     underlying skill (documentation tooling, data-privacy standards) rather
+#     than one node per product or law, same consolidation pattern used in
+#     software-architect's and computer-science's SOURCING reviews.
+# None of that is re-taught here — every lesson below cross-references the
+# roadmap and lesson that already owns that ground. This roadmap is scoped to
+# what's left once the infrastructure and transport layers are isolated: the
+# contract itself (resource modeling, versioning, pagination, errors), how an
+# API authenticates and authorizes its own callers in practice, how it's
+# documented and tested as an API specifically, and the security/compliance
+# surface unique to exposing one. Five groups, roughly in teaching order:
+# contract design, real-time and integration patterns, authentication and
+# authorization, documentation/testing/quality, and security/performance/
+# compliance.
+groups:
+  - slug: contract-design
+    title: Designing the contract
+    nodes:
+      - rest-resource-modeling-and-uri-design
+      - api-versioning-strategies
+      - pagination-filtering-and-sorting
+      - hateoas-and-alternative-api-styles
+      - cors-and-content-negotiation
+      - structured-error-handling-and-rfc-7807
+
+  - slug: real-time-and-integration-patterns
+    title: Real-time & integration patterns
+    nodes:
+      - streaming-and-real-time-api-contracts
+      - webhooks-vs-polling
+      - synchronous-vs-asynchronous-api-design
+      - batch-processing-apis
+
+  - slug: authentication-and-authorization
+    title: Authentication & authorization
+    nodes:
+      - oauth2-and-oidc-in-practice
+      - jwt-api-keys-and-session-auth
+      - authorization-models-rbac-abac-and-beyond
+      - api-key-management-and-scopes
+
+  - slug: documentation-testing-and-quality
+    title: Documentation, testing & quality
+    nodes:
+      - openapi-and-api-documentation-tooling
+      - contract-testing-for-apis
+      - mocking-and-virtualizing-apis
+      - load-testing-apis
+
+  - slug: security-performance-and-compliance
+    title: Security, performance & compliance
+    nodes:
+      - owasp-api-security-top-10
+      - api-performance-metrics-and-monitoring
+      - data-privacy-and-compliance-standards-for-apis
+
+# Prerequisite links, [from, to]. Every edge runs forward along the authored
+# order; the content gate rejects one that does not.
+edges:
+  - [rest-resource-modeling-and-uri-design, api-versioning-strategies]
+  - [api-versioning-strategies, pagination-filtering-and-sorting]
+  - [pagination-filtering-and-sorting, hateoas-and-alternative-api-styles]
+  - [rest-resource-modeling-and-uri-design, cors-and-content-negotiation]
+  - [cors-and-content-negotiation, structured-error-handling-and-rfc-7807]
+
+  - [structured-error-handling-and-rfc-7807, streaming-and-real-time-api-contracts]
+  - [streaming-and-real-time-api-contracts, webhooks-vs-polling]
+  - [webhooks-vs-polling, synchronous-vs-asynchronous-api-design]
+  - [synchronous-vs-asynchronous-api-design, batch-processing-apis]
+
+  - [structured-error-handling-and-rfc-7807, oauth2-and-oidc-in-practice]
+  - [oauth2-and-oidc-in-practice, jwt-api-keys-and-session-auth]
+  - [jwt-api-keys-and-session-auth, authorization-models-rbac-abac-and-beyond]
+  - [authorization-models-rbac-abac-and-beyond, api-key-management-and-scopes]
+
+  - [rest-resource-modeling-and-uri-design, openapi-and-api-documentation-tooling]
+  - [openapi-and-api-documentation-tooling, contract-testing-for-apis]
+  - [contract-testing-for-apis, mocking-and-virtualizing-apis]
+  - [mocking-and-virtualizing-apis, load-testing-apis]
+
+  - [authorization-models-rbac-abac-and-beyond, owasp-api-security-top-10]
+  - [owasp-api-security-top-10, api-performance-metrics-and-monitoring]
+  - [owasp-api-security-top-10, data-privacy-and-compliance-standards-for-apis]

@@ -1,0 +1,21 @@
+slug: memory-bound-token-latency
+name: Memory-bound token latency
+latex: "t_{\\text{token}} \\approx \\frac{M_{\\text{weights}} + M_{\\text{KV}}}{\\mathrm{BW}}"
+domains: [inference]
+plain: >-
+  When generating one token at a time, every weight has to be read from memory and
+  barely any arithmetic is done with it. The floor on time per token is therefore set by
+  bandwidth, not by FLOPs — which is the whole argument for batching.
+symbols:
+  - sym: "M_{\\text{weights}}"
+    means: Bytes of model weights read per token.
+  - sym: "M_{\\text{KV}}"
+    means: Bytes of KV cache read per token.
+  - sym: "\\mathrm{BW}"
+    means: Achievable memory bandwidth, in bytes per second.
+related:
+  - arithmetic-intensity
+  - kv-cache-size
+  - littles-law
+  - model-memory-footprint
+  - speculative-decoding-speedup
