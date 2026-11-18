@@ -7,6 +7,13 @@
 </p>
 
 <p align="center">
+  <a href="https://github.com/krishanu-ghosh/upshard-content/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/krishanu-ghosh/upshard-content?label=stars"></a>
+  <a href="https://github.com/krishanu-ghosh/upshard-content/graphs/contributors"><img alt="Contributors" src="https://img.shields.io/github/contributors/krishanu-ghosh/upshard-content"></a>
+  <a href="https://github.com/krishanu-ghosh/upshard-content/issues"><img alt="Open issues" src="https://img.shields.io/github/issues/krishanu-ghosh/upshard-content"></a>
+  <a href="https://github.com/krishanu-ghosh/upshard-content/commits/main"><img alt="Last commit" src="https://img.shields.io/github/last-commit/krishanu-ghosh/upshard-content"></a>
+</p>
+
+<p align="center">
   <a href="LICENSE"><img alt="License: CC BY-SA 4.0" src="https://img.shields.io/badge/license-CC%20BY--SA%204.0-lightgrey.svg"></a>
   <a href="https://www.upshard.com"><img alt="Live at upshard.com" src="https://img.shields.io/badge/live-upshard.com-blue"></a>
   <a href="CONTRIBUTING.md"><img alt="PRs welcome" src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg"></a>
