@@ -1,16 +1,18 @@
 <p align="center">
-  <img src="docs/logo.png" alt="Upshard" width="320">
+  <img src="docs/logo.png" alt="Upshard" width="260">
 </p>
 
-# Upshard Content
-
-### [upshard.com →](https://www.upshard.com)
+<p align="center">
+  <a href="https://www.upshard.com"><strong>upshard.com</strong></a> — free, open-source developer roadmaps where every node is a full lesson, not a link.
+</p>
 
 <p align="center">
   <img src="docs/screenshot.png" alt="The AI Engineer roadmap graph on upshard.com" width="800">
 </p>
 
-The open-source lesson content and roadmap graphs behind **[Upshard](https://www.upshard.com)** — a free, no-paywall graph of developer roadmaps where every node is a complete, interactive lesson, not a link dump.
+# Upshard Content
+
+The open-source lesson content and roadmap graphs behind **[Upshard](https://www.upshard.com)**.
 
 **No SaaS. No paywall. No premium tier. No pop-up asking for your email before you can read a lesson.** The content lives here, in the open, under [CC BY-SA 4.0](LICENSE) — fork it, fix it, redistribute it, as long as you credit it and keep it open.
 
