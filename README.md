@@ -7,8 +7,16 @@
 </p>
 
 <p align="center">
+  <a href="LICENSE"><img alt="License: CC BY-SA 4.0" src="https://img.shields.io/badge/license-CC%20BY--SA%204.0-lightgrey.svg"></a>
+  <a href="https://www.upshard.com"><img alt="Live at upshard.com" src="https://img.shields.io/badge/live-upshard.com-blue"></a>
+  <a href="CONTRIBUTING.md"><img alt="PRs welcome" src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg"></a>
+</p>
+
+<p align="center">
   <img src="docs/screenshot.png" alt="The AI Engineer roadmap graph on upshard.com" width="800">
 </p>
+
+---
 
 # Upshard Content
 
@@ -17,6 +25,34 @@ The open-source lesson content and roadmap graphs behind **[Upshard](https://www
 **No SaaS. No paywall. No premium tier. No pop-up asking for your email before you can read a lesson.** The content lives here, in the open, under [CC BY-SA 4.0](LICENSE) — fork it, fix it, redistribute it, as long as you credit it and keep it open.
 
 This repo holds the data: the roadmap graphs, the lessons rendered on each node, and the formula library referenced from them. It does not hold the Upshard application itself.
+
+**Jump to:** [What's here](#whats-here-right-now) · [How a lesson is built](#what-a-lesson-actually-is) · [Repo layout & schema](#repo-layout) · [Contributing](#contributing) · [License](#license)
+
+## What's here right now
+
+| Roadmap | Level | Lessons |
+|---|---|---|
+| [AI Agents](roadmaps/ai-agents) | intermediate | 33 |
+| [AI Data Scientist](roadmaps/ai-data-scientist) | intermediate | 29 |
+| [AI Engineer](roadmaps/ai-engineer) | intermediate | 36 |
+| [AI Product Builder](roadmaps/ai-product-builder) | intermediate | 30 |
+| [AI Red Teaming](roadmaps/ai-red-teaming) | advanced | 24 |
+| [API Design](roadmaps/api-design) | intermediate | 21 |
+| [Code Review](roadmaps/code-review) | beginner | 6 |
+| [Computer Science](roadmaps/computer-science) | beginner | 29 |
+| [Data Structures & Algorithms](roadmaps/datastructures-and-algorithms) | beginner | 72 |
+| [Inference Engineering](roadmaps/inference-engineering) | advanced | 32 |
+| [Machine Learning](roadmaps/machine-learning) | intermediate | 33 |
+| [MLOps](roadmaps/mlops) | intermediate | 32 |
+| [Prompt Engineering](roadmaps/prompt-engineering) | beginner | 29 |
+| [Software Architect](roadmaps/software-architect) | intermediate | 26 |
+| [Design Principles & Patterns](roadmaps/software-design-architecture) | intermediate | 15 |
+| [System Design](roadmaps/system-design) | intermediate | 60 |
+| **Total — 16 roadmaps** | | **507** |
+
+Plus an [80-entry formula library](formulas) spanning linear algebra, calculus, probability, information theory, optimization, deep learning, reinforcement learning, and inference.
+
+More roadmaps (including the web development stack — Angular, TypeScript, JavaScript, Frontend, Backend) are live on [upshard.com](https://www.upshard.com) and rolling into this repo. Upshard is built to scale to ~95 roadmaps and ~11,000 lessons.
 
 ## What a lesson actually is
 
@@ -121,31 +157,6 @@ symbols:
 related:
   - conditional-probability
 ```
-
-## What's here right now
-
-| Roadmap | Level | Lessons |
-|---|---|---|
-| AI Agents | intermediate | 33 |
-| AI Data Scientist | intermediate | 29 |
-| AI Engineer | intermediate | 36 |
-| AI Product Builder | intermediate | 30 |
-| AI Red Teaming | advanced | 24 |
-| API Design | intermediate | 21 |
-| Code Review | beginner | 6 |
-| Computer Science | beginner | 29 |
-| Data Structures & Algorithms | beginner | 72 |
-| Inference Engineering | advanced | 32 |
-| Machine Learning | intermediate | 33 |
-| MLOps | intermediate | 32 |
-| Prompt Engineering | beginner | 29 |
-| Software Architect | intermediate | 26 |
-| Design Principles & Patterns | intermediate | 15 |
-| System Design | intermediate | 60 |
-
-Plus an 80-entry formula library spanning linear algebra, calculus, probability, information theory, optimization, deep learning, reinforcement learning, and inference.
-
-More roadmaps (including the web development stack — Angular, TypeScript, JavaScript, Frontend, Backend) are live on [upshard.com](https://www.upshard.com) and rolling into this repo. Upshard is built to scale to ~95 roadmaps and ~11,000 lessons.
 
 ## Contributing
 
