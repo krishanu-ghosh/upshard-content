@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: General question
+    url: https://www.upshard.com/about
+    about: For questions about Upshard itself rather than this content repo.
