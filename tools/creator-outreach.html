@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Creator outreach tracker — upshard roadmaps</title>
+<style>
+  :root {
+    --bg: #faf9f7;
+    --surface: #ffffff;
+    --border: #e4e0da;
+    --fg: #22201c;
+    --fg-muted: #6b665d;
+    --accent: #a8542f;
+    --accent-soft: #f4e7de;
+    --small-badge-bg: #e7f0e4;
+    --small-badge-fg: #2f5d2a;
+    --mid-badge-bg: #eee7d8;
+    --mid-badge-fg: #7a5a1e;
+    --row-hover: #f1efea;
+    --done-bg: #eef6ec;
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #1b1a18;
+      --surface: #242220;
+      --border: #3a3733;
+      --fg: #ede9e3;
+      --fg-muted: #a39d93;
+      --accent: #e08a5c;
+      --accent-soft: #3a2a20;
+      --small-badge-bg: #223a20;
+      --small-badge-fg: #a8d6a0;
+      --mid-badge-bg: #3a3220;
+      --mid-badge-fg: #d8bd80;
+      --row-hover: #2b2825;
+      --done-bg: #20281f;
+      color-scheme: dark;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--fg);
+    font: 15px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, sans-serif;
+    padding-bottom: 60px;
+  }
+  header {
+    padding: 28px max(16px, env(safe-area-inset-left, 0px)) 18px max(16px, env(safe-area-inset-left, 0px));
+    border-bottom: 1px solid var(--border);
+    background: var(--surface);
+  }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 16px; }
+  header .wrap { padding: 0; max-width: 1080px; margin: 0 auto; }
+  h1 { font-size: 1.4rem; margin: 0 0 4px; letter-spacing: -0.01em; }
+  .sub { color: var(--fg-muted); font-size: 0.92rem; max-width: 70ch; }
+  .stats {
+    display: flex; gap: 10px; flex-wrap: wrap; margin-top: 14px;
+  }
+  .stat {
+    background: var(--accent-soft); border-radius: 8px; padding: 8px 12px;
+    font-size: 0.82rem; color: var(--fg); font-variant-numeric: tabular-nums;
+  }
+  .stat b { font-size: 1rem; display: block; color: var(--accent); }
+  .controls {
+    position: sticky; top: 0; z-index: 5;
+    background: var(--bg); padding: 14px 16px; border-bottom: 1px solid var(--border);
+    display: flex; gap: 10px; flex-wrap: wrap; align-items: center;
+  }
+  .controls input[type=search] {
+    flex: 1; min-width: 180px; padding: 9px 12px; border-radius: 8px;
+    border: 1px solid var(--border); background: var(--surface); color: var(--fg); font-size: 0.9rem;
+  }
+  .seg { display: flex; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+  .seg button {
+    border: none; background: var(--surface); color: var(--fg-muted); padding: 8px 13px;
+    font-size: 0.82rem; cursor: pointer; border-right: 1px solid var(--border);
+  }
+  .seg button:last-child { border-right: none; }
+  .seg button.active { background: var(--accent); color: #fff; }
+  select {
+    padding: 8px 10px; border-radius: 8px; border: 1px solid var(--border);
+    background: var(--surface); color: var(--fg); font-size: 0.82rem;
+  }
+  main { max-width: 1080px; margin: 0 auto; padding: 16px; }
+  .count-line { color: var(--fg-muted); font-size: 0.8rem; margin: 2px 0 12px; }
+  .card {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+    margin-bottom: 10px; overflow: hidden;
+  }
+  .card.done { background: var(--done-bg); }
+  .card-head {
+    display: flex; align-items: center; gap: 12px; padding: 12px 14px; cursor: pointer;
+  }
+  .card-head input[type=checkbox] { width: 17px; height: 17px; flex-shrink: 0; cursor: pointer; }
+  .ch-name { font-weight: 600; font-size: 0.95rem; }
+  .ch-name a { color: inherit; text-decoration: none; border-bottom: 1px dotted var(--fg-muted); }
+  .ch-name a:hover { color: var(--accent); }
+  .badge {
+    font-size: 0.68rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em;
+    padding: 3px 7px; border-radius: 99px; flex-shrink: 0;
+  }
+  .badge.small { background: var(--small-badge-bg); color: var(--small-badge-fg); }
+  .badge.mid { background: var(--mid-badge-bg); color: var(--mid-badge-fg); }
+  .meta { color: var(--fg-muted); font-size: 0.78rem; flex-shrink: 0; margin-left: auto; white-space: nowrap; }
+  .chevron { color: var(--fg-muted); transition: transform 0.15s; flex-shrink: 0; }
+  .card.open .chevron { transform: rotate(90deg); }
+  .card-body { display: none; padding: 0 14px 14px 43px; }
+  .card.open .card-body { display: block; }
+  .lesson-row {
+    display: flex; gap: 8px; align-items: baseline; padding: 6px 0; border-top: 1px solid var(--border);
+    flex-wrap: wrap; font-size: 0.85rem;
+  }
+  .lesson-row:first-child { border-top: none; }
+  .lesson-title { font-weight: 500; }
+  .lesson-roadmap { color: var(--fg-muted); font-size: 0.78rem; }
+  .lesson-row a { color: var(--accent); font-size: 0.8rem; text-decoration: none; }
+  .lesson-row a:hover { text-decoration: underline; }
+  .draft-btn {
+    margin-top: 10px; font-size: 0.78rem; background: var(--accent); color: #fff; border: none;
+    padding: 7px 11px; border-radius: 7px; cursor: pointer;
+  }
+  .draft-btn:hover { opacity: 0.9; }
+  .note {
+    background: var(--accent-soft); border: 1px solid var(--border); border-radius: 10px;
+    padding: 12px 14px; font-size: 0.82rem; color: var(--fg-muted); margin: 16px 0;
+  }
+  .note b { color: var(--fg); }
+  .toast {
+    position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
+    background: var(--fg); color: var(--bg); padding: 9px 16px; border-radius: 8px;
+    font-size: 0.82rem; opacity: 0; pointer-events: none; transition: opacity 0.2s;
+  }
+  .toast.show { opacity: 1; }
+  empty-state { display: none; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <h1>Creator outreach tracker</h1>
+    <div class="sub">Every YouTube creator embedded across the upshard roadmap lessons, filtered down to the smaller/niche channels worth a personal heads-up that their video was hand-picked as the canonical resource for a lesson node — plus a slightly larger "mid-size" tier if you want to widen the net.</div>
+    <div class="stats" id="stats"></div>
+  </div>
+</header>
+
+<div class="controls">
+  <input type="search" id="search" placeholder="Search channel or lesson…">
+  <div class="seg" id="tierSeg">
+    <button data-tier="small" class="active">Small</button>
+    <button data-tier="mid">Mid-size</button>
+    <button data-tier="all">All</button>
+  </div>
+  <select id="sortSel">
+    <option value="count-desc">Most lessons first</option>
+    <option value="count-asc">Fewest lessons first</option>
+    <option value="name-asc">A → Z</option>
+  </select>
+</div>
+
+<main>
+  <div class="note">
+    <b>How "small" was decided:</b> every lesson's frontmatter names a creator and channel — that part is exact.
+    The <b>Small / Mid-size</b> split is a heuristic based on general knowledge, not a live subscriber-count check
+    (corporate brands, conferences, and well-known mega-channels like IBM Technology, 3Blue1Brown, freeCodeCamp,
+    NeetCode, etc. are excluded entirely). Channels I didn't recognize at all defaulted to "small", which is
+    usually a <i>good</i> sign for this purpose. Spot-check subscriber counts before messaging anyone you're unsure about.
+  </div>
+  <div class="count-line" id="countLine"></div>
+  <div id="list"></div>
+</main>
+
+<div class="toast" id="toast">Message copied</div>
+
+<script>
+const DATA = [{"name":"Lucas Soares (Automata Learning Lab)","url":"https://www.youtube.com/@automatalearninglab","count":3,"lessons":[{"title":"Structured output formats","roadmap":"prompt-engineering","video":"https://www.youtube.com/watch?v=NGEZsqEUpC0"},{"title":"Tree of thoughts","roadmap":"prompt-engineering","video":"https://www.youtube.com/watch?v=MXBxNUnC7iY"},{"title":"What are tools?","roadmap":"ai-agents","video":"https://www.youtube.com/watch?v=ATUUd2bpRfo"}],"tier":"small"},{"name":"Modern Software Engineering","url":"https://www.youtube.com/@ModernSoftwareEngineeringYT","count":3,"lessons":[{"title":"\"Architecture Under Agile Delivery \u2014 What Actually Changes\"","roadmap":"software-architect","video":"https://www.youtube.com/watch?v=8GONv6jJsG0"},{"title":"\"Separation of Concerns, Coupling, and Cohesion\"","roadmap":"software-design-architecture","video":"https://www.youtube.com/watch?v=plMttQWztRM"},{"title":"\"Code Smells and Refactoring\"","roadmap":"software-design-architecture","video":"https://www.youtube.com/watch?v=1KeJc6V4Jjk"}],"tier":"small"},{"name":"Annie Sexton","url":"https://www.youtube.com/@AnnieSexton1","count":2,"lessons":[{"title":"Tokens and tokenization","roadmap":"ai-engineer","video":"https://www.youtube.com/watch?v=4A_nfXyBD08"},{"title":"Tokens and context","roadmap":"prompt-engineering","video":"https://www.youtube.com/watch?v=4A_nfXyBD08"}],"tier":"small"},{"name":"At A Glance!","url":"https://www.youtube.com/@ataglanceofficial","count":2,"lessons":[{"title":"Chain-of-thought prompting","roadmap":"ai-agents","video":"https://www.youtube.com/watch?v=zKB6XcNzsS8"},{"title":"Automatic prompt engineering","roadmap":"prompt-engineering","video":"https://www.youtube.com/watch?v=5_BFqmQv1po"}],"tier":"small"},{"name":"CodeLucky","url":"https://www.youtube.com/@thecodelucky","count":2,"lessons":[{"title":"\"Backpressure and Flow Control\"","roadmap":"system-design","video":"https://www.youtube.com/watch?v=Vwb_rliN_2k"},{"title":"\"Choosing a Data Model: Key-Value, Document, Column-Family, and Graph\"","roadmap":"system-design","video":"https://www.youtube.com/watch?v=mMdZEAKtntA"}],"tier":"small"},{"name":"Efficient NLP","url":"https://www.youtube.com/@EfficientNLP","count":2,"lessons":[{"title":"Prompt caching","roadmap":"ai-engineer","video":"https://www.youtube.com/watch?v=Q_U4pRggC5I"},{"title":"Structured output","roadmap":"ai-engineer","video":"https://www.youtube.com/watch?v=xpvFinvqRCA"}],"tier":"small"},{"name":"Gary Explains","url":"https://www.youtube.com/@GaryExplains","count":2,"lessons":[{"title":"Sampling parameters","roadmap":"ai-engineer","video":"https://www.youtube.com/watch?v=MkaazQttbpc"},{"title":"Sampling parameters","roadmap":"prompt-engineering","video":"https://www.youtube.com/watch?v=MkaazQttbpc"}],"tier":"small"},{"name":"LearnThatStack","url":"https://www.youtube.com/@LearnThatStack","count":2,"lessons":[{"title":"\"API Versioning Strategies\"","roadmap":"api-design","video":"https://www.youtube.com/watch?v=a4KIBU9UgZ4"},{"title":"\"JWT, API Keys, and Session Auth\"","roadmap":"api-design","video":"https://www.youtube.com/watch?v=I747kI_y9eQ"}],"tier":"small"},{"name":"Prof. Ryan Ahmed","url":"https://www.youtube.com/@professor-ryanahmed","count":2,"lessons":[{"title":"Hyperparameter tuning","roadmap":"machine-learning","video":"https://www.youtube.com/watch?v=xRhPwQdNMss"},{"title":"Hyperparameter tuning","roadmap":"mlops","video":"https://www.youtube.com/watch?v=xRhPwQdNMss"}],"tier":"small"},{"name":"Ready Tensor","url":"https://www.youtube.com/@ready_tensor","count":2,"lessons":[{"title":"KV cache mechanics","roadmap":"inference-engineering","video":"https://www.youtube.com/watch?v=hafEw3bEu8E"},{"title":"Prefill and decode","roadmap":"inference-engineering","video":"https://www.youtube.com/watch?v=HRKFa8LIAQg"}],"tier":"small"},{"name":"Software Architecture Monday","url":"https://www.youtube.com/@markrichards5014","count":2,"lessons":[{"title":"\"Architecture Decision Records and How to Argue a Trade-off\"","roadmap":"software-architect","video":"https://www.youtube.com/watch?v=LMBqGPLvonU"},{"title":"\"What Is Software Architecture, and What Does an Architect Actually Do\"","roadmap":"software-architect","video":"https://www.youtube.com/watch?v=3fY86tUF0GY"}],"tier":"small"},{"name":"Toronto Machine Learning Society (TMLS)","url":"https://www.youtube.com/@tmls-ai","count":2,"lessons":[{"title":"Monitoring model performance","roadmap":"mlops","video":"https://www.youtube.com/watch?v=D87eM6_N2GM"},{"title":"Continuous training","roadmap":"mlops","video":"https://www.youtube.com/watch?v=giNPl2Uo0xc"}],"tier":"small"},{"name":"A Data Odyssey","url":"https://www.youtube.com/@adataodyssey","count":1,"lessons":[{"title":"Model Interpretability and Explainability","roadmap":"ai-data-scientist","video":"https://www.youtube.com/watch?v=MQ6fFDwjuco"}],"tier":"small"},{"name":"Aced (formerly Exponent)","url":"https://www.youtube.com/@aced_io","count":1,"lessons":[{"title":"\"Case Study: Design a Key-Value Store\"","roadmap":"system-design","video":"https://www.youtube.com/watch?v=6fOoXT1HYxk"}],"tier":"small"},{"name":"AI Academy","url":"https://www.youtube.com/@AI-Academy365","count":1,"lessons":[{"title":"System and role prompting","roadmap":"prompt-engineering","video":"https://www.youtube.com/watch?v=VUkFIrG6OiU"}],"tier":"small"},{"name":"AI TL;DR","url":"https://www.youtube.com/@EngineeringTLDR","count":1,"lessons":[{"title":"The agent loop","roadmap":"ai-agents","video":"https://www.youtube.com/watch?v=AryOxmm9TGI"}],"tier":"small"},{"name":"Alfa Yohannis","url":"https://www.youtube.com/@alfayohannis","count":1,"lessons":[{"title":"Zero-shot prompting","roadmap":"prompt-engineering","video":"https://www.youtube.com/watch?v=cpNzKLLFQ6s"}],"tier":"small"},{"name":"Algorithms with Attitude","url":"https://www.youtube.com/@AlgorithmswithAttitude","count":1,"lessons":[{"title":"\"Non-Comparison Sorts: Counting, Radix, and Bucket Sort\"","roadmap":"datastructures-and-algorithms","video":"https://www.youtube.com/watch?v=pJ1IQD5rv4o"}],"tier":"small"},{"name":"Amit Thinks","url":"https://www.youtube.com/@Amit.Thinks","count":1,"lessons":[{"title":"Stop sequences","roadmap":"prompt-engineering","video":"https://www.youtube.com/watch?v=_twqnmtBVMw"}],"tier":"small"},{"name":"AmrMakesGames","url":"https://www.youtube.com/@AmrMakesGames","count":1,"lessons":[{"title":"Reading and Debugging Generated Code","roadmap":"ai-product-builder","video":"https://www.youtube.com/watch?v=-ESUPH0shUM"}],"tier":"small"},{"name":"Apurv Khare","url":"https://www.youtube.com/@ApurvKhare","count":1,"lessons":[{"title":"When to use an agent","roadmap":"ai-agents","video":"https://www.youtube.com/watch?v=ePtYhwdRp2Q"}],"tier":"small"},{"name":"Arxiv Insights","url":"https://www.youtube.com/@ArxivInsights","count":1,"lessons":[{"title":"Reinforcement learning basics","roadmap":"machine-learning","video":"https://www.youtube.com/watch?v=JgvyzIkgxF0"}],"tier":"small"},{"name":"Back To Code","url":"https://www.youtube.com/@BackToCode","count":1,"lessons":[{"title":"Building an MCP server","roadmap":"ai-agents","video":"https://www.youtube.com/watch?v=zX3pMXmRaPE"}],"tier":"small"},{"name":"Ben Lambert","url":"https://www.youtube.com/@SpartacanUsuals","count":1,"lessons":[{"title":"Regression for Inference","roadmap":"ai-data-scientist","video":"https://www.youtube.com/watch?v=fZV4ntLEPlU"}],"tier":"small"},{"name":"BitLemon","url":"https://www.youtube.com/@BitLemonSoftware","count":1,"lessons":[{"title":"\"Memory Management and Virtual Memory\"","roadmap":"computer-science","video":"https://www.youtube.com/watch?v=B6tJxvYBNrU"}],"tier":"small"},{"name":"bulama io","url":"https://www.youtube.com/@bulama","count":1,"lessons":[{"title":"\"Backend for Frontend and Gateway Patterns\"","roadmap":"system-design","video":"https://www.youtube.com/watch?v=b8wPnMtL_xU"}],"tier":"small"},{"name":"ByteMonk","url":"https://www.youtube.com/@ByteMonk","count":1,"lessons":[{"title":"\"Microfrontends\"","roadmap":"software-architect","video":"https://www.youtube.com/watch?v=fkgQtEAZw4M"}],"tier":"small"},{"name":"Claude","url":"https://www.youtube.com/@claude","count":1,"lessons":[{"title":"The AI Product Creation Cycle","roadmap":"ai-product-builder","video":"https://www.youtube.com/watch?v=xJQuF02NAK8"}],"tier":"small"},{"name":"Cloud Codes","url":"https://www.youtube.com/@Cloud-Codes","count":1,"lessons":[{"title":"Quantization","roadmap":"inference-engineering","video":"https://www.youtube.com/watch?v=7hYSmzIZXNs"}],"tier":"small"},{"name":"Code and Stuff","url":"https://www.youtube.com/@CodeAndStuff","count":1,"lessons":[{"title":"\"Streaming and Real-Time API Contracts\"","roadmap":"api-design","video":"https://www.youtube.com/watch?v=RWaX_qU1d0E"}],"tier":"small"},{"name":"Code Made Simple","url":"https://www.youtube.com/@codemadesimple1043","count":1,"lessons":[{"title":"Integration Testing","roadmap":"ai-product-builder","video":"https://www.youtube.com/watch?v=NLjiTMJDIcY"}],"tier":"small"},{"name":"Code View And Talk","url":"https://www.youtube.com/@CodeViewAndTalk","count":1,"lessons":[{"title":"\"Choosing an Architectural Style\"","roadmap":"software-architect","video":"https://www.youtube.com/watch?v=wUOGCN5P-to"}],"tier":"small"},{"name":"codeKarle","url":"https://www.youtube.com/@codeKarle","count":1,"lessons":[{"title":"\"Case Study: Design a URL Shortener\"","roadmap":"system-design","video":"https://www.youtube.com/watch?v=AVztRY77xxA"}],"tier":"small"},{"name":"CodeSnippet by Chetan","url":"https://www.youtube.com/@CodeSnippetByChetanGhate","count":1,"lessons":[{"title":"\"Distributed Tracing\"","roadmap":"system-design","video":"https://www.youtube.com/watch?v=WS-eL_mkfWU"}],"tier":"small"},{"name":"Coding Coach","url":"https://www.youtube.com/@CodingCoach","count":1,"lessons":[{"title":"\"Connection Pooling and Read/Write Splitting\"","roadmap":"system-design","video":"https://www.youtube.com/watch?v=jDk95_C5I1s"}],"tier":"small"},{"name":"Cole Medin","url":"https://www.youtube.com/@ColeMedin","count":1,"lessons":[{"title":"The RAG pipeline","roadmap":"ai-engineer","video":"https://www.youtube.com/watch?v=tLMViADvSNE"}],"tier":"small"},{"name":"ComputerBread","url":"https://www.youtube.com/@ComputerBread","count":1,"lessons":[{"title":"\"Aho-Corasick: Matching Thousands of Patterns in One Pass\"","roadmap":"datastructures-and-algorithms","video":"https://www.youtube.com/watch?v=XWujo7KQL54"}],"tier":"small"},{"name":"CS Hero","url":"https://www.youtube.com/@cshero365","count":1,"lessons":[{"title":"\"Deques and Circular Buffers\"","roadmap":"datastructures-and-algorithms","video":"https://www.youtube.com/watch?v=hOPYEI_d50s"}],"tier":"small"},{"name":"CXL","url":"https://www.youtube.com/@CXLdotcom","count":1,"lessons":[{"title":"Designing A/B Tests","roadmap":"ai-data-scientist","video":"https://www.youtube.com/watch?v=HEGI5QN3fXE"}],"tier":"small"},{"name":"Cyber World YT","url":"https://www.youtube.com/@CyberWorldYTOfficial","count":1,"lessons":[{"title":"\"The OWASP Top 10 for Architects\"","roadmap":"software-architect","video":"https://www.youtube.com/watch?v=9HtxKEz59Gk"}],"tier":"small"},{"name":"CyberPlatter","url":"https://www.youtube.com/@cyberplatter","count":1,"lessons":[{"title":"\"Public Key Infrastructure\"","roadmap":"software-architect","video":"https://www.youtube.com/watch?v=CD1mQXyPOuY"}],"tier":"small"},{"name":"Dalton + Michael","url":"https://www.youtube.com/@daltonplusmichael","count":1,"lessons":[{"title":"Scoping Features and Choosing a Tech Stack","roadmap":"ai-product-builder","video":"https://www.youtube.com/watch?v=rQtrzBcf_Us"}],"tier":"small"},{"name":"Damsel in Data","url":"https://www.youtube.com/@damselindata","count":1,"lessons":[{"title":"The Math and Stats You Actually Need","roadmap":"ai-data-scientist","video":"https://www.youtube.com/watch?v=eJtHzkMy_1k"}],"tier":"small"},{"name":"Data with Baraa","url":"https://www.youtube.com/@DataWithBaraa","count":1,"lessons":[{"title":"What Is a Data Scientist?","roadmap":"ai-data-scientist","video":"https://www.youtube.com/watch?v=MvV2xY_u1rw"}],"tier":"small"},{"name":"Data with Marc","url":"https://www.youtube.com/@MarcLamberti","count":1,"lessons":[{"title":"Workflow orchestration","roadmap":"mlops","video":"https://www.youtube.com/watch?v=CGxxVj13sOs"}],"tier":"small"},{"name":"Dave Ebbelaar","url":"https://www.youtube.com/@daveebbelaar","count":1,"lessons":[{"title":"The Data Science Lifecycle","roadmap":"ai-data-scientist","video":"https://www.youtube.com/watch?v=dze8isgT8gU"}],"tier":"small"},{"name":"David Anderson","url":"https://www.youtube.com/@DX7Dev","count":1,"lessons":[{"title":"\"Batch Processing APIs\"","roadmap":"api-design","video":"https://www.youtube.com/watch?v=PQ5n8R1HZ5Q"}],"tier":"small"},{"name":"DeepFindr","url":"https://www.youtube.com/@DeepFindr","count":1,"lessons":[{"title":"Explainability and interpretability","roadmap":"mlops","video":"https://www.youtube.com/watch?v=9haIOplEIGM"}],"tier":"small"},{"name":"Design Patterns Lectures","url":"https://www.youtube.com/@DesignPatternsLectures","count":1,"lessons":[{"title":"\"SOLID Principles\"","roadmap":"software-architect","video":"https://www.youtube.com/watch?v=E4UQW0pn4nE"}],"tier":"small"},{"name":"Dhaval Maheta (DM)","url":"https://www.youtube.com/@DhavalSaifaleeAaryash","count":1,"lessons":[{"title":"Self-consistency prompting","roadmap":"prompt-engineering","video":"https://www.youtube.com/watch?v=K8zcj_i7cVc"}],"tier":"small"},{"name":"Elvis Saravia","url":"https://www.youtube.com/@elvissaravia","count":1,"lessons":[{"title":"Few-shot prompting","roadmap":"ai-engineer","video":"https://www.youtube.com/watch?v=ojtbHUqw1LA"}],"tier":"small"},{"name":"Embrace The Red","url":"https://www.youtube.com/@embracethered","count":1,"lessons":[{"title":"Agentic AI security and excessive agency","roadmap":"ai-red-teaming","video":"https://www.youtube.com/watch?v=TWhKGqYQT9g"}],"tier":"small"},{"name":"Evidently AI","url":"https://www.youtube.com/@EvidentlyAI","count":1,"lessons":[{"title":"LLM as judge","roadmap":"ai-engineer","video":"https://www.youtube.com/watch?v=kP_aaFnXLmY"}],"tier":"small"},{"name":"FAR.AI","url":"https://www.youtube.com/@FARAIResearch","count":1,"lessons":[{"title":"Adversarial training and robust design","roadmap":"ai-red-teaming","video":"https://www.youtube.com/watch?v=umfeF0Dx-r4"}],"tier":"small"},{"name":"Felipe DEV Senior \u2022 IA Coding","url":"https://www.youtube.com/@felvieira_dev","count":1,"lessons":[{"title":"Choosing a Prototyping Tool","roadmap":"ai-product-builder","video":"https://www.youtube.com/watch?v=uu3LAx-TfHc"}],"tier":"small"},{"name":"Finematics","url":"https://www.youtube.com/@Finematics","count":1,"lessons":[{"title":"\"The Actor Model: Concurrency Without Shared Memory\"","roadmap":"software-architect","video":"https://www.youtube.com/watch?v=ELwEdb_pD0k"}],"tier":"small"},{"name":"Fluent Algorithms","url":"https://www.youtube.com/@fluentalgorithms4847","count":1,"lessons":[{"title":"\"Lowest Common Ancestor Techniques\"","roadmap":"datastructures-and-algorithms","video":"https://www.youtube.com/watch?v=02zM-QoKoPg"}],"tier":"small"},{"name":"FranksWorld of AI","url":"https://www.youtube.com/@FranksWorldTV","count":1,"lessons":[{"title":"LLM security testing tools \u2014 garak, Promptfoo, and PyRIT","roadmap":"ai-red-teaming","video":"https://www.youtube.com/watch?v=YKyQeWJaLVM"}],"tier":"small"},{"name":"Fullstack Academy","url":"https://www.youtube.com/@FullstackAcademy","count":1,"lessons":[{"title":"\"Bitwise Operators & Bit Manipulation\"","roadmap":"computer-science","video":"https://www.youtube.com/watch?v=SSvHrrbhCCI"}],"tier":"small"},{"name":"Gaurav Kumar Jain","url":"https://www.youtube.com/@gauravkumarjain","count":1,"lessons":[{"title":"Graph and DAG orchestration","roadmap":"ai-agents","video":"https://www.youtube.com/watch?v=GE7mqOhAj_o"}],"tier":"small"},{"name":"Go Cloud Architects","url":"https://www.youtube.com/@GoCloudArchitects","count":1,"lessons":[{"title":"\"Levels of Architecture \u2014 Enterprise, Solution, and Application\"","roadmap":"software-architect","video":"https://www.youtube.com/watch?v=LttxTgZkKIk"}],"tier":"small"},{"name":"Google TechTalks","url":"https://www.youtube.com/@GoogleTechTalks","count":1,"lessons":[{"title":"\"Writing a Reviewable Pull Request\"","roadmap":"code-review","video":"https://www.youtube.com/watch?v=nsNEUM4kk_s"}],"tier":"small"},{"name":"GPU MODE","url":"https://www.youtube.com/@GPUMODE","count":1,"lessons":[{"title":"Kernel fusion","roadmap":"inference-engineering","video":"https://www.youtube.com/watch?v=m6BSREnQ84U"}],"tier":"small"},{"name":"How I AI","url":"https://www.youtube.com/@howiaipodcast","count":1,"lessons":[{"title":"Getting Feedback and Validating Fast","roadmap":"ai-product-builder","video":"https://www.youtube.com/watch?v=shqv90oAIkM"}],"tier":"small"},{"name":"Interview Kickstart US","url":"https://www.youtube.com/@Interviewkickstart","count":1,"lessons":[{"title":"\"Case Study: Design a Distributed Cache\"","roadmap":"system-design","video":"https://www.youtube.com/watch?v=DbT5mNm47Sg"}],"tier":"small"},{"name":"InterviewDryRun","url":"https://www.youtube.com/@InterviewDryRun","count":1,"lessons":[{"title":"\"Webhooks vs. Polling\"","roadmap":"api-design","video":"https://www.youtube.com/watch?v=FuBSI2I9rAI"}],"tier":"small"},{"name":"Jordan Has No Life","url":"https://www.youtube.com/@jordanhasnolife5163","count":1,"lessons":[{"title":"\"Distributed Transactions: Two-Phase Commit and Sagas\"","roadmap":"system-design","video":"https://www.youtube.com/watch?v=7DoT2sTGulc"}],"tier":"small"},{"name":"JOY of LIFE","url":"https://www.youtube.com/@joy_of_life","count":1,"lessons":[{"title":"\"Caching Strategies at Scale\"","roadmap":"system-design","video":"https://www.youtube.com/watch?v=rSQdrNzomN4"}],"tier":"small"},{"name":"Jumping Rivers","url":"https://www.youtube.com/@jumping-rivers","count":1,"lessons":[{"title":"Guardrails and moderation","roadmap":"ai-engineer","video":"https://www.youtube.com/watch?v=O_0QuRqvB5M"}],"tier":"small"},{"name":"Karndeep Singh","url":"https://www.youtube.com/@karndeepsingh","count":1,"lessons":[{"title":"Model registries","roadmap":"mlops","video":"https://www.youtube.com/watch?v=iIiPo4qv97o"}],"tier":"small"},{"name":"Krish Dinesh","url":"https://www.youtube.com/@krishdinesh","count":1,"lessons":[{"title":"\"Service-Oriented Architecture & the ESB\"","roadmap":"software-architect","video":"https://www.youtube.com/watch?v=fN03uL_HxwE"}],"tier":"small"},{"name":"KryptoMindz Technologies","url":"https://www.youtube.com/@kryptomindz","count":1,"lessons":[{"title":"Threat modeling for AI systems","roadmap":"ai-red-teaming","video":"https://www.youtube.com/watch?v=oh_Uibdmk7c"}],"tier":"small"},{"name":"Learn with Manoj","url":"https://www.youtube.com/@LearnwithManoj","count":1,"lessons":[{"title":"MCP hosts, clients, and servers","roadmap":"ai-agents","video":"https://www.youtube.com/watch?v=7KlapF6BfNU"}],"tier":"small"},{"name":"LearnAwesome","url":"https://www.youtube.com/@LearnAwesome","count":1,"lessons":[{"title":"Prompt ensembling","roadmap":"prompt-engineering","video":"https://www.youtube.com/watch?v=IMkSUxGKfvw"}],"tier":"small"},{"name":"Lightning AI","url":"https://www.youtube.com/@PyTorchLightning","count":1,"lessons":[{"title":"Distributed training infrastructure","roadmap":"mlops","video":"https://www.youtube.com/watch?v=a6_pY9WwqdQ"}],"tier":"small"},{"name":"LlamaIndex","url":"https://www.youtube.com/@LlamaIndex","count":1,"lessons":[{"title":"LlamaIndex for agents","roadmap":"ai-agents","video":"https://www.youtube.com/watch?v=MmiveeGxfX0"}],"tier":"small"},{"name":"Lukas Margerie","url":"https://www.youtube.com/@lukas-margerie","count":1,"lessons":[{"title":"Prompt-to-App Generation","roadmap":"ai-product-builder","video":"https://www.youtube.com/watch?v=2_NKt7U5MA8"}],"tier":"small"},{"name":"Mahesh Huddar","url":"https://www.youtube.com/@MaheshHuddar","count":1,"lessons":[{"title":"Cross-validation","roadmap":"machine-learning","video":"https://www.youtube.com/watch?v=PF2wLKv2lsI"}],"tier":"small"},{"name":"Master of Machines","url":"https://www.youtube.com/@MasterofMachines","count":1,"lessons":[{"title":"Incident response for ML systems","roadmap":"mlops","video":"https://www.youtube.com/watch?v=58GnKsyOM9I"}],"tier":"small"},{"name":"Matt Pocock","url":"https://www.youtube.com/@mattpocockuk","count":1,"lessons":[{"title":"The context window","roadmap":"ai-engineer","video":"https://www.youtube.com/watch?v=-uW5-TaVXu4"}],"tier":"small"},{"name":"Nadav Timor","url":"https://www.youtube.com/@NadavTimor","count":1,"lessons":[{"title":"Embedding and multimodal inference","roadmap":"inference-engineering","video":"https://www.youtube.com/watch?v=PcvxdWJOyUE"}],"tier":"small"},{"name":"NStatum","url":"https://www.youtube.com/@nstatum8290","count":1,"lessons":[{"title":"Chain-of-thought prompting","roadmap":"prompt-engineering","video":"https://www.youtube.com/watch?v=-pSKPW6nRSw"}],"tier":"small"},{"name":"Owain Lewis","url":"https://www.youtube.com/@owainlewis","count":1,"lessons":[{"title":"Reviewing AI-Generated Code","roadmap":"ai-product-builder","video":"https://www.youtube.com/watch?v=As2xy_cSx00"}],"tier":"small"},{"name":"Peter Yang","url":"https://www.youtube.com/@PeterYangYT","count":1,"lessons":[{"title":"From Prototype to Working App","roadmap":"ai-product-builder","video":"https://www.youtube.com/watch?v=Llhno97FUmo"}],"tier":"small"},{"name":"PM Expert","url":"https://www.youtube.com/@pankajsh10","count":1,"lessons":[{"title":"Top-k and top-p","roadmap":"prompt-engineering","video":"https://www.youtube.com/watch?v=QgneZX57bsI"}],"tier":"small"},{"name":"Rob Mulla","url":"https://www.youtube.com/@robmulla","count":1,"lessons":[{"title":"The Exploratory Data Analysis Process","roadmap":"ai-data-scientist","video":"https://www.youtube.com/watch?v=xi0vhXFPegw"}],"tier":"small"},{"name":"RoboSathi","url":"https://www.youtube.com/@RoboSathi","count":1,"lessons":[{"title":"Deployment strategies","roadmap":"mlops","video":"https://www.youtube.com/watch?v=3b-WkL1Zn5s"}],"tier":"small"},{"name":"Sam Witteveen","url":"https://www.youtube.com/@samwitteveenai","count":1,"lessons":[{"title":"\"ReAct: reasoning and acting\"","roadmap":"ai-agents","video":"https://www.youtube.com/watch?v=Eug2clsLtFs"}],"tier":"small"},{"name":"Sara Dietschy","url":"https://www.youtube.com/@saradietschy","count":1,"lessons":[{"title":"Connecting a Database","roadmap":"ai-product-builder","video":"https://www.youtube.com/watch?v=7kQi2HQMz4s"}],"tier":"small"},{"name":"Sean Kochel","url":"https://www.youtube.com/@iamseankochel","count":1,"lessons":[{"title":"Claude and Chat-Based Design Tools","roadmap":"ai-product-builder","video":"https://www.youtube.com/watch?v=nDHXLnwlIaY"}],"tier":"small"},{"name":"Sentry","url":"https://www.youtube.com/@Sentry-monitoring","count":1,"lessons":[{"title":"Monitoring and Iterating After Launch","roadmap":"ai-product-builder","video":"https://www.youtube.com/watch?v=4Pi9aT5CeHI"}],"tier":"small"},{"name":"Shunyu Yao","url":"https://www.youtube.com/@shunyuyao4854","count":1,"lessons":[{"title":"Tree of thought","roadmap":"ai-agents","video":"https://www.youtube.com/watch?v=zwfE6J2BIR4"}],"tier":"small"},{"name":"Siddhardhan","url":"https://www.youtube.com/@Siddhardhan","count":1,"lessons":[{"title":"Model selection","roadmap":"machine-learning","video":"https://www.youtube.com/watch?v=SF0YdBXjr_A"}],"tier":"small"},{"name":"Sriniously","url":"https://www.youtube.com/@sriniously","count":1,"lessons":[{"title":"\"OpenAPI and the API Documentation Tooling Landscape\"","roadmap":"api-design","video":"https://www.youtube.com/watch?v=CwKsU84jIWs"}],"tier":"small"},{"name":"Standarity","url":"https://www.youtube.com/@Standarity","count":1,"lessons":[{"title":"Prefix caching","roadmap":"inference-engineering","video":"https://www.youtube.com/watch?v=mhZahVv3A3I"}],"tier":"small"},{"name":"stoleemath","url":"https://www.youtube.com/@stoleemath","count":1,"lessons":[{"title":"\"Bipartite Graphs & Matching\"","roadmap":"datastructures-and-algorithms","video":"https://www.youtube.com/watch?v=ory4WMX0rDU"}],"tier":"small"},{"name":"storytelling with data","url":"https://www.youtube.com/@storytellingwithdata","count":1,"lessons":[{"title":"Data Visualization Principles","roadmap":"ai-data-scientist","video":"https://www.youtube.com/watch?v=XgY1-BsZSzM"}],"tier":"small"},{"name":"sudoCODE","url":"https://www.youtube.com/@sudocode","count":1,"lessons":[{"title":"\"Leader Election\"","roadmap":"system-design","video":"https://www.youtube.com/watch?v=3SnPwhKvNZ0"}],"tier":"small"},{"name":"Sundeep Saradhi Kanthety","url":"https://www.youtube.com/@sundeepsaradhi","count":1,"lessons":[{"title":"Few-shot prompting","roadmap":"prompt-engineering","video":"https://www.youtube.com/watch?v=Ns7oxTn5U6A"}],"tier":"small"},{"name":"SystemDR - Scalable System Design","url":"https://www.youtube.com/@SystemDR","count":1,"lessons":[{"title":"\"RPC and gRPC\"","roadmap":"system-design","video":"https://www.youtube.com/watch?v=DVTitCGwh6g"}],"tier":"small"},{"name":"Tales Of Tensors","url":"https://www.youtube.com/@TalesOfTensors","count":1,"lessons":[{"title":"FlashAttention and PagedAttention","roadmap":"inference-engineering","video":"https://www.youtube.com/watch?v=6uPnLkCiy5g"}],"tier":"small"},{"name":"Tech Dummies - Narendra Lakshmana Gowda","url":"https://www.youtube.com/@TechDummiesNarendraL","count":1,"lessons":[{"title":"\"Case Study: Design a Web Crawler\"","roadmap":"system-design","video":"https://www.youtube.com/watch?v=BKZxZwUgL3Y"}],"tier":"small"},{"name":"TechGyanWithAvinash","url":"https://www.youtube.com/@AkGautam_1904","count":1,"lessons":[{"title":"\"Case Study: Design a News Feed / Notification System\"","roadmap":"system-design","video":"https://www.youtube.com/watch?v=zR6XlMPZSYs"}],"tier":"small"},{"name":"techTFQ","url":"https://www.youtube.com/@techTFQ","count":1,"lessons":[{"title":"\"Modeling Data: the Entity-Relationship Model and Normalization\"","roadmap":"system-design","video":"https://www.youtube.com/watch?v=rBPQ5fg_kiY"}],"tier":"small"},{"name":"TechWithSid","url":"https://www.youtube.com/@TechWithSid-k9j","count":1,"lessons":[{"title":"Attention variants for serving","roadmap":"inference-engineering","video":"https://www.youtube.com/watch?v=TvRqn9sASvU"}],"tier":"small"},{"name":"The Data and AI Guy","url":"https://www.youtube.com/@thedataandaiguy","count":1,"lessons":[{"title":"Data lineage","roadmap":"mlops","video":"https://www.youtube.com/watch?v=whF6dH-XZUM"}],"tier":"small"},{"name":"The Full Stack","url":"https://www.youtube.com/@The_Full_Stack","count":1,"lessons":[{"title":"Model serving patterns","roadmap":"mlops","video":"https://www.youtube.com/watch?v=W3hKjXg7fXM"}],"tier":"small"},{"name":"The ML Tech Lead!","url":"https://www.youtube.com/@TheMLTechLead","count":1,"lessons":[{"title":"Multimodal AI","roadmap":"ai-engineer","video":"https://www.youtube.com/watch?v=Vb6mZLF3mN8"}],"tier":"small"},{"name":"Thu Vu","url":"https://www.youtube.com/@Thuvu5","count":1,"lessons":[{"title":"Taking Models to Production","roadmap":"ai-data-scientist","video":"https://www.youtube.com/watch?v=tSiS15ubQFQ"}],"tier":"small"},{"name":"TrustFrame","url":"https://www.youtube.com/@TrustFrame09","count":1,"lessons":[{"title":"\"Interval Trees and Range Queries\"","roadmap":"datastructures-and-algorithms","video":"https://www.youtube.com/watch?v=7oaLSUDxpQs"}],"tier":"small"},{"name":"Twitter University","url":"https://www.youtube.com/@TwitterUniversity","count":1,"lessons":[{"title":"\"Measuring Availability: The Nines\"","roadmap":"system-design","video":"https://www.youtube.com/watch?v=hYu13kBenjE"}],"tier":"small"},{"name":"W.W. AI Adventures","url":"https://www.youtube.com/@WW_AI_Adventures","count":1,"lessons":[{"title":"CrewAI and AutoGen","roadmap":"ai-agents","video":"https://www.youtube.com/watch?v=8lsJ7zLa2Pk"}],"tier":"small"},{"name":"Yash Jain","url":"https://www.youtube.com/@YashJainIO","count":1,"lessons":[{"title":"\"DRY, KISS, and YAGNI\"","roadmap":"software-design-architecture","video":"https://www.youtube.com/watch?v=eNnFThA60yw"}],"tier":"small"},{"name":"ZazenCodes","url":"https://www.youtube.com/@ZazenCodes","count":1,"lessons":[{"title":"AI-Assisted Data Science Workflows","roadmap":"ai-data-scientist","video":"https://www.youtube.com/watch?v=elEf91zKa5c"}],"tier":"small"},{"name":"WilliamFiset","url":"https://www.youtube.com/@WilliamFiset-videos","count":14,"lessons":[{"title":"\"Minimum Spanning Trees: Prim's and Kruskal's\"","roadmap":"datastructures-and-algorithms","video":"https://www.youtube.com/watch?v=xq3ABa-px_g"},{"title":"\"Sparse Tables and Static Range Queries\"","roadmap":"datastructures-and-algorithms","video":"https://www.youtube.com/watch?v=uUatD9AudXo"},{"title":"\"Topological Sorting\"","roadmap":"datastructures-and-algorithms","video":"https://www.youtube.com/watch?v=cIBFEhD77b4"},{"title":"\"Fenwick Trees (Binary Indexed Trees)\"","roadmap":"datastructures-and-algorithms","video":"https://www.youtube.com/watch?v=RgITNht_f4Q"},{"title":"\"Bitmask dynamic programming\"","roadmap":"datastructures-and-algorithms","video":"https://www.youtube.com/watch?v=cY4HiiFHO1o"},{"title":"\"Graph Traversal: BFS and DFS\"","roadmap":"datastructures-and-algorithms","video":"https://www.youtube.com/watch?v=oDqjPvD54Ss"},{"title":"\"Bellman-Ford & Negative Weights\"","roadmap":"datastructures-and-algorithms","video":"https://www.youtube.com/watch?v=lyw4FaxrwHg"},{"title":"\"Balanced Search Trees\"","roadmap":"datastructures-and-algorithms","video":"https://www.youtube.com/watch?v=q4fnJZr8ztY"},{"title":"\"Strongly Connected Components\"","roadmap":"datastructures-and-algorithms","video":"https://www.youtube.com/watch?v=wUgWX0nc4NY"},{"title":"\"Shortest Paths: Dijkstra, Bellman-Ford, A*\"","roadmap":"datastructures-and-algorithms","video":"https://www.youtube.com/watch?v=pSqmAO-m7Lk"},{"title":"\"Network Flow: Max-Flow and Ford-Fulkerson\"","roadmap":"datastructures-and-algorithms","video":"https://www.youtube.com/watch?v=LdOnanfc5TM"},{"title":"\"Eulerian Paths & Circuits\"","roadmap":"datastructures-and-algorithms","video":"https://www.youtube.com/watch?v=8MpoO2zA2l4"},{"title":"\"D-ary Heaps and Indexed Priority Queues\"","roadmap":"datastructures-and-algorithms","video":"https://www.youtube.com/watch?v=DT8xZ0Uf8wo"},{"title":"\"Floyd-Warshall & All-Pairs Shortest Paths\"","roadmap":"datastructures-and-algorithms","video":"https://www.youtube.com/watch?v=4NQ3HnhyNfQ"}],"tier":"mid"},{"name":"Geekific","url":"https://www.youtube.com/@geekific","count":8,"lessons":[{"title":"\"The Prototype Pattern\"","roadmap":"software-design-architecture","video":"https://www.youtube.com/watch?v=DcFhITC9v0E"},{"title":"\"Observer and Strategy\"","roadmap":"software-design-architecture","video":"https://www.youtube.com/watch?v=-oLDJ2dbadA"},{"title":"\"Decorator and Proxy\"","roadmap":"software-design-architecture","video":"https://www.youtube.com/watch?v=v6tpISNjHf8"},{"title":"\"Iterator, Mediator, Memento, and Visitor\"","roadmap":"software-design-architecture","video":"https://www.youtube.com/watch?v=UQP5XqMqtqQ"},{"title":"\"Composite, Bridge, and Flyweight\"","roadmap":"software-design-architecture","video":"https://www.youtube.com/watch?v=oo9AsGqnisk"},{"title":"\"Command and State\"","roadmap":"software-design-architecture","video":"https://www.youtube.com/watch?v=UfGD60BYzPM"},{"title":"\"Adapter and Facade\"","roadmap":"software-design-architecture","video":"https://www.youtube.com/watch?v=wA3keqCeKtM"},{"title":"\"Template Method and Chain of Responsibility\"","roadmap":"software-design-architecture","video":"https://www.youtube.com/watch?v=FafNcoBvVQo"}],"tier":"mid"},{"name":"Hussein Nasser","url":"https://www.youtube.com/@hnasr","count":8,"lessons":[{"title":"\"Choosing Transport Protocols for Services\"","roadmap":"system-design","video":"https://www.youtube.com/watch?v=GriONb4EfPY"},{"title":"\"DDoS Mitigation and Rate Limiting for Security\"","roadmap":"system-design","video":"https://www.youtube.com/watch?v=4I7tPW8of2g"},{"title":"\"Stateless Services and Session Affinity\"","roadmap":"system-design","video":"https://www.youtube.com/watch?v=nFPzI_Qg3FU"},{"title":"\"ACID Transactions, BASE, and the CAP Theorem\"","roadmap":"system-design","video":"https://www.youtube.com/watch?v=pomxJOFVcQs"},{"title":"\"Message Queues and Asynchronous Communication\"","roadmap":"system-design","video":"https://www.youtube.com/watch?v=W4_aGb_MOls"},{"title":"\"Layer 4 vs. Layer 7 Load Balancing\"","roadmap":"system-design","video":"https://www.youtube.com/watch?v=aKMLgFVxZYk"},{"title":"\"Latency vs. Throughput\"","roadmap":"system-design","video":"https://www.youtube.com/watch?v=3JdQOExKtUY"},{"title":"\"Client and Browser Caching\"","roadmap":"system-design","video":"https://www.youtube.com/watch?v=TgZnpp5wJWU"}],"tier":"mid"},{"name":"CodeOpinion","url":"https://www.youtube.com/@CodeOpinion","count":6,"lessons":[{"title":"\"Domain-Driven Design\"","roadmap":"software-architect","video":"https://www.youtube.com/watch?v=4j71Toy5ZLw"},{"title":"\"CQRS and Event Sourcing\"","roadmap":"system-design","video":"https://www.youtube.com/watch?v=5aznkIEvkKc"},{"title":"\"Bulkheads and Graceful Degradation\"","roadmap":"system-design","video":"https://www.youtube.com/watch?v=d-QQvJIBrUc"},{"title":"\"Idempotent APIs and Exactly-Once Semantics\"","roadmap":"system-design","video":"https://www.youtube.com/watch?v=xeBY8fCWfvU"},{"title":"\"Change Data Capture for Data Pipelines\"","roadmap":"system-design","video":"https://www.youtube.com/watch?v=ARWNnnDGPag"},{"title":"\"Pub/Sub and Event-Driven Architecture\"","roadmap":"system-design","video":"https://www.youtube.com/watch?v=Zqvre6dWRw4"}],"tier":"mid"},{"name":"ArjanCodes","url":"https://www.youtube.com/@ArjanCodes","count":5,"lessons":[{"title":"\"Architectural Patterns & Dependency Injection\"","roadmap":"software-architect","video":"https://www.youtube.com/watch?v=eHhXoCNCI1c"},{"title":"Environment and dependency management","roadmap":"mlops","video":"https://www.youtube.com/watch?v=0f3moPe_bhk"},{"title":"\"Abstract Factory and Builder\"","roadmap":"software-design-architecture","video":"https://www.youtube.com/watch?v=2f1FkGQTarc"},{"title":"\"Singleton and Factory Method\"","roadmap":"software-design-architecture","video":"https://www.youtube.com/watch?v=p_UQ7tzUFLo"},{"title":"\"Test-Driven Development\"","roadmap":"software-design-architecture","video":"https://www.youtube.com/watch?v=B1j6k2j2eJg"}],"tier":"mid"},{"name":"Milan Jovanovi\u0107","url":"https://www.youtube.com/@MilanJovanovicTech","count":4,"lessons":[{"title":"\"HATEOAS and the Richardson Maturity Model\"","roadmap":"api-design","video":"https://www.youtube.com/watch?v=WrO7iGU_nnw"},{"title":"\"Structured Error Handling and RFC 7807\"","roadmap":"api-design","video":"https://www.youtube.com/watch?v=eN4GX5WW87s"},{"title":"\"REST Resource Modeling and URI Design\"","roadmap":"api-design","video":"https://www.youtube.com/watch?v=36--CQc19u4"},{"title":"\"Synchronous vs. Asynchronous API Design\"","roadmap":"api-design","video":"https://www.youtube.com/watch?v=U40HzU_KkDY"}],"tier":"mid"},{"name":"AssemblyAI","url":"https://www.youtube.com/@AssemblyAI","count":3,"lessons":[{"title":"Output length control","roadmap":"prompt-engineering","video":"https://www.youtube.com/watch?v=aOm75o2Z5-o"},{"title":"Containerizing models","roadmap":"mlops","video":"https://www.youtube.com/watch?v=h5wLuVDr0oc"},{"title":"Model evaluation and validation","roadmap":"mlops","video":"https://www.youtube.com/watch?v=LbX4X71-TFI"}],"tier":"mid"},{"name":"Greg Hogg","url":"https://www.youtube.com/@GregHogg","count":3,"lessons":[{"title":"Feature Engineering Basics","roadmap":"ai-data-scientist","video":"https://www.youtube.com/watch?v=GduT2ZCc26E"},{"title":"\"Matrix Traversal Patterns\"","roadmap":"datastructures-and-algorithms","video":"https://www.youtube.com/watch?v=gCswsDauXPc"},{"title":"\"Comparison-Based Sorting: Six Algorithms, Two Shapes\"","roadmap":"datastructures-and-algorithms","video":"https://www.youtube.com/watch?v=gcRUIO-8r3U"}],"tier":"mid"},{"name":"1littlecoder","url":"https://www.youtube.com/@1littlecoder","count":2,"lessons":[{"title":"Step-back prompting","roadmap":"prompt-engineering","video":"https://www.youtube.com/watch?v=rdONCqZoUZE"},{"title":"Data and concept drift","roadmap":"mlops","video":"https://www.youtube.com/watch?v=QJTRNxUxmuc"}],"tier":"mid"},{"name":"Emma Ding","url":"https://www.youtube.com/@emma_ding","count":2,"lessons":[{"title":"Imbalanced data","roadmap":"machine-learning","video":"https://www.youtube.com/watch?v=GR-OW5asKlk"},{"title":"Data cleaning","roadmap":"machine-learning","video":"https://www.youtube.com/watch?v=FPvMBl8LvGA"}],"tier":"mid"},{"name":"Faradawn Yang","url":"https://www.youtube.com/@faradawnyang6220","count":2,"lessons":[{"title":"Arithmetic intensity and the roofline model","roadmap":"inference-engineering","video":"https://www.youtube.com/watch?v=7EJjdDLK4cg"},{"title":"Model parallelism","roadmap":"inference-engineering","video":"https://www.youtube.com/watch?v=DdmgD5RMe1U"}],"tier":"mid"},{"name":"Hamel Husain","url":"https://www.youtube.com/@hamelhusain7140","count":2,"lessons":[{"title":"Building an eval set","roadmap":"ai-engineer","video":"https://www.youtube.com/watch?v=tqUDjc1HzO4"},{"title":"Why evals matter","roadmap":"ai-engineer","video":"https://www.youtube.com/watch?v=e2i6JbU2R-s"}],"tier":"mid"},{"name":"Jeff Su","url":"https://www.youtube.com/@JeffSu","count":2,"lessons":[{"title":"Communicating Results and Data Storytelling","roadmap":"ai-data-scientist","video":"https://www.youtube.com/watch?v=jizZKNnx9wA"},{"title":"What is prompt engineering?","roadmap":"prompt-engineering","video":"https://www.youtube.com/watch?v=jC4v5AS4RIM"}],"tier":"mid"},{"name":"Luis Serrano Academy","url":"https://www.youtube.com/@SerranoAcademy","count":2,"lessons":[{"title":"Generative models","roadmap":"machine-learning","video":"https://www.youtube.com/watch?v=8L11aMN5KY8"},{"title":"Support vector machines","roadmap":"machine-learning","video":"https://www.youtube.com/watch?v=Lpr__X8zuE8"}],"tier":"mid"},{"name":"Normalized Nerd","url":"https://www.youtube.com/@NormalizedNerd","count":2,"lessons":[{"title":"Bagging and random forests","roadmap":"machine-learning","video":"https://www.youtube.com/watch?v=v6VJ2RO66Ag"},{"title":"Feature scaling and encoding","roadmap":"machine-learning","video":"https://www.youtube.com/watch?v=sxEqtjLC0aM"}],"tier":"mid"},{"name":"Piyush Garg","url":"https://www.youtube.com/@piyushgargdev","count":2,"lessons":[{"title":"\"Rate Limiting Algorithms\"","roadmap":"system-design","video":"https://www.youtube.com/watch?v=eR66m7TaV5A"},{"title":"\"Sockets, WebSockets, and Polling\"","roadmap":"computer-science","video":"https://www.youtube.com/watch?v=WS352jTTkPU"}],"tier":"mid"},{"name":"take U forward","url":"https://www.youtube.com/@takeUforward","count":2,"lessons":[{"title":"\"Articulation Points & Bridges\"","roadmap":"datastructures-and-algorithms","video":"https://www.youtube.com/watch?v=qrAub5z8FeA"},{"title":"\"Sieve of Eratosthenes and Primality Testing\"","roadmap":"datastructures-and-algorithms","video":"https://www.youtube.com/watch?v=g5Fuxn_AvSk"}],"tier":"mid"},{"name":"Akshay Pachaar","url":"https://www.youtube.com/@akshay_pachaar","count":1,"lessons":[{"title":"ReAct prompting","roadmap":"prompt-engineering","video":"https://www.youtube.com/watch?v=vFdIrZyKEwQ"}],"tier":"mid"},{"name":"Caleb Curry","url":"https://www.youtube.com/@codebreakthrough","count":1,"lessons":[{"title":"\"Pagination, Filtering, and Sorting\"","roadmap":"api-design","video":"https://www.youtube.com/watch?v=mvlzhBgGS4s"}],"tier":"mid"},{"name":"Cassie Kozyrkov","url":"https://www.youtube.com/@kozyrkov","count":1,"lessons":[{"title":"Reproducibility and the training/serving gap","roadmap":"mlops","video":"https://www.youtube.com/watch?v=pqe-HB7ZcUI"}],"tier":"mid"},{"name":"Christopher Okhravi","url":"https://www.youtube.com/@ChristopherOkhravi","count":1,"lessons":[{"title":"\"GoF Design Patterns\"","roadmap":"computer-science","video":"https://www.youtube.com/watch?v=v9ejT8FO-7I"}],"tier":"mid"},{"name":"CodeAesthetic","url":"https://www.youtube.com/@CodeAesthetic","count":1,"lessons":[{"title":"\"Composition Over Inheritance\"","roadmap":"software-design-architecture","video":"https://www.youtube.com/watch?v=hxGOiiR9ZKg"}],"tier":"mid"},{"name":"codestorywithMIK","url":"https://www.youtube.com/@codestorywithMIK","count":1,"lessons":[{"title":"\"Fast Exponentiation\"","roadmap":"datastructures-and-algorithms","video":"https://www.youtube.com/watch?v=D320QeHS0XQ"}],"tier":"mid"},{"name":"Coding Interview Prep","url":"https://www.youtube.com/@CodingInterviewPrep","count":1,"lessons":[{"title":"\"Reservoir sampling\"","roadmap":"datastructures-and-algorithms","video":"https://www.youtube.com/watch?v=DWZqBN9efGg"}],"tier":"mid"},{"name":"Core Dumped","url":"https://www.youtube.com/@CoreDumpped","count":1,"lessons":[{"title":"\"Race Conditions and Thread Safety\"","roadmap":"computer-science","video":"https://www.youtube.com/watch?v=QAzuAn3nFGo"}],"tier":"mid"},{"name":"DataTalksClub","url":"https://www.youtube.com/@DataTalksClub","count":1,"lessons":[{"title":"The ML lifecycle","roadmap":"mlops","video":"https://www.youtube.com/watch?v=hwtdTrBp6TA"}],"tier":"mid"},{"name":"Derek Banas","url":"https://www.youtube.com/@derekbanas","count":1,"lessons":[{"title":"\"UML Diagrams\"","roadmap":"computer-science","video":"https://www.youtube.com/watch?v=OkC7HKtiZC0"}],"tier":"mid"},{"name":"DigitalSreeni","url":"https://www.youtube.com/@DigitalSreeni","count":1,"lessons":[{"title":"Model packaging formats","roadmap":"mlops","video":"https://www.youtube.com/watch?v=0t2jOBZSd6s"}],"tier":"mid"},{"name":"InsiderPhD","url":"https://www.youtube.com/@InsiderPhD","count":1,"lessons":[{"title":"\"The OWASP API Security Top 10\"","roadmap":"api-design","video":"https://www.youtube.com/watch?v=sl1yqGhuVy4"}],"tier":"mid"},{"name":"Java Techie","url":"https://www.youtube.com/@Javatechie","count":1,"lessons":[{"title":"\"DNS and HTTP: What Happens When You Hit Enter\"","roadmap":"computer-science","video":"https://www.youtube.com/watch?v=QHSsL0Seqhs"}],"tier":"mid"},{"name":"Jesper Dramsch \u2013 Non-hype Machine Learning","url":"https://www.youtube.com/@JesperDramsch","count":1,"lessons":[{"title":"Testing ML systems","roadmap":"mlops","video":"https://www.youtube.com/watch?v=hhMUE0_vAs4"}],"tier":"mid"},{"name":"Kunal Kushwaha","url":"https://www.youtube.com/@KunalKushwaha","count":1,"lessons":[{"title":"\"Cyclic sort pattern\"","roadmap":"datastructures-and-algorithms","video":"https://www.youtube.com/watch?v=JfinxytTYFQ"}],"tier":"mid"},{"name":"LiveOverflow","url":"https://www.youtube.com/@LiveOverflow","count":1,"lessons":[{"title":"Defending against injection","roadmap":"prompt-engineering","video":"https://www.youtube.com/watch?v=VbNPZ1n6_vY"}],"tier":"mid"},{"name":"Shaw Talebi","url":"https://www.youtube.com/@ShawhinTalebi","count":1,"lessons":[{"title":"Evaluation and testing","roadmap":"prompt-engineering","video":"https://www.youtube.com/watch?v=-sL7QzDFW-4"}],"tier":"mid"},{"name":"Stable Sort","url":"https://www.youtube.com/@stablesort","count":1,"lessons":[{"title":"\"Union-Find & Disjoint Sets\"","roadmap":"datastructures-and-algorithms","video":"https://www.youtube.com/watch?v=PGZ64ob440I"}],"tier":"mid"},{"name":"Techdose","url":"https://www.youtube.com/@techdose4u","count":1,"lessons":[{"title":"\"Skip Lists\"","roadmap":"datastructures-and-algorithms","video":"https://www.youtube.com/watch?v=YZ5ef_HiHJ8"}],"tier":"mid"},{"name":"Up and Atom","url":"https://www.youtube.com/@upandatom","count":1,"lessons":[{"title":"\"Complexity Classes: P, NP, and NP-Complete\"","roadmap":"datastructures-and-algorithms","video":"https://www.youtube.com/watch?v=EHp4FPyajKQ"}],"tier":"mid"}]
+;
+
+const state = { tier: 'small', query: '', sort: 'count-desc' };
+let contacted = {};
+try { contacted = JSON.parse(localStorage.getItem('outreach-contacted') || '{}'); } catch(e) { contacted = {}; }
+
+function saveContacted() {
+  try { localStorage.setItem('outreach-contacted', JSON.stringify(contacted)); } catch(e) {}
+}
+
+function escapeHtml(s) {
+  return s.replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+
+function renderStats() {
+  const small = DATA.filter(c => c.tier === 'small').length;
+  const mid = DATA.filter(c => c.tier === 'mid').length;
+  const lessons = DATA.reduce((n, c) => n + c.lessons.length, 0);
+  const done = Object.values(contacted).filter(Boolean).length;
+  document.getElementById('stats').innerHTML = `
+    <div class="stat"><b>${small}</b>small channels</div>
+    <div class="stat"><b>${mid}</b>mid-size channels</div>
+    <div class="stat"><b>${lessons}</b>lesson videos mapped</div>
+    <div class="stat"><b>${done}</b>marked contacted</div>
+  `;
+}
+
+function draftMessage(ch) {
+  const lesson = ch.lessons[0];
+  const extra = ch.lessons.length > 1 ? ` (and ${ch.lessons.length - 1} more lesson${ch.lessons.length > 2 ? 's' : ''})` : '';
+  return `Hi — just wanted to let you know your video "${lesson.title.replace(/^"|"$/g, '')}" is the hand-picked canonical resource for the "${lesson.roadmap}" roadmap on upshard.com (an open-source developer learning site)${extra}. It's the single video we point learners to for that topic — thanks for making it, it's genuinely the clearest explanation we found. Link: ${lesson.video}`;
+}
+
+function render() {
+  const list = document.getElementById('list');
+  let items = DATA.filter(c => state.tier === 'all' || c.tier === state.tier);
+  if (state.query.trim()) {
+    const q = state.query.toLowerCase();
+    items = items.filter(c =>
+      c.name.toLowerCase().includes(q) ||
+      c.lessons.some(l => l.title.toLowerCase().includes(q) || l.roadmap.toLowerCase().includes(q))
+    );
+  }
+  items = items.slice().sort((a, b) => {
+    if (state.sort === 'count-desc') return b.count - a.count;
+    if (state.sort === 'count-asc') return a.count - b.count;
+    return a.name.localeCompare(b.name);
+  });
+
+  document.getElementById('countLine').textContent = `${items.length} channel${items.length === 1 ? '' : 's'}`;
+
+  list.innerHTML = items.map((c, i) => {
+    const isDone = !!contacted[c.url];
+    const lessonsHtml = c.lessons.map(l => `
+      <div class="lesson-row">
+        <span class="lesson-title">${escapeHtml(l.title.replace(/^"|"$/g, ''))}</span>
+        <span class="lesson-roadmap">· ${escapeHtml(l.roadmap)}</span>
+        <a href="${l.video}" target="_blank" rel="noopener">watch ↗</a>
+      </div>
+    `).join('');
+    return `
+      <div class="card ${isDone ? 'done' : ''}" data-url="${c.url}">
+        <div class="card-head" data-toggle>
+          <input type="checkbox" ${isDone ? 'checked' : ''} data-contact title="Mark as contacted">
+          <svg class="chevron" width="10" height="10" viewBox="0 0 10 10"><path d="M2 1 L8 5 L2 9" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
+          <span class="ch-name"><a href="${c.url}" target="_blank" rel="noopener">${escapeHtml(c.name)}</a></span>
+          <span class="badge ${c.tier}">${c.tier === 'small' ? 'small' : 'mid-size'}</span>
+          <span class="meta">${c.count} lesson${c.count === 1 ? '' : 's'}</span>
+        </div>
+        <div class="card-body">
+          ${lessonsHtml}
+          <button class="draft-btn" data-draft>Copy draft message</button>
+        </div>
+      </div>
+    `;
+  }).join('') || `<div class="note">No channels match that search.</div>`;
+
+  list.querySelectorAll('[data-toggle]').forEach(el => {
+    el.addEventListener('click', (e) => {
+      if (e.target.closest('[data-contact]')) return;
+      el.closest('.card').classList.toggle('open');
+    });
+  });
+  list.querySelectorAll('[data-contact]').forEach(el => {
+    el.addEventListener('change', (e) => {
+      const card = e.target.closest('.card');
+      const url = card.dataset.url;
+      contacted[url] = e.target.checked;
+      saveContacted();
+      card.classList.toggle('done', e.target.checked);
+      renderStats();
+    });
+  });
+  list.querySelectorAll('[data-draft]').forEach(el => {
+    el.addEventListener('click', async (e) => {
+      e.stopPropagation();
+      const url = e.target.closest('.card').dataset.url;
+      const ch = DATA.find(c => c.url === url);
+      const msg = draftMessage(ch);
+      try {
+        await navigator.clipboard.writeText(msg);
+      } catch (err) {
+        const ta = document.createElement('textarea');
+        ta.value = msg; document.body.appendChild(ta); ta.select();
+        try { document.execCommand('copy'); } catch(e2) {}
+        document.body.removeChild(ta);
+      }
+      const toast = document.getElementById('toast');
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 1600);
+    });
+  });
+}
+
+document.getElementById('search').addEventListener('input', (e) => { state.query = e.target.value; render(); });
+document.getElementById('sortSel').addEventListener('change', (e) => { state.sort = e.target.value; render(); });
+document.getElementById('tierSeg').addEventListener('click', (e) => {
+  const btn = e.target.closest('button');
+  if (!btn) return;
+  state.tier = btn.dataset.tier;
+  document.querySelectorAll('#tierSeg button').forEach(b => b.classList.toggle('active', b === btn));
+  render();
+});
+
+renderStats();
+render();
+</script>
+</body>
+</html>
