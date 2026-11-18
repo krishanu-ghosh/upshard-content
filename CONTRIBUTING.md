@@ -4,8 +4,9 @@ Thanks for helping make this better. This repo is the lesson and roadmap data be
 
 ## Ways to contribute
 
-- **Report a problem**: wrong explanation, bad or dead video pick, broken link, confusing lesson, inaccurate formula. Open an issue using the "Lesson feedback" template.
-- **Suggest a lesson or roadmap** that doesn't exist yet. Open an issue using the "New roadmap / lesson" template — don't jump straight to a PR for a whole new roadmap without discussing scope first, since roadmap structure is deliberate and we'd rather align before you write 30 lessons.
+- **A video pick isn't the best teacher for the concept**: open an issue using "Suggest a better video".
+- **A lesson's explanation didn't click**: open an issue using "Report a confusing lesson".
+- **Suggest a lesson or roadmap** that doesn't exist yet: open an issue using "Suggest a new roadmap" — don't jump straight to a PR for a whole new roadmap without discussing scope first, since roadmap structure is deliberate and we'd rather align before you write 30 lessons.
 - **Fix something small directly**: a typo, a dead link, a wrong fact, a formula error. Go straight to a PR.
 - **Add or improve a formula** in `formulas/`.
 
@@ -38,3 +39,7 @@ A maintainer will review for accuracy, originality, and fit with the surrounding
 ## Code of conduct
 
 Be respectful and assume good faith. Disagreements about content accuracy or pedagogy are fine and expected; personal attacks aren't.
+
+## License
+
+This repo is licensed under [CC BY-SA 4.0](LICENSE). By contributing, you agree your contribution is licensed under the same terms.

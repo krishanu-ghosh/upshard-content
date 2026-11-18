@@ -1,16 +1,16 @@
 ---
-name: New roadmap or lesson suggestion
-about: Propose a roadmap, topic, or lesson that doesn't exist yet
-title: "[New content] "
+name: Suggest a new roadmap
+about: Propose a roadmap (or a node within an existing one) that doesn't exist yet
+title: "[New roadmap] "
 labels: suggestion
 ---
 
 **What's missing?**
-A whole roadmap, or a lesson/node within an existing one? Name it.
+A whole roadmap, or a node within an existing one? Name it.
 
-**Where would it fit?**
+**Scope**
+If it's a new roadmap: what should it cover, roughly how many groups/nodes, and what level (beginner/intermediate/advanced)?
 If it's a node: which roadmap and group should it belong to, and what are its likely prerequisites?
-If it's a new roadmap: what's the scope, and roughly what should the first few groups cover?
 
 **Why does it matter?**
 What gap does this fill — what can't someone currently learn on Upshard that this would cover?

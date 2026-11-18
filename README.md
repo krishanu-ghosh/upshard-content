@@ -1,6 +1,18 @@
+<p align="center">
+  <img src="docs/logo.png" alt="Upshard" width="320">
+</p>
+
 # Upshard Content
 
+### [upshard.com →](https://www.upshard.com)
+
+<p align="center">
+  <img src="docs/screenshot.png" alt="The AI Engineer roadmap graph on upshard.com" width="800">
+</p>
+
 The open-source lesson content and roadmap graphs behind **[Upshard](https://www.upshard.com)** — a free, no-paywall graph of developer roadmaps where every node is a complete, interactive lesson, not a link dump.
+
+**No SaaS. No paywall. No premium tier. No pop-up asking for your email before you can read a lesson.** The content lives here, in the open, under [CC BY-SA 4.0](LICENSE) — fork it, fix it, redistribute it, as long as you credit it and keep it open.
 
 This repo holds the data: the roadmap graphs, the lessons rendered on each node, and the formula library referenced from them. It does not hold the Upshard application itself.
 
@@ -139,4 +151,4 @@ Found a bad video pick, a wrong explanation, a broken link, or want to propose a
 
 ## License
 
-MIT — see [LICENSE](LICENSE).
+[CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) — see [LICENSE](LICENSE). Share and adapt freely, even commercially; keep attribution and keep derivatives open under the same terms.
