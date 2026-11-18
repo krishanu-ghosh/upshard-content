@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="docs/logo.png" alt="Upshard" width="260">
+  <img src="docs/banner.png" alt="Upshard — free, open-source developer roadmaps" width="900">
 </p>
 
 <p align="center">
